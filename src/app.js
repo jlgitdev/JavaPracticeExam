@@ -4,6 +4,8 @@ const state = {
   index: 0,
   answers: questions.map(() => []),
   checked: questions.map(() => false),
+  marked: questions.map(() => false),
+  eliminated: questions.map(() => []),
   jumpOpen: false,
 };
 
@@ -14,10 +16,14 @@ const elements = {
   sectionLabel: document.querySelector("#section-label"),
   questionCount: document.querySelector("#question-count"),
   questionMode: document.querySelector("#question-mode"),
+  questionNumberBadge: document.querySelector("#question-number-badge"),
+  answerInstructions: document.querySelector("#answer-instructions"),
   progressFill: document.querySelector("#progress-fill"),
   questionText: document.querySelector("#question-text"),
   choices: document.querySelector("#choices"),
   feedback: document.querySelector("#feedback"),
+  markButton: document.querySelector("#mark-button"),
+  markButtonLabel: document.querySelector("#mark-button-label"),
   previousButton: document.querySelector("#previous-button"),
   checkButton: document.querySelector("#check-button"),
   nextButton: document.querySelector("#next-button"),
@@ -28,6 +34,7 @@ const elements = {
   jumpBackdrop: document.querySelector("#jump-backdrop"),
   jumpDock: document.querySelector("#jump-dock"),
   jumpToggle: document.querySelector("#jump-toggle"),
+  jumpToggleLabel: document.querySelector("#jump-toggle-label"),
   jumpPanel: document.querySelector("#jump-panel"),
   jumpPanelCount: document.querySelector("#jump-panel-count"),
   jumpCurrent: document.querySelector("#jump-current"),
@@ -54,8 +61,63 @@ function getSelectedInputs() {
   return [...elements.choices.querySelectorAll("input:checked")].map((input) => input.value);
 }
 
+function updateChoiceSelection() {
+  for (const choice of elements.choices.querySelectorAll(".choice")) {
+    const input = choice.querySelector("input");
+    choice.classList.toggle("selected", input?.checked ?? false);
+  }
+}
+
 function saveCurrentAnswer() {
   state.answers[state.index] = getSelectedInputs();
+}
+
+function toggleEliminated(letter) {
+  const eliminated = new Set(state.eliminated[state.index]);
+
+  if (eliminated.has(letter)) {
+    eliminated.delete(letter);
+  } else {
+    eliminated.add(letter);
+  }
+
+  state.eliminated[state.index] = [...eliminated];
+}
+
+function getStrikeLabel(letter, eliminated) {
+  const answer = letter.toUpperCase();
+  return eliminated ? `Restore answer ${answer}` : `Cross out answer ${answer}`;
+}
+
+function renderMarkState() {
+  const marked = state.marked[state.index];
+  elements.markButton.classList.toggle("marked", marked);
+  elements.markButton.setAttribute("aria-pressed", String(marked));
+  elements.markButtonLabel.textContent = marked ? "Marked for Review" : "Mark for Review";
+}
+
+function looksLikeCodeBlock(block) {
+  return (
+    /[{};]/.test(block) ||
+    /^\s{2,}\S/m.test(block) ||
+    /^\s*(public|private|protected|class|if|else|for|while|switch|String|int|double|char|boolean|System\.out|return|new)\b/m.test(
+      block,
+    )
+  );
+}
+
+function renderPrompt(question) {
+  const blocks = `${question.sourceNumber}. ${question.prompt}`.split(/\n{2,}/);
+  elements.questionText.innerHTML = "";
+
+  for (const block of blocks) {
+    const node = document.createElement(looksLikeCodeBlock(block) ? "pre" : "p");
+    node.textContent = block;
+    if (node.tagName === "PRE") {
+      node.className = "code-block";
+    }
+    elements.questionText.append(node);
+  }
 }
 
 function buildJumpMenu() {
@@ -101,10 +163,12 @@ function updateJumpMenu() {
     const index = Number(button.dataset.index);
     const answered = state.answers[index].length > 0;
     const checked = state.checked[index];
+    const marked = state.marked[index];
     const correct = checked && answered && isCorrect(questions[index], state.answers[index]);
 
     button.classList.toggle("current", index === state.index);
     button.classList.toggle("answered", answered && !checked);
+    button.classList.toggle("marked", marked);
     button.classList.toggle("correct", correct);
     button.classList.toggle("wrong", checked && !correct);
     button.setAttribute("aria-current", index === state.index ? "true" : "false");
@@ -116,12 +180,17 @@ function setJumpOpen(open) {
   elements.jumpPanel.hidden = !open;
   elements.jumpBackdrop.hidden = !open;
   elements.jumpToggle.setAttribute("aria-expanded", String(open));
-  elements.jumpToggle.textContent = open ? "Close" : "Questions";
+  elements.jumpToggleLabel.textContent = open ? "Close" : "Open";
+  elements.jumpToggle.setAttribute(
+    "aria-label",
+    open ? "Close question overview" : "Open question overview",
+  );
 }
 
 function renderQuestion() {
   const question = questions[state.index];
   const selected = new Set(state.answers[state.index]);
+  const eliminated = new Set(state.eliminated[state.index]);
   const usesCheckboxes = question.correct.length > 1;
   const progressPercent = ((state.index + 1) / questions.length) * 100;
 
@@ -132,11 +201,20 @@ function renderQuestion() {
   elements.sectionLabel.textContent = question.section || `Chapter ${question.chapter}`;
   elements.questionCount.textContent = `Question ${state.index + 1} of ${questions.length}`;
   elements.questionMode.textContent = usesCheckboxes ? "Select all that apply" : "Select one";
+  elements.questionNumberBadge.textContent = String(state.index + 1);
+  elements.answerInstructions.textContent = usesCheckboxes
+    ? "Select all answers that apply."
+    : "Select one answer.";
   elements.progressFill.style.width = `${progressPercent}%`;
-  elements.questionText.textContent = `${question.sourceNumber}. ${question.prompt}`;
+  renderPrompt(question);
   elements.choices.innerHTML = "";
 
   for (const option of question.options) {
+    const choiceRow = document.createElement("div");
+    choiceRow.className = "choice-row";
+    choiceRow.dataset.letter = option.letter;
+    choiceRow.classList.toggle("eliminated", eliminated.has(option.letter));
+
     const choice = document.createElement("label");
     choice.className = "choice";
     choice.dataset.letter = option.letter;
@@ -148,6 +226,7 @@ function renderQuestion() {
     input.checked = selected.has(option.letter);
     input.addEventListener("change", () => {
       saveCurrentAnswer();
+      updateChoiceSelection();
       if (state.checked[state.index]) {
         renderFeedback();
       } else {
@@ -155,12 +234,44 @@ function renderQuestion() {
       }
     });
 
+    const letter = document.createElement("span");
+    letter.className = "choice-letter";
+    letter.textContent = option.letter.toUpperCase();
+    letter.setAttribute("aria-hidden", "true");
+
     const text = document.createElement("span");
     text.className = "choice-text";
-    text.textContent = `${option.letter.toUpperCase()}. ${option.text}`;
+    text.textContent = option.text;
 
-    choice.append(input, text);
-    elements.choices.append(choice);
+    choice.append(input, letter, text);
+    choice.classList.toggle("selected", input.checked);
+
+    const strikeButton = document.createElement("button");
+    strikeButton.type = "button";
+    strikeButton.className = "strike-button";
+    strikeButton.dataset.letter = option.letter;
+    strikeButton.setAttribute(
+      "aria-label",
+      getStrikeLabel(option.letter, eliminated.has(option.letter)),
+    );
+    strikeButton.setAttribute(
+      "aria-pressed",
+      String(eliminated.has(option.letter)),
+    );
+    strikeButton.innerHTML = `<span>${option.letter.toUpperCase()}</span>`;
+    strikeButton.addEventListener("click", () => {
+      toggleEliminated(option.letter);
+      const nowEliminated = state.eliminated[state.index].includes(option.letter);
+      choiceRow.classList.toggle("eliminated", nowEliminated);
+      strikeButton.setAttribute("aria-pressed", String(nowEliminated));
+      strikeButton.setAttribute(
+        "aria-label",
+        getStrikeLabel(option.letter, nowEliminated),
+      );
+    });
+
+    choiceRow.append(choice, strikeButton);
+    elements.choices.append(choiceRow);
   }
 
   elements.previousButton.disabled = state.index === 0;
@@ -173,6 +284,7 @@ function renderQuestion() {
     elements.feedback.className = "feedback";
   }
 
+  renderMarkState();
   updateJumpMenu();
 }
 
@@ -335,8 +447,16 @@ elements.restartButton.addEventListener("click", () => {
   state.index = 0;
   state.answers = questions.map(() => []);
   state.checked = questions.map(() => false);
+  state.marked = questions.map(() => false);
+  state.eliminated = questions.map(() => []);
   setJumpOpen(false);
   renderQuestion();
+});
+
+elements.markButton.addEventListener("click", () => {
+  state.marked[state.index] = !state.marked[state.index];
+  renderMarkState();
+  updateJumpMenu();
 });
 
 elements.jumpToggle.addEventListener("click", () => {
