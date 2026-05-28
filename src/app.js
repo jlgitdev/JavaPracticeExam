@@ -108,12 +108,25 @@ function looksLikeCodeBlock(block) {
 
 function renderPrompt(question) {
   const blocks = `${question.sourceNumber}. ${question.prompt}`.split(/\n{2,}/);
+  const renderBlocks = [];
   elements.questionText.innerHTML = "";
 
   for (const block of blocks) {
-    const node = document.createElement(looksLikeCodeBlock(block) ? "pre" : "p");
-    node.textContent = block;
-    if (node.tagName === "PRE") {
+    const isCode = looksLikeCodeBlock(block);
+    const previousBlock = renderBlocks.at(-1);
+
+    if (isCode && previousBlock?.isCode) {
+      previousBlock.text = `${previousBlock.text}\n\n${block}`;
+      continue;
+    }
+
+    renderBlocks.push({ text: block, isCode });
+  }
+
+  for (const block of renderBlocks) {
+    const node = document.createElement(block.isCode ? "pre" : "p");
+    node.textContent = block.text;
+    if (block.isCode) {
       node.className = "code-block";
     }
     elements.questionText.append(node);
