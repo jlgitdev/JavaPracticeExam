@@ -1,0 +1,312 @@
+Chapter 11 Inheritance and Polymorphism
+
+1.	A final class can have instances.
+a. true
+b. false
+Key:a
+
+#
+2.	A final class can be extended.
+a. true
+b. false
+Key:B
+
+#
+3.	You can always successfully cast a subclass to a superclass.
+a. true
+b. false
+Key:a
+
+#
+4.	You can always successfully cast a superclass to a subclass.
+a. true
+b. false
+Key:b
+
+#
+5.	An interface can be a separate unit and can be compiled into a bytecode file.
+a. true
+b. false
+Key:a
+
+#
+6.	The order in which modifiers appear before a class or a method is important.
+a. true
+b. false
+Key:b
+
+#
+7.	Every class has a toString() method and an equals() method.
+a. true
+b. false
+Key:a
+
+#
+8.	The instanceof operator is used to determine whether an object is an instance of a certain class.
+a. true
+b. false
+Key:a
+
+#
+9.	If a method is declared public in the superclass, you may declare the method private in the subclass.
+a. true
+b. false
+Key:b Visibility cannot be weakened in the subclass.
+
+#
+10.	If a method is declared protected in the superclass, you may declare the method private in the subclass.
+a. true
+b. false
+Key:b Visibility cannot be weakened in the subclass.
+
+#
+11.	If a method is declared protected in the superclass, you may declare the method public in the subclass.
+a. true
+b. false
+Key:a You can increase visibility from protected to public.
+
+#
+12.	If a method is declared private in the superclass, you may declare the method protected in the subclass.
+a. true
+b. false
+Key:a
+
+#
+13.	If a method is declared private in the superclass, you may declare the method public in the subclass.
+a. true
+b. false
+Key:a This is true, because the subclass does not know private methods in superclass. This is not overriding. Overriding is to override protected or public methods in the superclass.
+
+#
+14.	If a data field is declared in the superclass, you may hide it by redeclaring it in the subclass.
+a. true
+b. false
+Key:a
+
+#
+15.	You can use the operator == to check whether two variables refer to the same object, and use the equals() method to check the equality of contents of the two objects.
+a. true
+b. false
+Key:a
+
+#
+16. If an object is an instance of class A, and class A is a subclass of class B, then the object is also an instance of class B.
+a. true
+b. false
+Key:a
+
+#
+17. The set of all instances of a subclass is a subset of the instances of its superclass.
+a. true
+b. false
+Key:a
+
+#
+18. Superclasses contain more features than their subclasses.
+a. true
+b. false
+Key:b Opposite is true. Subclasses can contain more features than their superclasses.
+
+#
+19. If a parameter is of the java.lang.Object type, you can pass any object to it. This is known as generic programming.
+a. true
+b. false
+Key:a
+
+#
+20. Consider the following declaration for a class A.
+
+class A {
+  private int x;
+  private int y;
+  
+  public A(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
+Class B is a subclass of A. Which of the following can be constructors in B?
+
+I: 
+public B() {
+}
+
+II:
+public B(int x, int y) {
+  super(x, y);
+}
+
+III:
+public B() {
+  super(0, 0);
+}
+
+IV:
+public B(int x, int y) {
+  this.x = x;
+  this.y = y;
+}
+a. I
+b. II
+c. III 
+d. IV
+Key:bc Since A does not have a default constructor, (I) is not correct. Since properties x and y are private, (IV) is not correct.
+
+#
+21. Which of the following methods override the equals method in the Object class?
+
+a. public void equals(Object o)
+b. public boolean equals(Object o)
+c. public boolean equals(SomeType o)
+d. public static boolean equals(Object o)
+key:b
+
+#
+17. Which of the following methods override the toString method in the Object class?
+a. public void toString(String s)
+b. public static String toString()
+c. public String toString()
+d. public String toString(String s)
+key:c
+
+#
+18. Normally you depend on the JVM to perform garbage collection automatically. However, you can explicitly use ____ to request garbage collection.
+a. System.gc()
+b. System.exit()
+c. System.exit(0)
+d. System.gc(0)
+key:a
+
+#
+19. In OOP, you declare a class that extends another class. This is called _____.
+a. encapsulation
+b. inheritance
+c. polymorphism
+d. abstraction
+key:b
+
+#
+20. In OOP, you declare a data fields to be private. This is called _____.
+a. encapsulation
+b. inheritance
+c. polymorphism
+d. abstraction
+key:a
+
+#
+21. In OOP, a reference variable can reference a subtype object. This is called _____.
+a. encapsulation
+b. inheritance
+c. polymorphism
+d. abstraction
+key:c
+
+#
+29. The UML uses _______ before a member name to indicate that the member is private.
+a. +
+b. -
+c. #
+d. ?
+Key:b
+
+#
+30. The UML uses _______ before a member name to indicate that the member is public.
+a. +
+b. -
+c. #
+d. ?
+Key:a
+
+#
+31. The UML uses _______ before a member name to indicate that the member is protected.
+a. +
+b. -
+c. #
+d. ?
+Key:c
+
+#
+32. The UML uses _______ before a member name to indicate that the member is package-private.
+a. +
+b. -
+c. #
+d. none (blank)
+Key:d
+
+#
+33. The class Date, Calendar, and ArrayList are in the ________ package.
+a. java.lang
+b. javax.swing
+c. java.util
+d. java.io
+Key:c
+
+#
+34. The size of ____________ can grow and shrink at runtime.
+a. an array
+b. an ArrayList
+Key:b
+
+#
+35. ____________ can search in an unsorted list.
+a. Linear search
+b. Binary search
+Key:a
+
+#
+36. You use the keyword ____________ to reference a method in the superclass from a subclass.
+a. this
+b. that
+c. super
+d. superObject
+Key:c
+
+#
+37. A instance of a subclass is also an instance of its superclass.
+a. true
+b. false
+Key:a
+
+#
+38. Every object is an instance of the Object class.
+a. true
+b. false
+Key:a
+
+#
+10. Analyze the following code:
+
+public class Test {
+  public static void main(String[] args) {
+    new A();
+  }
+}
+
+class A {
+  int i = 7;
+  
+  public A() {
+    System.out.println("i from A is " + i);
+  }
+  
+  public void setI(int i) {
+    this.i = 2 * i;
+  }
+}
+
+class B extends A {
+  public B() {
+    setI(20);
+    System.out.println("i from B is " + i);    
+  }
+  
+  public void setI(int i) {
+    this.i = 3 * i;
+  }
+}
+a. The constructor of class B is not called.
+b. The constructor of class B is called and it displays "i from B is 7".
+c. The constructor of class B is called and it displays "i from B is 20".
+d. The constructor of class B is called and it displays "i from B is 60".
+Key:a

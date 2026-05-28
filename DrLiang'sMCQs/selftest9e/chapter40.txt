@@ -1,0 +1,160 @@
+Chapter 40 JTable and JTree
+
+Sections 40.2-40.7 
+1. You can create a JTable using __________.
+a. new JTable()
+b. new JTable(4, 5)
+c. new JTable(new Integer[3][4], new Integer[4])
+d. new JTable(new DefaultTableModel())
+Key:abcd
+
+#
+2. _________ are the properties in JTable.
+a. gridColor
+b. rowCount
+c. columnCount
+d. rowHeight
+e. rowMargin
+Key:abcde
+
+#
+3. _________ are the properties in JTable.
+a. showGrid
+b. selectionMode
+c. selectionBackground
+d. selectionForeground
+e. model
+Key:abcde
+
+#
+4. The autoResizeMode property specifies how columns are resized (you can resize table columns but not rows). Possible values are:
+a. JTable.AUTO_RESIZE_OFF
+b. JTable.AUTO_RESIZE_LAST_COLUMN
+c. JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS
+d. JTable.AUTO_RESIZE_NEXT_COLUMN
+e. JTable.AUTO_RESIZE_ALL_COLUMNS
+Key:abcde
+
+#
+5. The data in DefaultTableModel are stored in ___________.
+a. an array
+b. an ArrayList
+c. a LinkedList
+d. a Vector
+Key:d
+
+#
+6. DefaultTableModel contains the methods for
+a. adding a new row
+b. inserting a new row
+c. adding a column
+d. removing a row
+e. removing a column
+Key:abcd
+
+#
+7. Which property can be set in JTable to enable column sorting?
+a. sorter
+b. rowSorter
+c. sort
+d. rowSort
+Key:b
+
+#
+Sections 40.9-40.15
+8. You can create a JTree using __________.
+a. new JTree()
+b. new JTree(new Object[]{"red", "green", "blue"})
+c. new JTree(new Vector())
+d. new JTree(new DefaultTreeModel())
+Key:abcd
+
+#
+9. Which of the following statements are true?
+a. 	The TreeModel interface represents the entire tree. Unlike the ListModel or TableModel, the tree model does not directly store or manage tree data.
+b. TreeModel contains the structural information about the tree, and tree data are stored and managed by TreeNode. 
+c. 	DefaultTreeModel is a concrete implementation for TreeModel that uses TreeNode.
+d. 	To create a tree model, you may first create an instance of TreeNode to represent the root of the tree, and then create an instance of DefaultTreeModel fitted with the root.
+Key:abcd
+
+#
+10. To obtain a TreeModel from a JTree object, invoke ___________
+a. getTreeModel()
+b. getMode()
+c. getDefaultTreeModel()
+d. getTreeNode()
+Key:b
+
+#
+11. To make the JTree root visible, invoke ________________
+a. setRootVisible(true)
+b. setVisible(true)
+c. setRootVisible(false)
+d. setVisible(false)
+Key:a
+
+#
+12. To show the JTree root handles, invoke ________________
+a. setShowsRootHandles(true)
+b. setRootHandles(true)
+c. setShowsRootHandles(false)
+d. setRootHandles(false)
+Key:a
+
+#
+13. To obtain the root of a JTree, invoke ________________
+a. getRoot()
+b. getTreeRoot()
+c. getRootNode()
+d. getTreeRootNode()
+Key:a
+
+#
+14. To get the parent of a TreeNode, invoke ________________
+a. getParentNode()
+b. getParent()
+c. getTreeParentNode()
+d. getPreviousNode()
+Key:b
+
+#
+15. To get the first child of a TreeNode, invoke ________________
+a. getAChild()
+b. getFirstChild()
+c. getLastChild()
+d. getChild()
+Key:b
+
+#
+16. To get the depth of a JTree jTree, invoke ________________
+a. jTree.getRoot().getDepth()
+b. jTree.getDepth()
+c. jTree.getTreeRoot().getDepth()
+d. jTree.getRoot().getSize()
+Key:a
+
+#
+17. To insert a new child to a tree,
+a. use the add method in JTree
+b. use the add method in TreeNode
+c. use the insert method in MutableTreeNode
+d. use the insert method in TreeNode
+e. use the insert method in JTree
+Key:c
+
+#
+18. The getSelectionPath() method is defined in __________.
+a. JTree
+b. TreeNode
+c. MutableTreeNode
+d. TreeNode
+e. TreeSelectionModel
+Key:e
+
+#
+19. To all the nodes in a TreePath, invoke _______________.
+a. getNodes()
+b. getPath()
+c. getPathCount()
+d. getParentPath()
+Key:b

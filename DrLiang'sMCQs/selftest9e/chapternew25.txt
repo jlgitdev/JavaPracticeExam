@@ -1,0 +1,9 @@
+Chapter 25 Sorting
+
+8. A list is sorted by selecting the largest element in the list and swapping it with the last one. This technique is called _____.
+a.	insertion sort
+b.	selection sort
+c.	bubble sort
+d.	merge sort
+e.      quick sort
+Key:b

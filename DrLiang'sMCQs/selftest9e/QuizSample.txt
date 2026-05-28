@@ -1,0 +1,74 @@
+1. Why do computers use zeros and ones?
+a. because combinations of zeros and ones can represent any numbers and characters.
+b. because digital devices have two stable states and it is natural to use one state for 0 and the other for 1.
+c. because binary numbers are simplest.
+d. because binary numbers are the bases upon which all other number systems are built.
+Key:b
+
+#
+41. The quiz will be automatically renumbered. So, here 41 is OK. It will be automatically renumbered to 2. The # sign must be used to sepeated quizzes, but the # symbol is not used for the first quiz. Each quiz consists of the quiz statement, at least two choices labled a, b, c, d, or e, and a key.
+a. The # sign must be used to sepeated quizzes, but the # symbol is not used for the first quiz.
+b. Each quiz consists of the quiz statement.
+c. Choices are labeled a, b, c, d, or e.
+d. Multiple correct answers are allowed.
+Key:abcd
+
+#
+3. Which of the following is a valid identifier?
+a.	$343
+b.	class
+c.      9X
+d.      8+9
+e.      radius
+Key:ae
+
+#
+4. Which of the following code displays the area of a circle if the radius is positive.
+a. 
+   if (radius != 0) System.out.println(radius * radius * 3.14159);
+b. 
+   if (radius >= 0) System.out.println(radius * radius * 3.14159);
+c. 
+   if (radius > 0) System.out.println(radius * radius * 3.14159);
+d. 
+   if (radius <= 0) System.out.println(radius * radius * 3.14159);
+key:c
+
+#
+5. Suppose x = 1, y = -1, and z = 1. What will be displayed by the following statement? (Please indent the statement correctly first.)
+
+if (x > 0)
+   if (y > 0)
+      System.out.println("x > 0 and y > 0");
+else if (z &gt; 0)
+      System.out.println("x > 0 and z > 0");
+a.	x > 0 and y > 0;
+b.	x < 0 and z > 0;
+c.	x < 0 and z > 0;
+d.	no printout.
+Key:b
+
+#
+6.	What is sum after the following loop terminates?
+
+int sum = 0;
+int item = 0;
+do {
+  item++;
+  sum += item;
+  if (sum >= 4) continue;
+}
+while (item < 5);
+a.	15
+b.	16
+c.	17
+d.	18
+Key:a
+
+#
+7.	Which of the following is a possible output from invoking Math.random()?
+a.	3.43
+b.	0.5
+c.	0.0
+d.	1.0
+Key:bc 

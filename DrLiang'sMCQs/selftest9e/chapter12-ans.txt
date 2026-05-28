@@ -1,0 +1,98 @@
+Chapter 12 GUI Basics
+
+Section 12.2 Swing vs. AWT
+1.a
+2.a
+
+Section 12.3 The Java GUI API
+3.acd
+4.d
+5.c
+6.ab
+7.c 
+8.b 
+9.d
+10.a 
+11.a 
+12.abc
+
+Section 12.4 Frames
+13.c
+14.c 
+15.b 
+16.a
+17.c
+18.a
+19.c
+24.b
+
+Section 12.5 Layout Managers
+20.b
+21.a
+22.c
+23.b
+24.c
+25.ab
+26.c
+
+Section 12.6 Using Panels as Sub-Containers
+33.a
+34.c
+35.a
+
+Section 12.7 The Color Class
+27.acd 
+28.bc 
+29.bc 
+30.a
+
+Section 12.8 The Font Class
+31.d
+32.d
+
+Section 12.9 Common Features of Swing GUI Components
+36.abcde
+37.abcde
+38.cde
+39.cde
+40.abcd 
+41.b    
+42.abcd 
+43.b
+
+Section 12.10 Image Icons
+44.ce
+
+Section 12.11 JButton
+1.abcde
+2.b
+3.c
+4.bc
+5.d
+6.c
+7.a 
+8.d 
+9.a 
+
+Section 12.12 JCheckBox
+10.c
+11.abcd 
+
+Section 12.13 JRadioButton
+13.abcd 
+14.acd 
+
+Section 12.14 Labels
+16.cd 
+17.b
+18.c
+19.d
+20.c
+21.a
+
+Section 12.15 Text Fields
+22.e
+23.abcd
+24.b
+
+

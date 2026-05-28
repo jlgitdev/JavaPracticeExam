@@ -1,0 +1,39 @@
+Chapter 20 Recursion
+
+Section 20.2 Example: Factorials
+1.abc
+2. cd
+2. b
+3. e
+4. d
+
+Section 20.3 Example: Fibonacci Numbers
+5. a
+6. b 
+7. cd
+
+Section 20.4 Problem Solving Using Recursion
+8. a
+9. c 
+10. a
+11.	d 
+
+Section 20.5 Recursive Helper Methods
+12. e
+13. c
+14. d
+
+Section 20.7 Tower of Hanoi
+15. b
+16. c
+17.	e 
+
+Section 20.8 Fractals 
+18. d
+
+Section 20.9 Recursion versus Iteration 
+19.	bcd
+
+Section 20.10 Tail Recursion
+20. b
+20. a

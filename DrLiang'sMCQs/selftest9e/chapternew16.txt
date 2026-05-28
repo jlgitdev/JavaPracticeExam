@@ -1,0 +1,98 @@
+Chapter 16 Event-Driven Programming
+
+1.	If a listener is registered with a source twice, the handler of the listener will be invoked twice when an event occurs.
+a. true
+b. false
+Key:a
+
+#
+2. The listener for an action event is an instance of ________.
+a. ActionListener
+b. ItemListener
+c. MouseListener
+d. KeyListener
+e. ComponentListener
+Key:a
+
+#
+3. _________ can generate mouse events.
+a. JButton
+b. JLabel
+c. JPanel
+d. JTextField
+Key:abcd
+
+#
+3. You can create an instance of ActionListener using new ActionListener().
+a. true
+b. false
+Key:b
+
+#
+7.	A source object and a listener object can be the same.
+a. true
+b. false
+Key:a
+
+#
+8.	A source object can register only one listener.
+a. true
+b. false
+Key:b
+
+#
+1.  The method for registering an action listener is __________.
+
+A. addactionlistener(ActionListener)
+B. addActionListener(ActionListener)
+C. addActionListener(ActionEvent)
+D. addActionlistener(ActionListener)
+E. addActionlistener(ActionEvent)
+Key:b
+
+#
+1.  Java API provides a convenience adapter class for ___________.
+
+A. ActionListener
+B. MouseListener
+C. KeyListener
+D. MouseMotionListener
+Key:bcd
+
+#
+1.  The method for handling a mouse dragged event is __________.
+
+A. mouseClicked(MouseEvent)
+B. mousePressed(MouseEvent)
+C. mouseMoved(MouseEvent)
+D. mouseReleased(MouseEvent)
+E. mouseDragged(MouseEvent)
+Key:e
+
+#
+1.  To create a Timer object, use __________.
+
+A. new Timer(actionListener)
+B. new Timer(actionListener, delayTime)
+C. new Timer(delayTime)
+D. new Timer(delayTime, actionListener)
+E. new Timer()
+Key:d
+
+#
+1.  To stop a Timer object t, use __________.
+
+A. t.stop()
+B. t.pause()
+C. t.suspend()
+D. t.destroy()
+Key:a
+
+#
+1.  To start a Timer object t, use __________.
+
+A. t.start()
+B. t.resume()
+C. t.begin()
+D. t.launch()
+Key:a

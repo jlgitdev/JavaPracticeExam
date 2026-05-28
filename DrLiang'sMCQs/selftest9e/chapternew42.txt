@@ -1,0 +1,8 @@
+Chapter 42 Servlets
+
+1. Which of the following are servlet life-cycle methods?
+a. init()
+b. service()
+c. destroy()
+d. execute()
+Key:abc

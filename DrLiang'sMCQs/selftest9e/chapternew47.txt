@@ -1,0 +1,6 @@
+Chapter 47 2-4 Trees
+
+11. Are are the leaf nodes have the same depth in a B-tree?
+a. Yes
+b. No
+Key:a

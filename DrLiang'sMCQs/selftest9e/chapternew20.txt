@@ -1,0 +1,149 @@
+Chapter 20 Recursion
+
+
+13.	The base case _________ the recursion.
+a.	stops
+b.	starts
+c.	pauses
+d.	breaks
+Key:a
+
+#
+14.	Consider the following recursive method.
+
+  public static int m(int value) {
+    if (value >= 0)
+      return 5 * m(value - 2);
+    else
+      return 1;
+  }
+
+What value is returned when invoking m(5)?
+
+a.	25
+b.	75
+c.	100
+d.	125
+e.	225
+Key:d
+
+#
+10.	A recursive method can always be converted into a nonrecursive method using iterations.
+a. true
+b. false
+Key:a
+
+#
+10.	Method A invokes method B, which in turn invokes function C. This is called _________.
+a. direct recurion
+b. indirect recursion
+c. explicit recursion
+d. one-step recursion
+Key:b
+
+#
+10.	Method A invokes method A itself. This is called _________.
+a. direct recurion
+b. indirect recursion
+c. explicit recursion
+d. one-step recursion
+Key:a
+
+#
+1. Fill in the code to complete the following function for computing factorial.
+
+public static long factorial(int n) {
+    if (n == 0) // Base case
+        __________
+    else
+        return n * factorial(n - 1); // Recursive call
+}
+
+A. long result = 1;
+B. return n;
+C. return 0;
+D. return n - 1;
+E. return 1;
+Key:e
+
+#
+1. What will be displayed by invoking xfunction(1234)?
+
+public static void xfunction(int n) {
+  if (n > 0) {
+     System.out.print(n % 10 + " ");
+     xfunction(n / 10);
+  }
+}
+
+a. 1234
+b. 1 2 3 4
+c. 4321
+d. 4 3 2 1
+key:d
+
+#
+1. Fill in the code to complete the following function for computing a Fibonacci number.
+
+public static int fib(int index) {
+  if (index == 0 || index == 1) // Base case
+     ________________
+  else // Reduction and recursive calls
+     return  fib(index - 1) + fib(index - 2);
+}
+
+A. return 0
+B. return 1
+C. return index
+D. return 2
+key:c
+
+#
+1. What will be displayed by invoking xfunction(6)?
+
+
+public static int xfunction(int n) {
+  if (n >= 1)
+     return 1;
+  else
+     return n + xfunction(n - 2);
+}
+
+A. 1
+B. 2
+C. 3
+D. 4
+key:a
+
+#
+1. What will be displayed by invoking xfunction(6)?
+
+public static int xfunction(int n) {
+  if (n <= 1)
+     return 1;
+  else
+     return n + xfunction(n - 2);
+}
+
+A. 11
+B. 12
+C. 13
+D. 14
+key:c
+
+#
+1. What will be displayed by invoking xfunction(1234)?
+
+public static void xfunction(n) {
+  if (n <= 0) {
+     System.out.print(n % 10 + " ");
+     xfunction(n / 10);
+  }
+}
+
+a. 1234
+b. 1 2 3 4
+c. 4321
+d. 4 3 2 1
+e. Nothing
+key:e

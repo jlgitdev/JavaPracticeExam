@@ -1,0 +1,24 @@
+Chapter 48 Red-Black Trees
+
+11. The time complexity for the search operation in red-black tree is ______,
+a. O(1)
+b. O(logn)
+c. O(n).
+d. O(nlogn)  
+Key:b
+
+#
+11. The time complexity for the insertion operation in red-black tree is ______,
+a. O(1)
+b. O(logn)
+c. O(n).
+d. O(nlogn)  
+Key:b
+
+#
+11. The time complexity for the deletion operation in red-black tree is ______,
+a. O(1)
+b. O(logn)
+c. O(n).
+d. O(nlogn)  
+Key:b

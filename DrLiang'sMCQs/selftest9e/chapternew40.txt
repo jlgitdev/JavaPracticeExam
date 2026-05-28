@@ -1,0 +1,72 @@
+Chapter 40 JTable and JTree
+
+Sections 36.2-36.7 
+1. The getRowCount() method is defined in _________.
+a. JTable
+b. TableModel
+c. TableColumnModel
+d. SelectionModel
+Key:ab
+
+#
+2. The getColumnCount() method is defined in _________.
+a. JTable
+b. TableModel
+c. TableColumnModel
+d. SelectionModel
+Key:bc
+
+#
+3. Three abstract methods in AbstractTableModel are __________.
+a. getRowCount()
+b. getColumnCount()
+c. getValueAt(int row, int column)
+d. getColumnName()
+e. isCellEditable()
+Key:abc
+
+#
+4. To add a row into a JTable, use the addRow method in _____________.
+a. JTable
+b. TableModel
+c. TableColumnModel
+d. SelectionModel
+e. DefaultTableModel
+Key:e
+
+#
+5. To add a column into a JTable, use the addColumn method in _____________.
+a. JTable
+b. TableModel
+c. TableColumnModel
+d. SelectionModel
+e. DefaultTableModel
+Key:ce
+
+#
+6. Which of the following is a GUI component?
+a. JTable
+b. TableModel
+c. TableColumnModel
+d. TableColumn
+e. JTableHeader
+Key:ae
+
+#
+Sections 36.8-36.14
+32. To get the number of leaves in a tree, invoke _______ in __________.
+a. getChildCount()/JTree
+b. getChildCount()/TreeNode
+c. getChildCount()/DefaultMutableTreeNode
+d. getSiblingCount()/DefaultMutableTreeNode
+Key:d
+
+#
+33. The methods for traversing the nodes in a tree are defined in _______________
+a.  JTree
+b. TreeModel
+c. TreeNode
+d. MutableTreeNode
+e. DefaultMutableTreeNode
+Key:e
+

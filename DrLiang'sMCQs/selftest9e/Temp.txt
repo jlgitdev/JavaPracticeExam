@@ -1,0 +1,83 @@
+#
+Section 10.11 Class Design Guidelines
+16. Which of the following statements are true?
+a. A class should describe a single entity and all the class operations should logically fit together to support a coherent purpose.
+b. A class should always contain a no-arg constructor.
+c. The constructors must always be public.
+d. The constructors may be protected.
+Key:ad (B) is not true. Most classes have a no-arg constructor. But sometimes, it does not make any sense to provide a no-arg constructor. For example, StringTokenizer does not have a no-arg constructor. (C) is not true. For example, the constructor in the Math class is private to prevent creating instances from the class, because there is no need to create instances for the Math class since all methods are static in Math. The constructors for abstract classes should be protected in most cases.
+
+
+
+#
+21. Which of the following is poor design?
+a. A data field is derived from other data fields in the same class.
+b. A method must be invoked after/before invoking another method in the same class.
+c. A method is an instance method, but it does not reference any instance data fields or invoke instance methods.
+d. A parameter is passed from a constructor to initialize a static data field.
+Key:abcd
+
+#
+22. Which of the following is incorrect?
+a. A constructor may be static.
+b. A constructor may be private.
+c. A constructor may invoke a static method.
+d. A constructor may invoke an overloaded constructor.
+e. A constructor invokes its superclass no-arg constructor by default if a constructor does not invoke an overloaded constructor or its superclass’s constructor. 
+Key:a
+
+#
+23. Which of the following is incorrect?
+a. An abstract class contains constructors.
+b. The constructors in an abstract class should be protected.
+c. The constructors in an abstract class are private.
+d. You may declare a final abstract class.
+e. An interface may contain constructors.
+Key:cde
+
+
+
+#
+17. Which of the following statements are true?
+a. Override the methods equals and toString defined in the Object class whenever possible. 
+b. Override the hashCode method whenever the equals method is overridden. By contract, two equal objects must have the same hash code.
+c. A public default no-arg constructor is assumed if no constructors are defined explicitly.
+d. You should follow standard Java programming style and naming conventions. Choose informative names for classes, data fields, and methods.
+Key:abcd
+
+
+
+
+
+#
+9. Which of the following statements are true?
+a. Inheritance models the is-a relationship between two classes. 
+b. A strong is-a relationship describes a direct inheritance relationship between two classes. 
+c. A weak is-a relationship describes that a class has certain properties. 
+d. A strong is-a relationship can be represented using class inheritance. 
+e. A weak is-a relationship can be represented using interfaces.
+Key:abcde
+
+#
+10.	Assume an employee can work for only one company. What is the best suitable relationship between Company and Employee?
+a.	None
+b.	Aggregation
+c.	Inheritance
+d.	Composition
+Key:d
+
+#
+12.	What is the best suitable relationship between Employee and Faculty?
+a.	Composition
+b.	Aggregation
+c.	Inheritance
+d.	None.
+Key:c
+
+#
+13.	The relationship between an interface and the class that implements it is
+a.	Composition
+b.	Aggregation
+c.	Inheritance
+d.	None
+Key:c

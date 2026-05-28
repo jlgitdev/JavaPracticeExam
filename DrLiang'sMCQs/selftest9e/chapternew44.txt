@@ -1,0 +1,8 @@
+Chapter 44 JavaServer Faces
+
+1.	Which of the following statements are correct.
+a.	A virtual form is an invisible form.
+b.	A virtual form groups input components together with a submission component.
+c.	You can define several virtual forms to associate with a submission component.
+d.	A page can contain only one virtual form.
+Key:bc

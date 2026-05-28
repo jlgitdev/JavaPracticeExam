@@ -1,0 +1,40 @@
+Chapter 13 Graphics
+
+Section 13.2 Section 13.3 The Graphics Class
+1.a
+2.a
+3.abcd
+4.b
+5.c
+6.a
+7.bcd 
+8.c 
+9.d 
+10.c 
+11.d 
+
+Section 13.3 Drawing Strings, Lines, rectangles, and Ovals
+12.b
+14.c
+14.d
+15.e
+16.cd
+
+Section 13.4 Case Study: The FigurePanel Class
+17.a
+
+Section 13.5 Drawing Arcs
+18.d 
+
+Section 13.6 Drawing Polygons and Polylines
+19.c 
+20.a 
+
+Section 13.7 Centering Display Using the FontMetrics Class
+21.bcd
+22.c
+23.abcd
+
+Section 13.10 Displaying Images 
+24.b
+25.abc

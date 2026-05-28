@@ -1,0 +1,624 @@
+Chapter 12 GUI Basics
+
+Section 12.2 Swing vs. AWT
+1. Swing components that don't rely on native GUI are referred to as ___________.
+a. lightweight components
+b. heavyweight components
+c. GUI components
+d. non-GUI components
+
+2. __________ are referred to as heavyweight components. 
+a. AWT components
+b. Swing components
+c. GUI components
+d. Non-GUI components
+
+Section 12.3 The Java GUI API
+3. Which of the following statements are true?
+a. To distinguish new Swing component classes from their AWT counterparts, Swing GUI component classes are named with a prefix J. 
+b. All Swing GUI components are lightweight.
+c. A user interface object such as (button, list) can appear in one container.
+d. A container such as JFrame is also a component.
+e. Every instance of Component can be added to a container.
+
+4.	Which of the following classes is a heavyweight component?
+a.	JButton
+b.	JTextField
+c.	JPanel
+d.	JFrame
+
+5. Which component cannot be added to a container?
+a. JPanel
+b. JButton
+c. JFrame
+d. JComponent
+
+6. Which of the following are subclasses of java.awt.Component?
+a. Container classes
+b. Swing user interface classes
+c. Helper classes such as Color and Font
+d. Layout managers
+
+7. What is best to describe the relationship between a container and a SWing GUI object in the container?
+a. Association
+b. Aggregation
+c. Composition
+d. Inheritance
+
+8. What is best to describe the relationship between a container and a layout manager?
+a. Association
+b. Aggregation
+c. Composition
+d. Inheritance
+
+9. What is best to describe the relationship between JComponent and JButton?
+a. Association
+b. Aggregation
+c. Composition
+d. Inheritance
+
+10. What is best to describe the relationship between Component and Color?
+a. Association
+b. Aggregation
+c. Composition
+d. Inheritance
+
+11. What is best to describe the relationship between Component and Font?
+a. Association
+b. Aggregation
+c. Composition
+d. Inheritance
+
+12. Which of the following classes are in the java.awt package?
+a. Color
+b. Font
+c. Component
+d. JFrame
+e. JComponent
+
+Section 12.4 Frames
+13. Analyze the following code.
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Test  {
+  public static void main(String[] args) {
+    Component c = new JButton("OK");
+    JFrame frame = new JFrame("My Frame");
+    frame.add(c);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+} 
+a. You cannot assign a JButton to a variable of java.awt.Component.
+b. You can only add c to a container because c's type is Component.
+c. You cannot add a Swing component directly to a JFrame using add(c) prior to JDK 1.4, but it is OK in JDK 1.5.
+d. You cannot create a JFrame using new JFrame("My Frame").
+
+14. The correct order of the following three statements is ___________.
+
+1. frame.setLocationRelativeTo(null);
+2. frame.setSize(100, 200);
+3. frame.setVisible(true);
+
+a. 1 2 3
+b. 1 3 2
+c. 2 1 3
+d. 3 2 1
+
+15. Analyze the following code.
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Test  {
+  public static void main(String[] args) {
+    JFrame frame = new JFrame("My Frame");
+    frame.add(new JButton("OK"));
+    frame.add(new JButton("Cancel"));
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setSize(200, 200);
+    frame.setVisible(true);
+  }
+} 
+a. Only button OK is displayed.
+b. Only button Cancel is displayed.
+c. Both button OK and button Cancel are displayed and button OK is displayed on the left side of button OK.
+d. Both button OK and button Cancel are displayed and button OK is displayed on the right side of button OK.
+
+16. How many frames are displayed?
+
+import javax.swing.*;
+
+public class Test  {
+  public static void main(String[] args) {
+    JFrame f1 = new JFrame("My Frame");
+    JFrame f2 = f1;
+    JFrame f3 = f2;
+    f1.setVisible(true);
+    f2.setVisible(true);
+    f3.setVisible(true);
+  }
+} 
+a. 1.
+b. 2.
+c. 3.
+d. 0.
+
+17. How many frames are displayed?
+
+import javax.swing.*;
+
+public class Test extends JFrame {
+  public static void main(String[] args) {
+    JFrame f1 = new Test();
+    JFrame f2 = new Test();
+    JFrame f3 = new Test();
+    f1.setVisible(true);
+    f2.setVisible(true);
+    f3.setVisible(true);
+  }
+} 
+a. 1.
+b. 2.
+c. 3.
+d. 0.
+
+18. Which of the following statements is for terminating the program when closing the frame?
+a. frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
+b. frame.setDefaultCloseOperation(null)
+c. frame.setDefaultCloseOperation(JFrame.STOP_ON_CLOSE)
+d. frame.setDefaultCloseOperation(JFrame.TERMINATE_ON_CLOSE)
+
+19. Which of the following statements is for placing the frame's upper left corner to (200, 100)?
+a. frame.setLocation(100, 100)
+b. frame.setLocation(100, 200)
+c. frame.setLocation(200, 100)
+d. frame.setLocation(200, 200)
+
+24.	Analyze the following code:
+
+import javax.swing.*;
+
+public class Test1 extends JFrame {
+  public Test1() {
+    JButton jbt1 = new JButton("OK");
+    add(jbt1);
+    jbt1 = new JButton("Not OK");
+  }
+  
+  public static void main(String[] args) {
+    JFrame frame = new Test1();
+    frame.setSize(300, 300);
+    frame.setLocationRelativeTo(null);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+}
+
+a.	The program displays nothing.
+b.	The program displays a button with text OK.
+c.	The program displays a button with text Not OK.
+d.	The program displays a button with text OK and another buttoj with text Not OK.
+
+Section 12.5 Layout Managers
+20. What layout manager should you use so that every component occupies the same size in the container?
+
+a. a FlowLayout
+b. a GridLayout
+c. a BorderLayout
+d. any layout 
+
+21. What should you use to position a Button within an application Frame so that the size of the Button is NOT affected by the Frame size?
+a.	a FlowLayout 
+b.	a GridLayout 
+c.	the center area of a BorderLayout 
+d.	the East or West area of a BorderLayout 
+e.	the North or South area of a BorderLayout
+
+22.	Suppose a JFrame uses the GridLayout(2, 2). If you add six buttons to the frame, how many columns are displayed?
+a.	1
+b.	2
+c.	3
+d.	4
+
+23.	Suppose a JFrame uses the GridLayout(0, 2). If you add six buttons to the frame, how many columns are displayed?
+a.	1
+b.	2
+c.	3
+d.	4
+
+24.	Suppose a JFrame uses the GridLayout(2, 0). If you add six buttons to the frame, how many columns are displayed?
+a.	1
+b.	2
+c.	3
+d.	4
+
+25.	To set a FlowLayout in panel jp, you can use the method __________.
+a.	jp.setLayout(new FlowLayout());
+b.	jp.setLayout(new FlowLayout(FlowLayout.CENTER));
+c.	jp.setLayout(new FlowLayout(FlowLayout.center));
+d.	jp.setLayout(FlowLayout());
+
+26.	The default layout out of a contentPane in a JFrame is __________.
+a.	FlowLayout
+b.	GridLayout
+c.	BorderLayout
+d.	None
+
+Section 12.6 Using Panels as Sub-Containers
+33.	The default layout out of a JPanel is __________.
+a.	FlowLayout
+b.	GridLayout
+c.	BorderLayout
+d.	None 
+
+34. To create a JPanel of the BorderLayout, use ______________.
+a. JPanel p = new JPanel()
+b. JPanel p = new JPanel(BorderLayout());
+c. JPanel p = new JPanel(new BorderLayout());
+d. JPanel p = new JPanel().setLayout(new BorderLayout()); 
+
+35. To add a component c to a JPanel p, use _________.
+a. p.add(c)
+b. p.getContentPane(c)
+c. p.insert(c)
+d. p.append(c)
+
+Section 12.7 The Color Class
+27. _____________ creates a color object.
+a. new Color(0, 0, 0)
+b. new Color(0, 266, 0)
+c. new Color(255, 255, 255)
+d. new Color(1, 2, 3)
+
+28.	The method __________ sets the background color to yellow in JFrame f.
+a.	setBackground(Color.yellow)
+b.	f.setBackground(Color.YELLOW)
+c.	f.setBackground(Color.yellow)
+d.	setBackground(Color.YELLOW)
+e.      f.setBackGround(Color.yellow)
+
+29.	The method __________ sets the foreground color to yellow in JFrame f.
+a.	setForeground(Color.yellow)
+b.	f.setForeground(Color.YELLOW)
+c.	f.setForeground(Color.yellow)
+d.	setForeground(Color.YELLOW)
+e.      f.setForeGround(Color.yellow)
+
+30.	Which color is the darkest?
+a.	new Color(0, 0, 0)
+b.	new Color(10, 0, 0)
+c.	new Color(20, 0, 0)
+d.	new Color(30, 0, 0)
+e.      f.setForeGround(Color.yellow)
+
+Section 12.8 The Font Class
+31.	The method __________ sets the font (Helvetica, 20-point bold) in component C.
+a.	c.setFont(new Font("Helvetica", Font.bold, 20))
+b.	c.setFont(new Font("helvetica", BOLD, 20))
+c.	c.setFont(Font("Helvetica", Font.BOLD, 20))
+d.	c.setFont(new Font("Helvetica", Font.BOLD, 20))
+
+32. To specify a font to be bold and italic, use the font style value _________ 
+a. Font.PLAIN
+b. Font.BOLD
+c. Font.ITALIC
+d. Font.BOLD + Font.ITALIC
+
+Section 12.9 Common Features of Swing GUI Components
+36.	Can you use the setBackground method to set a back ground color for _____?
+a.	Component
+b.	Container
+c.	JComponent
+d.	JButton
+e. 	JLabel
+
+37.	Can you use the getWidth method to get a width for _____?
+a.	Component
+b.	Container
+c.	JComponent
+d.	JButton
+e. 	JLabel
+
+38.	Can you use the setBorder method to set a border for _____?
+a.	Component
+b.	Container
+c.	JComponent
+d.	JButton
+e. 	JLabel
+
+39.	Can you use the setToolTip method to set a tool tip for _____?
+a.	Component
+b.	Container
+c.	JComponent
+d.	JButton
+e. 	JLabel
+
+40. You can use methods ___________ on any instance of java.awt.Component.
+a. setBackground
+b. getBackground
+c. getWidth
+d. getHeight
+e. setBorder
+
+41. Analyze the following code:
+
+import javax.swing.*;
+
+public class Test extends JFrame  {
+  private JButton jbtOK = new JButton("OK");
+  
+  public static void main(String[] args) {
+    // Create a frame and set its properties
+    JFrame frame = new Test();
+    frame.setTitle("Logic Error");
+    frame.setSize(200, 100);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+
+  public Test() {
+    jbtOK.setToolTipText("This is a button");
+    add(new JButton("OK"));
+  }
+}
+
+a. The tool tip text is displayed when you move the mouse on the button.
+b. The tool tip text will be displayed if you replace add(new JButton("OK")) with add(jbtOK).
+c. The tool tip text will be displayed if you swap the two lines in the Test constructor.
+d. The tool tip text will be displayed if you replace add(new JButton("OK")) with add(jbtOK = new JButton("OK")).
+
+42. You can use methods ___________ on any instance of java.awt.Component.
+a. setForeground
+b. setBackground
+c. setFont
+d. getFont
+e. setLayout
+
+43. Show the output of the following code?
+
+import javax.swing.*;
+
+public class Test {
+  public static void main(String[] args) {
+    JButton jbtOK = new JButton("OK");
+    System.out.print(jbtOK.isVisible() + ", ");
+
+    JFrame frame = new JFrame();
+    System.out.println(frame.isVisible());
+  }
+}	
+
+a. true, true
+b. true, false
+c. false, true
+d. false, false
+
+Section 12.10 Image Icons
+44.	To create an image icon for a file in c:\book\image\icon, use ____________.
+a.	new ImageIcon("c:\book\image\icon");
+b.	new ImageIcon('c:\book\image\icon');
+c.	new ImageIcon("c:\\book\\image\\icon");
+d.	new ImageIcon('c:\\book\\image\\icon');
+e. 	new ImageIcon("c:\\book\image\\icon") if the c:\book is in the class path.
+
+Section 12.11 JButton
+1.	Which of the following is true?
+a. JButton inherits from javax.swing.AbstractButton.
+b. You can create a JButton by specifying an icon and text.
+c. You can create a JButton by specifying an icon.
+d. You can create a JButton by a text.
+e. You can create a JButton using its default constructor.
+
+2. The method __________ gets the text (or caption) of the button jbt.
+a.	jbt.text()
+b.	jbt.getText()
+c.	jbt.findText()
+d.	jbt.retrieveText().
+
+3.	The method __________ creates a IconImage for file c:\image\us.gif.
+a.	new ImageIcon("c:\image\us.gif");
+b.	new Icon("c:\image\us.gif");
+c.	new ImageIcon("c:\\image\\us.gif");
+d.	new Icon("c:\\image\\us.gif");
+
+4.	Which of the following are valid methods on the button jbt?
+a.	jbt.setMnemonic("A");
+b.	jbt.setMnemonic('A');
+c.	jbt.setIconTextGap(50);
+d.	jbt.setTextGap(50);
+
+5.	The method __________ specifies that the text and icon are horizontally aligned to the right in the button jbt.
+a.	jbt.setVerticalTextPosition(JButton.LEFT)
+b.	jbt.setHorizontalTextPosition(JButton.LEFT)
+c.	jbt.setHorizontalTextPosition(JButton.RIGHT)
+d.	jbt.setHorizontalAlignment(JButton.RIGHT)
+e.      jbt.setHorizontalAlignment(JButton.LEFT)
+
+6.	The method __________ specifies that the text is placed on the right of the icon in the button jbt.
+a.	jbt.setVerticalTextPosition(JButton.LEFT)
+b.	jbt.setHorizontalTextPosition(JButton.LEFT)
+c.	jbt.setHorizontalTextPosition(JButton.RIGHT)
+d.	jbt.setHorizontalAlignment(JButton.RIGHT)
+e.      jbt.setHorizontalAlignment(JButton.LEFT)
+
+7.	Analyze the following code:
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Test extends JFrame  {
+  public Test() {
+    ImageIcon usIcon = new ImageIcon("image/usIcon.gif");
+    JButton jbt1 = new JButton(usIcon);
+    JButton jbt2 = new JButton(usIcon);
+
+    JPanel p1 = new JPanel();
+    p1.add(jbt1);
+
+    JPanel p2 = new JPanel();
+    p2.add(jbt2);
+
+    JPanel p3 = new JPanel();
+    p2.add(jbt1);
+
+    add(p1, BorderLayout.NORTH);
+    add(p2, BorderLayout.SOUTH);
+    add(p3, BorderLayout.CENTER);
+  }
+
+  public static void main(String[] args) {
+    // Create a frame and set its properties
+    JFrame frame = new Test();
+    frame.setSize(200, 100);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+}
+a. Two buttons displayed with the same icon. 
+b. Three buttons displayed with the same icon. 
+c. Only jbt1 displays the icon and jbt2 does not display the icon.
+d. Two buttons displayed with different icons. 
+
+8.	Analyze the following code:
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Test extends JFrame  {
+  public Test() {
+    setLayout(new FlowLayout());
+    add(new JButton("Java"));
+    add(new JButton("Java"));
+    add(new JButton("Java"));
+    add(new JButton("Java"));
+  }
+
+  public static void main(String[] args) {
+    // Create a frame and set its properties
+    JFrame frame = new Test();
+    frame.setSize(200, 100);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+}
+a. One button is displayed with the text "Java". 
+b. Two buttons are displayed with the same text "Java". 
+c. Three buttons are displayed with the same text "Java".
+d. Four buttons are displayed with the same text "Java".
+
+9.	Analyze the following code:
+
+import javax.swing.*;
+import javax.swing.border.*;
+import java.awt.*;
+
+public class Test extends JFrame  {
+  public Test() {
+    Border border = new TitledBorder("My button");
+    JButton jbt1 = new JButton("OK");
+    JButton jbt2 = new JButton("Cancel");
+    jbt1.setBorder(border);
+    jbt2.setBorder(border);
+    add(jbt1, BorderLayout.NORTH);
+    add(jbt2, BorderLayout.SOUTH);
+  }
+
+  public static void main(String[] args) {
+    JFrame frame = new Test();
+    frame.setSize(200, 100);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+}
+a. Two buttons displayed with the same border. 
+b. Two buttons displayed, but only one button has the border. 
+c. The program has a compile error because you assign new TitledBorder("My button") to a variable of the Border type.
+d. The program has a runtime error because you cannot set a border on a button.
+
+Section 12.12 JCheckBox
+10. _________ checks whether the JCheckBox jchk is selected.
+a. jchk.getSelected()
+b. jchk.selected()
+c. jchk.isSelected().
+d. jchk.select()
+
+11. Which of the following statements are true?
+a. JCheckBox inherits from javax.swing.AbstractButton.
+b. All the methods in JCheckBox are also in JButton.
+c. You can set a mnemonic for a JCheckBox.
+d. You can use an icon on JCheckBox.
+
+Section 12.13 JRadioButton
+13. Which of the following statements are true?
+a. JRadioButton inherits from javax.swing.AbstractButton.
+b. All the methods in JRadioButton are also in JButton.
+c. You can set a mnemonic for a JCheckBox.
+d. You can use an icon on JRadioButton.
+
+14. Which of the following statements are true?
+a.	You can create an instance of ButtonGroup and add radio button to the instance to group the buttons.
+b.	ButtonGroup can be added to a container.
+c.	To check whether a radio button jrb is selected, use jrb.isSelected().
+d.	By default, when a radio button is created, the radio button is not selected.
+
+Section 12.14 Labels
+16. Which of the following statements are true?
+a. All the methods in JLabel are inherited from javax.swing.AbstractButton.
+b. You can set a mnemonic key in a JLabel.
+c. You can create a label with both text and icon.
+d. You can create a label with an icon.
+
+17. The method __________ gets the text (or caption) of the label jlbl.
+a.	jlbl.text()
+b.	jlbl.getText()
+c.	jlbl.findText()
+d.	jlbl.retrieveText().
+
+18.	Which of the following are valid methods on the label jlbl?
+a.	jlbl.setMnemonic("A");
+b.	jlbl.setMnemonic('A');
+c.	jlbl.setIconTextGap(50);
+d.	jlbl.setTextGap(50);
+
+19.	The method __________ specifies that the text and icon are horizontally aligned to the right in the label jlbl.
+a.	jlbl.setVerticalTextPosition(JButton.LEFT)
+b.	jlbl.setHorizontalTextPosition(JButton.LEFT)
+c.	jlbl.setHorizontalTextPosition(JButton.RIGHT)
+d.	jlbl.setHorizontalAlignment(JButton.RIGHT)
+e.      jlbl.setHorizontalAlignment(JButton.LEFT)
+
+20.	The method __________ specifies that the text is placed on the right of the icon in the label jlbl.
+a.	jlbl.setVerticalTextPosition(JButton.LEFT)
+b.	jlbl.setHorizontalTextPosition(JButton.LEFT)
+c.	jlbl.setHorizontalTextPosition(JButton.RIGHT)
+d.	jlbl.setHorizontalAlignment(JButton.RIGHT)
+e.      jlbl.setHorizontalAlignment(JButton.LEFT)
+
+21.	The method __________ assigns the name Result to the Text of variable jlbl.
+a.	jlbl.setText("Result")
+b.	jlbl.newText("Result")
+c.	jlbl.text("Result")
+d.	jlbl.findText()
+
+Section 12.15 Text Fields
+22. ___________ can be used to enter or display a string. 
+a. A label
+b. A button
+c. A check box
+d. A radio button
+e. A text field 
+
+23.	Which of the following statements are true?
+a.	You can specify a horizontal text alignment in a text field.
+b.	You can specify the number of columns in a text field.
+c.	You can disable editing on a text field.
+d.	You can create a text field with a specified text.
+
+24.	The method __________ gets the contents of the text field jtf.
+a.	jtf.getText(s)
+b.	jtf.getText()
+c.	jtf.getString()
+d.	jtf.findString()

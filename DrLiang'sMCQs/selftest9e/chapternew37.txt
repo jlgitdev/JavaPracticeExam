@@ -1,0 +1,6 @@
+Chapter 37 Containers, Layout Managers, and Borders
+
+1. Is JApplet is a subclass of JFrame
+a.	Yes
+b.	No
+Key:b

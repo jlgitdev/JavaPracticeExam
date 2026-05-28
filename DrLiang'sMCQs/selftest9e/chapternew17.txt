@@ -1,0 +1,75 @@
+Chapter 17 GUI Components
+1.	Both the foreground color and background color of a UI component can be changed to a new color.
+a. true
+b. false
+Key:a
+
+#
+2.	The font of the text of a button can be changed using the setFont() method.
+a. true
+b. false
+Key:a
+
+#
+3.	You can change a label of a button.
+a. true
+b. false
+Key:a
+
+#
+4.	You can change the caption of a label.
+a. true
+b. false
+Key:a
+
+#
+5.	You can set a text field to be noneditable to prevent the user from modifying it.
+a. true
+b. false
+Key:a
+
+#
+6.	You can set a text area to be noneditable to prevent the user from modifying it.
+a. true
+b. false
+Key:a
+
+#
+7.	You can select multiple items from a list.
+a. true
+b. false
+Key:a
+
+#
+8.	A ButtonGroup object can be used to group radio buttons.
+a. true
+b. false
+Key:a
+
+#
+9.	You can add a JRadioButton object into a ButtonGroup object.
+a. true
+b. false
+Key:a
+
+#
+10.	You can see several frames at one time.
+a. true
+b. false
+Key:a
+
+#
+11. Which component should you use to let the user choose one or more items?
+a. JTextField
+b. JTextArea
+c. JComboBox
+d. JList
+Key:d
+
+#
+12. ________ may generate ActionEvent.
+a. JTextField
+b. JTextArea
+c. JComboBox
+d. JList
+Key:ac

@@ -1,0 +1,6 @@
+Chapter 38 Menus, Toolbars, and Dialogs
+
+1.  Is JMenu a subtype of JComponent?
+a.	Yes
+b.	No
+Key:a

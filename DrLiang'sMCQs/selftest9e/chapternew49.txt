@@ -1,0 +1,8 @@
+Chapter 49 Java 2D
+
+3. Which of the following are subclasses of Arc2D?
+a. Arc2D.Float
+b. Arc2D.Double
+c. Rectangle
+d. RectangleShape
+Key:abc

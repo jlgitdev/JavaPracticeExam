@@ -1,0 +1,109 @@
+Chapter 12 GUI Basics
+
+1. A panel can be placed inside a panel.
+a. true
+b. false
+Key:a
+
+#
+2.	A frame can be placed inside a frame.
+a. true
+b. false
+Key:b
+
+#
+3.	A panel can be placed inside a frame.
+a. true
+b. false
+Key:a
+
+#
+9.	A button's background color can be changed, as well as its foreground color.
+a. true
+b. false
+Key:a
+
+#
+14.	The frame title bar is inside the frame, so you cannot draw things in the area of the title bar.
+a. true
+b. false
+Key:a
+
+#
+15.	The order of the components added into a container of FlowLayout is immaterial.
+a. true
+b. false
+Key:b
+
+#
+16.	The order of the components added into a container of GridLayout is immaterial.
+a. true
+b. false
+Key:b
+
+#
+17.	The order of the components added into a container of BorderLayout is immaterial.
+a. true
+b. false
+Key:a
+
+#
+18.	You can remove a component from a container by using the remove() method. (This question is not covered in the text)
+a. true
+b. false
+Key:a
+
+#
+19.	SansSerif, Serif, Monospaced, Dialog, or DialogInput are the only fonts you can use.
+a. true
+b. false
+Key:b SansSerif, Serif, Monospaced, Dialog, or DialogInput are the standard fonts that you can use on every system. But you can also use other fonts available on your system. See the section on Font and FontMetrics.
+
+#
+20.	You can place a button inside a button, since a button is an instance of Container.
+a. true
+b. false
+Key:a All the public methods in Container are inherited by JButton. You can add components into a button and set the layout in a button. Practically, you never need to add components into a button. One thing I would like to see in the future version of Java is to disable public methods of its superclass in the subclasses.
+
+#
+21.	Suppose you add the same button ten times into the container, the button will appear ten times in the container. 
+a. true
+b. false
+Key:b The button will be displayed only once. Adding the same button into the container any number of times is equivalent to adding it one time.
+
+#
+24. The visible property of a JFrame object is ______ by default.
+a. true
+b. false
+Key:b
+
+#
+25. The visible property of a JButton object is ______ by default.
+a. true
+b. false
+Key:a
+
+#
+26. To display a JFrame frame centered, you may use ____________.
+a. frame.setLocationRelativeTo(); 
+b. frame.setLocationRelativeTo(this);
+c. frame.setLocationRelativeTo(null);
+d. frame.setLocationRelativeTo(this, null);
+Key:c This method is introduced in Ch11 in the 6E of Introduction to Java Programming
+
+#
+27. Which of the following statements are true?
+a. You can set a background color on any instance of Component.
+b. You can set a foreground color on any instance of Component.
+c. You can set a border on any instance of JComponent.
+d. You can set a tooltip text on any instance of JComponent.
+Key:abcd
+
+#
+28. Which layout manager should you use to place GUI components in a row from left to right.
+a. FlowLayout
+b. GridLayout
+c. BorderLayout
+d. CardLayout
+Key:a
+

@@ -1,0 +1,66 @@
+Chapter 33 Networking
+
+1.	Every computer on the network is assigned a unique IP address.
+a. true
+b. false
+Key:a
+
+#
+2.	The server can create a server socket regardless of whether the port is in use or not.
+a. true
+b. false
+Key:b
+
+#
+3.	The client can connect to the server regardless of whether the port is in use or not.
+a. true
+b. false
+Key:a
+
+#
+4.	The java.net.ConnectionException occurs when a client attempts to connect to a server that has not yet started.
+a. true
+b. false
+Key:a
+
+#
+5.	You cannot get instances of InputStream or OutputStream because InputStream and OutputStream are abstract classes.
+a. true
+b. false
+Key:b
+
+#
+6.	getInputStream() and getOutputStream() are used to produce InputStream and OutputStream on the socket.
+a. true
+b. false
+Key:a
+
+#
+7.	An applet cannot read a file on a Web server where the applet was loaded.
+a. true
+b. false
+Key:b
+
+#
+8.	An applet cannot connect to a server program on a Web server where the applet was loaded.
+a. true
+b. false
+Key:a
+
+#
+9.	The URL constructor throws MalformedURLException if the URL is syntactically incorrect.
+a. true
+b. false
+Key:b
+
+#
+10.	JEditorPane is a subclass of JTextArea.
+a. true
+b. false
+Key:b
+
+#
+11. 	You can transmit objects over the socket.
+a. true
+b. false
+Key:a

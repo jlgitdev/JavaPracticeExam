@@ -1,0 +1,22 @@
+Chapter 26 Implementing Lists, Stacks, Queues, and Priority Queues
+
+1. The time complexity for finding an element in a binary search tree is _________.
+a. O(1)
+b. O(logn)
+c. O(n)
+d. O(nlogn)
+Key:c
+
+#
+1. The time complexity for inserting an element in a list is O(logn).
+a. true
+b. false
+Key:a
+
+#
+1. Suppose you want to store students and perform the operations to insert and delete students. Which data structure is best for this application?
+a. An array list
+b. A linked list
+c. A queue
+d. A stack
+Key:b

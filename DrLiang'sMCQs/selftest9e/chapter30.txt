@@ -1,0 +1,65 @@
+Chapter 30 Graphs and Applications
+
+Section 30.2 Basic Graph Terminologies
+2. A ____ is an edge that links a vertex to itself. 
+a. loop
+b. parallel edge
+c. weighted edge
+d. directed edge
+Key:a
+
+#
+3. If two vertices are connected by two or more edges, these edges are called ______. 
+a. loop
+b. parallel edge
+c. weighted edge
+d. directed edge
+Key:b
+
+#
+4. A _________  is the one in which every two pairs of vertices are connected.
+a. complete graph
+b. weighted graph
+c. directed graph
+Key:a
+
+#
+2. What is the number of edges in a complete graph of n vertices?
+a. n
+b. n - 1
+c. n(n-1)/2
+d. n*n
+Key:c
+
+#
+2. What is the number of edges in a tree of n vertices?
+a. n
+b. n - 1
+c. n(n-1)/2
+d. n*n
+Key:b
+
+#
+Sections 30.3-30.10
+1. The _______ search of a graph first visits a vertex, then it recursively visits all the vertices adjacent to that vertex.
+a. depth-first 
+b. breadth-first
+Key:a
+
+#
+1. The _______ the breadth-first search of a graph first visits a vertex, then all its adjacent vertices, then all the vertices adjacent to those vertices, and so on.
+a. depth-first 
+b. breadth-first
+Key:b
+
+#
+1. The time complexity of the DFS algorithm is O(|E| + |V|).
+a. true
+b. false
+Key:a
+
+#
+1. The time complexity of the BFS algorithm is O(|E| + |V|).
+a. true
+b. false
+Key:a

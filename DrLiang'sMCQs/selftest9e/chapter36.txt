@@ -1,0 +1,114 @@
+Chapter 36 JavaBeans and Bean Events
+
+Section 36.2 JavaBeans
+1. Which of the following is true?
+a.	A bean must be a public class.
+b.	A bean must have a public no-arg constructor.
+c.	A bean cannot have any constructors with parameters.
+d.	A bean must implement the java.io.Serializable interface to ensure a persistent state.
+Key:abd
+
+#
+2. Which of the following is true?
+a.	A bean must provide an accessor method for each data field in the class.
+b.	A bean must provide a mutator method for each data field in the class.
+c.	A bean must provide both accessor method and mutator method for each data field in the class.
+d.	A bean property must be defined as a data field.
+e.  Every Java GUI component is a JavaBeans component.
+Key:e
+
+#
+Section 36.3 Bean Properties
+3. The signature for the accessor method of a Date property birthDate should be __________.
+a. public java.util.Date birthDate()
+b. public java.util.Date getbirthDate()
+c. public java.util.Date getBirthDate()
+d. private java.util.Date birthDate()
+e. private java.util.Date getBirthDate()
+Key:c
+
+#
+4. The signature for the mutator method of a Date property birthDate should be __________.
+a. public void birthDate()
+b. public void setbirthDate()
+c. public void setBirthDate(java.util.Date date)
+d. public void birthDate(java.util.Date date)
+Key:c
+
+#
+5. The signature for the accessor method of a Boolean property visible should be __________.
+a. public boolean getVisible()
+b. public boolean isVisible()
+c. public static boolean isVisible()
+d. public boolean visible()
+e. private boolean isVisible()
+Key:b
+
+#
+Section 36.4 Java Event Model Review
+6. An event and its corresponding listener are referred to as ____________.
+a. an event set 
+b. an event pair
+c. an event object
+d. an event class
+Key:ab
+
+#
+7. Any event is an instance of _________.
+a. java.util.EventObject
+b. java.awt.Component
+c. javax.swing.JComponent
+d. java.awt.ActionEvent
+Key:a
+
+#
+8. Any listener is an instance of _________.
+a. java.util.EventListener
+b. java.awt.ActionListener
+c. javax.swing.JComponent
+d. java.util.EventObject
+Key:a
+
+#
+9. The signature for the registration method for an ActionEvent should be __________.
+a. public void setActionListener(ActionListener l)
+b. public void addActionListener(ActionListener l)
+c. public void addActionListener(ActionEvent l)
+d. public void setAction(ActionListener l)
+Key:b
+    
+#
+Section 36.5 Creating Custom Source Components
+10. Which of the following is true?
+a. A source component must have the appropriate registration and deregistration methods for adding and removing listeners. 
+b. Events can be unicasted (only one listener object is notified of the event).
+c. Events can be multicasted (each object in a list of listeners is notified of the event). 
+d. The naming pattern for adding a unicast listener is "public void add<Event>Listener(<Event>Listener l) throws TooManyListenersException"
+e. The naming pattern for adding a multicast listener is "public void add<Event>Listener(<Event>Listener l)"
+Key:abcde
+
+#
+11. Which of the following statements are true with regard to a source component?
+a. The source component contains the code for invoking the event handler from each listener for the source.
+b. The registration and deregistration methods are synchronized to avoid race condition on the list that stores the listeners.
+c. The source component contains the code to create an event.
+d. The source component should always contain the code that register a listener with the source.
+Key:abc (D) is not true. Normally, an application creates a source, a listener and register the source with the listener.
+
+#
+12. ___________ creates an ActionEvent.
+a. new ActionEvent()
+b. new ActionEvent(this)
+c. new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null);
+d. new ActionEvent(null, ActionEvent.ACTION_PERFORMED, this);
+Key:c 
+
+#
+Section 36.6 Creating Custom Event Sets 
+13. Which of the following are true?
+a. A custom event class must extend java.util.EventObject or a subclass of java.util.EventObject.
+b. An event class does not have a no-arg constructor, because you must always specify a source for the event when creating an event.
+c. A custom event listener interface must extend java.util.EventListener or a subinterface of java.util.EventListener, and define the signature of the handlers.
+d. By convention, an event class should be named with suffix Event.
+e. A listener interface for a custom event BeatEvent should be named BeanListener by convention.
+Key:abcde

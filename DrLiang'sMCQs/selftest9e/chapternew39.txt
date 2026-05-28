@@ -1,0 +1,12 @@
+Chapter 39 MVC and Swing MVC Components
+
+1.	JComponent has a property model?
+a. Yes
+b. No
+Key:b
+
+#
+1.	JButton has a property model?
+a. Yes
+b. No
+Key:a

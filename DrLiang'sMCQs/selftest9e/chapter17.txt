@@ -1,0 +1,156 @@
+Chapter 17 GUI Components
+
+MVHS note, our Java class has not dealt with ItemEvents
+
+Section 17.2 Events for JCheckBox, JRadioButton, and JTextField
+1.	Clicking a JButton object generates __________ events.
+a.	ActionEvent
+b.	ItemEvent
+c.	ComponentEvent
+d.	ContainerEvent
+
+# check all that apply
+2.	Clicking a JCheckBox object generates __________ events.
+a.	ActionEvent
+b.	ItemEvent
+c.	ComponentEvent
+d.	ContainerEvent
+
+# check all that apply
+15.	Clicking a JRadioButton generates _____________ events.
+a.	ActionEvent
+b.	ItemEvent
+c.	ComponentEvent
+d.	ContainerEvent
+
+# check all that apply
+16.	Pressing the Enter key on a JTextField generates _____________ events.
+a.	ActionEvent
+b.	ItemEvent
+c.	ComponentEvent
+d.	ContainerEvent
+
+Section 17.3 Text Areas
+25.	The method __________ appends a string s into the text area jta.
+a.	jta.setText(s)
+b.	jta.appendText(s)
+c.	jta.append(s)
+d.	jta.insertText(s)
+
+26.	Which of the following statements are true?
+a.	You can specify a horizontal text alignment in a text area.
+b.	You can specify the number of columns in a text area.
+c.	You can disable editing on a text area.
+d.	You can create a text field with a specified text area.
+
+27.	To wrap a line in a text area jta, invoke ____________.
+a.	jta.setLineWrap(false)
+b.	jta.setLineWrap(true)
+c.	jta.WrapLine()
+d.	jta.wrapText()
+
+28.	To wrap a line in a text area jta on words, invoke ____________.
+a.	jta.setWrapStyleWord(false)
+b.	jta.setWrapStyleWord(true)
+c.	jta.wrapStyleWord()
+d.	jta.wrapWord()
+
+29.	The method __________ adds a text area jta to a scrollpane jScrollPane.
+a.	jScrollPane.add(jta)
+b.	jScrollPane.insert(jta)
+c.	jScrollPane.addItem(jta)
+d.	None of the above.
+
+Section 17.4 Combo Boxes
+30.	How many items can be added into a JComboBox object?
+a.	0
+b.	1
+c.	2
+d.	Unlimited
+
+31.	How many items can be selected from a JComboBox object at a time?
+a.	0
+b.	1
+c.	2
+d.	Unlimited
+
+32.	_______________ returns the selected item on a JComboBox jcbo.
+a.	jcbo.getSelectedIndex()
+b.	jcbo.getSelectedItem()
+c.	jcbo.getSelectedIndices()
+d.	jcbo.getSelectedItems()
+
+33.	The method __________ adds an item s into a JComboBox jcbo.
+a.	jcbo.add(s)
+b.	jcbo.addChoice(s)
+c.	jcbo.addItem(s)
+d.	jcbo.addObject(s).
+
+# check all that apply
+34.	Clicking a JComboBox object always generates __________ events.
+a.	ActionEvent 
+b.	ItemEvent 
+c.	MouseEvent 
+d.      KeyEvent
+e.	WindowEvent
+
+35.	Clicking a JComboBox object generates an ItemEvent event,
+a.	if an item is selected. 
+b.	if a new item is selected.
+
+Section 17.5 Lists
+36.  ____________ is a component that enables the user to choose a single value or multiple values. 
+a. A text field
+b. A combo box
+c. A list
+d. A label
+
+37. ______________ allows selections of multiple contiguous items without restrictions,
+a. Single selection
+b. Single-interval selection 
+c. Multiple-interval selection
+d. Default selection
+
+38. ______________ sets the background of the selected item in list jlst to yellow.
+a. jlst.setBackground(Color.YELLOW)
+b. jlst.setSelectedBackground(Color.YELLOW)
+c. jlst.setSelectionBackground(Color.YELLOW)
+d. jlst.setSelectionbackground(Color.YELLOW)
+
+39.	Clicking a JList object generates __________ events.
+a.	ActionEvent and ItemEvent
+b.	ItemEvent and ComponentEvent
+c.	ComponentEvent and ContainerEvent
+d.	ActionEvent and ContainerEvent
+
+# check all that apply
+Section 17.6 Scroll Bars
+40.	Which of the following statements are true?
+a.	Every Swing GUI component has a default constructor.
+b.	You can create a scroll bar by specifying its orientation. 
+c.	JScrollBar fires an ActionEvent.
+d.	JScrollBar fires an AdjustmentEvent.
+e.      A listener of a JScrollBar must implement AdjustmentEvent and the adjustmentValueChanged method.
+
+# check all that apply
+41.	The following are properties of a JScrollBar.
+a.	minimum
+b.	maximum 
+c.	orientation
+d.	visibleAmount
+
+# check all that apply
+Section 17.7 Sliders
+42.	Which of the following statements are true?
+a.	You can create a JSlider bar by specifying its orientation. 
+b.	JSlider fires an ActionEvent.
+c.	JSlider fires an AdjustmentEvent.
+d.  JSlider fires a javax.swing.event.ChangeEvent.
+e.  A listener of a JSlider must implement ChangeEvent and the stateChanged method.
+
+# check all that apply
+43.	The following are properties of a JSlider.
+a.	minimum
+b.	maximum 
+c.	orientation
+d.	visibleAmount

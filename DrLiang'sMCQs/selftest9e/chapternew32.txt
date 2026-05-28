@@ -1,0 +1,136 @@
+Chapter 32 Multithreading and Parallel Programming
+
+Section 29.3 Creating Tasks and Threads
+7.	Which method do you have to override when you implement the Runnable interface?
+a.	start()
+b.	stop()
+c.	resume()
+d.	init()
+e.	run()
+Key:e
+
+#
+1.	The Thread class implements Runnable.
+a. true
+b. false
+Key:a
+
+#
+2.	To run an object on a separate thread, the object must be a subclass of Thread.
+a. true
+b. false
+Key:a
+
+#
+3.	You can set a priority for a thread using the setPrority() method.
+a. true
+b. false
+Key:a
+
+#
+4.	You can set a priority for an object of ThreadGroup using the setPrority() method.
+a. true
+b. false
+Key:b
+
+#
+5.	You can start a thread group by invoking its start() method.
+a. true
+b. false
+Key:b
+
+#
+6.	The only method defined in the Runnable interface is run().
+a. true
+b. false
+Key:a
+
+#
+7.	The Runnable interface is more general than the Thread class. You can convert any class that extends Thread to a class that implements Runnable.
+a. true
+b. false
+Key:a
+
+#
+8.	You must specify a name for the thread group that you will create.
+a. true
+b. false
+Key:a
+
+#
+9.	You should not directly invoke the run() method of a thread object.
+a. true
+b. false
+Key:a
+
+#
+10.	An exception occurs if the resume() method is invoked by a currently running thread.
+a. true
+b. false
+Key:b
+
+#
+11.	An exception occurs if the resume() method is invoked by a finished thread object.
+a. true
+b. false
+Key:a
+
+#
+21. Analyze the following program.
+
+import java.util.concurrent.*;
+
+public class Test1  {
+  private static Quiz quiz = new Quiz(); // Note that quiz is now a static variable
+  
+  public static void main(String[] args) {
+    new Test1();
+  }
+  
+  public Test1() {
+    ExecutorService executor = Executors.newCachedThreadPool();
+
+    // Create and launch 5 threads
+    for (int i = 0; i < 5; i++) {
+      executor.execute(new TakeQuiz());
+    }
+
+    executor.shutdown();
+
+    // Wait until all tasks are finished
+    while (!executor.isTerminated()) {
+    }
+  }
+  
+  public class TakeQuiz implements Runnable {
+    public void run() {
+      quiz.increaseCount(20);
+    }
+  }
+  
+  public static class Quiz {
+    private int correctCount;
+    
+    public void increaseCount(int times) {
+      correctCount = 0; 
+      for (int i = 0; i < times; i++) {
+        correctCount++;
+        
+        // This delay is deliberately added to magnify the
+        // data-corruption problem and make it easy to see.
+        try {
+          Thread.sleep(15);
+        }
+        catch (InterruptedException ex) {
+        }
+      }
+      
+      System.out.println("Count is " + correctCount);
+    }
+  }
+}
+a. The program displays count is 20 five times
+b. The program displays count is 0 five times
+c. The program displays count is x five times for x being an integer between 0 and 20.
+d. The program displays count is x five times for x being an integer between 0 and 100.
+Key:d

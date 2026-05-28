@@ -1,0 +1,228 @@
+Chapter 37 Containers, Layout Managers, and Borders
+
+Section 37.2 Swing Container Structures
+1. Which of the following properties are in JFrame?
+a.	contentPane
+b.	iconImage
+c.	jMenuBar
+d.	resizable
+e.      title
+Key:abcde
+
+#
+2. Which of the following properties are in JApplet?
+a.	contentPane
+b.	iconImage
+c.	jMenuBar
+d.	resizable
+e.      title
+Key:ac
+
+#
+3. Which of the following components can be placed into a container?
+a.	JFrame
+b.	JApplet
+c.	JPanel
+d.	JDialog
+Key:bc
+
+#
+Section 37.3 Layout Managers 
+4. The size of a component in a container is determined by __________ 
+a. the type of layout manager used by the container.
+b. the layout constraints associated with each component.
+c. the size of the container.
+d. certain properties common to all components (such as preferredSize, minimumSize, maximumSize, alignmentX, and alignmentY).
+Key:abcd
+
+#
+5. Which of the following properties in java.awt.Component may affect layout?
+a. preferredSize
+b. minimumSize
+c. maximumSize
+d. background
+e. font
+Key:abc
+
+#
+6. The preferredSize property is ignored in ______________.
+a. FlowLayout
+b. GridLayout
+c. BorderLayout
+d. Null layout
+Key:bd
+
+#
+7. Which of the following properties are in FlowLayout?
+a.	hgap
+b.	vgap
+c.	alignment
+d.	layout
+e.  visible
+Key:abc
+
+#
+8. Which of the following properties are in GridLayout?
+a.	hgap
+b.	vgap
+c.	alignment
+d.	layout
+e.  visible
+Key:ab
+
+#
+9. Which of the following properties are in BorderLayout?
+a.	hgap
+b.	vgap
+c.	alignment
+d.	layout
+e.  visible
+Key:ab
+
+#
+10. Which of the following properties are in CardLayout?
+a.	hgap
+b.	vgap
+c.	alignment
+d.	layout
+e.  visible
+Key:ab
+
+#
+11. Suppose that a container c uses a CardLayout manager p. Which of the following methods are valid?
+a.	p.first(c)
+b.	p.last(c)
+c.	p.next(c)
+d.	p.previous(c)
+Key:abcd
+
+#
+12. Suppose that a container c uses a CardLayout manager p. Which of the following methods are valid?
+a.	p.first(c)
+b.	p.last(c)
+c.	p.next(c)
+d.	p.previous(c)
+Key:abcd
+
+#
+13. _______________ can be shared by a GUI component?
+a.	A GUI component
+b.	A Color object
+c.	A Font object
+d.	A layout object
+e.  An image icon
+Key:bcde
+
+#
+14. To use no layout manager in a container c, use _________.
+a. c.setLayout()
+b. c.setLayout(new NullLayout())
+c. c.setLayout(null)
+d. c.setLayout(NullLayout)
+Key:c
+
+#
+15. __________ is a Swing layout manager that arranges components in a row or a column.
+a. FlowLayout
+b. BorderLayout
+c. GridLayout
+d. BoxLayout 
+e. CardLayout
+Key:d
+
+#
+16. The Box class uses _____________.
+a. FlowLayout
+b. BorderLayout
+c. GridLayout
+d. BoxLayout 
+e. CardLayout
+Key:d
+
+#
+Section 37.4 Creating Custom Layout Managers
+17. Every layout manager is an instance of __________.
+a. the LayoutManager interface
+b. the LayoutManager class
+c. the Layout interface
+d. the Layout class
+Key:a
+
+#
+Section 37.5 JScrollPane
+18. You can construct a JScrollPane using ____________.
+a. new JScrollPane()
+b. new JScrollPane(Component)
+c. new JScrollPane(Component[])
+d. new JScrollPane(Component, Component)
+Key:ab
+
+#
+Section 37.6 JTabbedPane 
+19. You can construct a JTabbedPane using ____________.
+a. new JTabbedPane()
+b. new JTabbedPane(Component)
+c. new JTabbedPane(Component[])
+d. new JTabbedPane(Component, Component)
+Key:a
+
+#
+20. Which of the following are the valid methods in JTabbedPane?
+a. getTabCount()
+b. getTabPlacement()
+c. getTitleAt(index)
+d. getToolTipTextAt(index)
+Key:abcd
+
+#
+Section 37.7 JSplitPane
+21. You can construct a JSplitPane using ____________.
+a. new JSplitPane()
+b. new JSplitPane(Component)
+c. new JSplitPane(Component[])
+d. new JSplitPane(Component, Component)
+Key:a
+
+#
+Section 37.8 Swing Borders
+22. A border object is an instance of _________.
+a. Border
+b. BevelBorder
+c. TitledBorder
+d. LineBorder
+e. EmptyBorder
+Key:a
+
+#
+23. Which of the following methods create a LineBorder?
+a. new LineBorder()
+b. new LineBorder(Color.YELLOW, 3)
+c. new LineBorder(Color.YELLOW, 3, true)
+d. BorderFactory.createLineBorder(Color.YELLOW)
+e. BorderFactory.createLineBorder(Color.YELLOW, 4)
+Key:bcde
+
+#
+24. Which of the following methods create an EtchedBorder?
+a. new EtchedBorder()
+b. new EtchedBorder(Color.YELLOW, Color.RED)
+c. BorderFactory.createEtchedBorder()
+d. BorderFactory.createEtchedBorder(Color.YELLOW, Color.RED)
+Key:abcd
+
+#
+25. Which of the following methods create a BevelBorder?
+a. new BevelBorder(BevelBorder.LOWERED)
+b. new BevelBorder(BevelBorder.RAISED)
+c. BorderFactory.createBevelBorder(BevelBorder.LOWERED)
+d. BorderFactory.createBevelBorder(BevelBorder.RAISED)
+e. new BevelBorder()
+Key:abcd
+
+#
+26. Which of the following methods create a TitledBorder?
+a. new TitledBorder("A title")
+b. new TitledBorder(new BevelBorder(BevelBorder.LOWERED))
+c. BorderFactory.createTitledBorder("A title")
+d. BorderFactory.createTitledBorder(new BevelBorder(BevelBorder.LOWERED), "A title")
+Key:abcd

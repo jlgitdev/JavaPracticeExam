@@ -1,0 +1,52 @@
+1.	What is the exact output of the following code?
+
+  double area = 3.5;
+  System.out.print("area");
+  System.out.print(area);
+
+a.	3.53.5
+b.	3.5 3.5
+c. 	area3.5
+d.      area 3.5
+Key:c
+
+#
+2.      To assign a value 1 to variable x, you write
+a.	1 = x;
+b.	x = 1;
+c. 	x := 1;
+d.      1 := x;
+e.      x == 1;
+Key:b
+
+#
+3. What is the result of 45 / 4?
+a. 10
+b. 11
+c. 11.25
+d. 12
+Key:b 45 / 4 is an integer division, which results in 11
+
+#
+4. Which of the following expression results in a value 1?
+a. 2 % 1
+b. 15 % 4
+c. 25 % 5
+d. 37 % 6
+Key:d 2 % 1 is 0, 15 % 4 is 3, 25 % 5 is 0, and 37 % 6 is 1
+
+#
+5. Which of the following expression results in 45.37?
+a. (int)(45.378 * 100) / 100 
+b. (int)(45.378 * 100) / 100.0 
+c. (int)(45.378 * 100 / 100) 
+d. (int)(45.378) * 100 / 100.0 
+Key:b 
+
+#
+6. What will be displayed by System.out.println("Java " + 1 + 2)?
+a. Java12
+b. Java3
+c. Java 12
+d. java 12
+key:a

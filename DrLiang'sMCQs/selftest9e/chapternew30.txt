@@ -1,0 +1,7 @@
+Chapter 30 Graphs and Applications
+
+1. The time complexity of the BFS algorithm is O(|E| + |V|).
+a. true
+b. false
+Key:a
+

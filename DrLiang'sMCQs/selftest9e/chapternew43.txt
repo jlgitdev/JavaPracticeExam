@@ -1,0 +1,12 @@
+Chapter 43 JavaServer Pages
+
+1. Which of the following JSP scriptlets is wrong?
+a. <%= i; %>
+b. <%= i %>
+Key:a
+
+#
+2. Which of the following JSP scriptlets is wrong?
+a. <% for (int i = 0; i <= 10; i++) { %> Welcome to Java <% } %>
+b. <% for (int i = 0; i <= 10; i++)  %> Welcome to Java 
+Key:b For JSP, the loop body must be placed inside braces even though the body contains a single statement.

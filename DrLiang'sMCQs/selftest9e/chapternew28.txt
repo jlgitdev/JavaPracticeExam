@@ -1,0 +1,6 @@
+Chapter 28 Hashing
+
+6. The ratio of the size of the map to the size of the hash table is called ______.
+a. load factor   
+b. threshold 
+Key:a

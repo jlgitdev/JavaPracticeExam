@@ -1,0 +1,6 @@
+Chapter 41 Advanced Java Database Programming
+
+1. You can store images in a database
+a. true
+b. false
+Key:a

@@ -1,0 +1,142 @@
+Chapter 13 Exception Handling and Text I/O
+1.	A method can throw a subclass of RuntimeException.
+a. true
+b. false
+Key:a
+
+#
+2.	You cannot place a method call in a try-catch block unless the method claims an exception.
+a. true
+b. false
+Key:b
+
+#
+3.	You must place a method call in a try-catch block if the method claims an exception.
+a. true
+b. false
+Key:a
+
+#
+4.	Placing an exception class after its superclass in the catch block results in a compilation error.
+a. true
+b. false
+Key:a
+
+#
+5.	Any number divided by 0 would cause a compilation error.
+a. true
+b. false
+Key:b A double value divided by 0 would generate no exception in Java!
+
+#
+6.	Any number divided by 0 would generate an exception.
+a. true
+b. false
+Key:b A double value divided by 0 would generate no exception in Java!
+
+#
+7.	A method should not claim Error or RuntimeException in the method declaration, but it may throw exceptions of these types.
+a. true
+b. false
+Key:a
+
+#
+8.	A method cannot throw Exception or a subclass of Exception if it is not claimed in the method declaration.
+a. true
+b. false
+Key:a
+
+#
+9.	The presence of the try-catch block imposes overhead when no exception occurs.
+a. true
+b. false
+Key:b
+
+#
+10.	When an Error-type exception occurs, the GUI application may continue to run.
+a. true
+b. false
+Key:b
+
+#
+11. An exception is always an instance of ___________.
+a. RuntimeException
+b. Exception
+c. Throwable
+d. IOException
+Key:c
+
+#
+12. _________ is the root class of exception classes.
+a. RuntimeException
+b. Exception
+c. Throwable
+d. IOException
+Key:c
+
+#
+13. The methods getMessage(), printStackTrace(), and toString() are available in ________ class.
+a. RuntimeException
+b. Exception
+c. Throwable
+d. IOException
+Key:abcd
+
+#
+14. Which of the classes are in the java.lang package?
+a. RuntimeException
+b. Exception
+c. Throwable
+d. IOException
+Key:abc
+
+#
+15. _________ are checked exceptions.
+a. RuntimeException
+b. Exception
+c. Throwable
+d. IOException
+Key:bcd
+
+#
+16. _________ are unchecked exceptions.
+a. RuntimeException
+b. Exception
+c. Throwable
+d. IOException
+Key:a
+
+#
+17. If an exception occurs in a try-catch block, the code in the finally clause _________.
+a. is executed
+b. is not executed
+c. may be executed
+d. is not executed if the exception is caught.
+Key:a
+
+#
+18. If no exception occurs in a try-catch block, the code in the finally clause _________.
+a. is executed
+b. is not executed
+c. may be executed
+d. is ignored.
+Key:a
+
+#
+18. Analyze the following code:
+
+public static boolean isCorrect() {
+  try {
+    // Perform some tasks
+    // ...
+    return true;
+  } 
+  finally {
+    return true;
+  }  
+}
+a. When invoking the isCorrect method, it returns true if no exceptions occur in the method.
+b. When invoking the isCorrect method, it returns false if any exceptions occur in the method.
+c. When invoking the isCorrect method, it always returns false.
+d. When invoking the isCorrect method, it always returns true.
+Key:c Since the finally block is always executed, the method always returns false.

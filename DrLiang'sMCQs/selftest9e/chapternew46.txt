@@ -1,0 +1,8 @@
+Chapter 46 Remote Method Invocation
+
+1. Which of the following statements are true?
+a. RMI clients can directly invoke the server method, whereas socket-level programming is limited to passing values. 
+b. In socket-level programming, a client operation to send data requires a server operation to read it. The implementation of client and server at the socket-level is tightly synchronized.
+c. RMI applications are scalable and easy to maintain. You can change the RMI server or move it to another machine without modifying the client program except for resetting the URL to locate the server. 
+d. RMI enables you to program at a higher level of abstraction. It hides the details of socket server, socket, connection, and sending or receiving data. It even implements a multithreading server under the hood, whereas with socket-level programming you have to explicitly implement threads for handling multiple clients. 
+Key:abcd

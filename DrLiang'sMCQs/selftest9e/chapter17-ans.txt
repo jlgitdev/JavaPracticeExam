@@ -1,0 +1,35 @@
+Chapter 17 GUI Components
+Section 17.2 Events for JCheckBox, JRadioButton, and JTextField
+1.	a
+2.	ab
+15.	ab
+16.	a
+
+Section 17.3 Text Areas
+25.	c
+26.	bcd
+27.	b
+28.	b
+29.	a
+
+Section 17.4 Combo Boxes
+30.	d
+31.	b
+32.	b
+33.	c
+34.	ac 
+35.	b
+
+Section 17.5 Lists
+36.c
+37. cd
+38.c
+39.a
+
+Section 17.6 Scroll Bars
+40.	abde
+41.	abcd
+
+Section 17.7 Sliders
+42.	abde
+43.abc

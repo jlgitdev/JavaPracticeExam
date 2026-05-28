@@ -1,0 +1,358 @@
+Chapter 16 Event-Driven Programming
+
+Section 16.2 Event and Event Source
+1.	Pressing a button generates a(n) __________ event.
+a.	ItemEvent
+b.	MouseEvent
+c.	MouseMotionEvent
+d.	ActionEvent
+e.	ContainerEvent
+
+2.	Clicking the closing button on the upper-right corner of a frame generates a(n) __________ event.
+a.	ItemEvent
+b.	WindowEvent
+c.	MouseMotionEvent
+d.	ComponentEvent
+e.	ContainerEvent
+
+3. Which of the following statements are true?
+a. If a component can generate an event, any subclass of the component can generate the same type of event.
+b. All the event classes are subclasses of EventObject.
+c. A component on which an event is generated is called the source object.
+d. Every GUI component can generate MouseEvent, KeyEvent, FocusEvent, and ComponentEvent.
+
+Section 16.3 Listeners, Registrations, and Handling Events 
+4.	The component that processes the listener is called ___________.
+a. the source object
+b. the listener object
+c. the adapter object
+d. the adaptee object
+
+5. Which of the following statements are true?
+a. Each event class has a corresponding listener interface.
+b. The listener object's class must implement the corresponding event-listener interface.
+c. A source may have multiple listeners.
+d. The listener object must be registered by the source object.
+e. A listener may listen for multiple sources.
+
+6.	Which of the following statements registers a panel object p as a listener for a button variable jbt?
+a.	addActionListener(p);
+b.	jbt.addActionListener(p);
+c.	jbt.addActionEventListener(p);
+d.	jbt.addEventListener(p);
+
+7.	The interface __________ should be implemented to listen for a button action event.
+a.	MouseListener
+b.	ActionListener
+c.	FocusListener
+d.	WindowListener
+e.	ContainerListener
+
+8.	The method in the ActionEvent __________ returns the action command of the button.
+a.	getActionCommand()
+b.	getModifiers()
+c.	paramString()
+d.	getID()
+
+9. 	The handler (e.g., actionPerformed) is a method in ________.
+a.	a source object 
+b.	a listener object
+c.	both source and listener object
+d.	the Object class
+e.	the EventObject class
+
+10.	Every event object has the ________ method.
+a.	getSource()
+b.	getActionCommand()
+c.	getTimeStamp()
+d.	getWhen()
+e.	getKeyChar()
+
+Section 16.4 Inner Classes
+11. Which of the following statements are true?
+a. Inner classes can make programs simple and concise. 
+b. An inner class can be declared public or private subject to the same visibility rules applied to a member of the class. 
+c. An inner class can be declared static. A static inner class can be accessed using the outer class name. A static inner class cannot access nonstatic members of the outer class.
+d. An inner class supports the work of its containing outer class and is compiled into a class named OuterClassName$InnerClassName.class.
+
+12. Suppose A is an inner class in Test. A is compiled into a file named _________.
+a. A.class
+b. Test$A.class
+c. A$Test.class
+d. Test&A.class
+
+13. Which statement is true about a non-static inner class?
+a.	It must implement an interface. 
+b.	It is accessible from any other class. 
+c.	It can only be instantiated in the enclosing class. 
+d.	It must be final if it is declared in a method scope. 
+e.	It can access private instance variables in the enclosing object.
+
+Section 16.5 Anonymous Class Listeners
+14. Which of the following statements are true?
+a. An anonymous inner class is an inner class without a name.
+b. An anonymous inner class must always extend a superclass or implement an interface, but it cannot have an explicit extends or implements clause. 
+c. An anonymous inner class must implement all the abstract methods in the superclass or in the interface.
+d. An anonymous inner class always uses the no-arg constructor from its superclass to create an instance. If an anonymous inner class implements an interface, the constructor is Object().
+e. An anonymous inner class is compiled into a class named OuterClassName$n.class. 
+
+15. Suppose A is an anonymous inner class in Test. A is compiled into a file named _________.
+a. A.class
+b. Test$A.class
+c. A$Test.class
+d. Test$1.class
+e. Test&1.class
+
+17. Analyze the following code.
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Test extends JFrame {
+  public void Test() {
+    JButton jbtOK = new JButton("OK");
+    add(jbtOK);
+    jbtOK.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        System.out.println("The OK button is clicked");
+      }
+    });
+  }
+
+  public static void main(String[] args) {
+    JFrame frame = new Test();
+    frame.setSize(300, 300);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+} 
+
+a. The program has a compile error because no listeners are registered with jbtOK.
+b. The program has a runtime error because no listeners are registered with jbtOK.
+c. The message "The OK button is clicked" is displayed when you click the OK button.
+d. The actionPerformed method is not executed when you click the OK button, because no instance of Test is registered with jbtOK.
+e. When you run the program, the button is not displayed, because the constructor is declared wrong. It should be declared public Test(), not public void Test().
+
+Section 16.6 Alternative Ways of Defining Listener Classes
+18. Analyze the following code.
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Test extends JFrame implements ActionListener  {
+  public Test() {
+    JButton jbtOK = new JButton("OK");
+    getContentPane().add(jbtOK);
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    System.out.println("The OK button is clicked");
+  }
+
+  public static void main(String[] args) {
+    JFrame frame = new Test();
+    frame.setSize(300, 300);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+} 
+
+a. The program has a compile error because no listeners are registered with jbtOK.
+b. The program has a runtime error because no listeners are registered with jbtOK.
+c. The message "The OK button is clicked" is displayed when you click the OK button.
+d. The actionPerformed method is not executed when you click the OK button, because no instance of Test is registered with jbtOK.
+e. None of the above.
+
+19. Analyze the following code.
+
+1 import java.awt.*;
+2 import java.awt.event.*;
+3 import javax.swing.*;
+4 
+5 public class Test extends JFrame {
+6   public Test() {
+7     JButton jbtOK = new JButton("OK");
+8     JButton jbtCancel = new JButton("Cancel");
+9     getContentPane().add(jbtOK);
+10    getContentPane().add(jbtCancel);
+11    jbtOK.addActionListener(this);
+12    jbtCancel.addActionListener(this);
+13  }
+14
+15  public void actionperformed(ActionEvent e) {
+16    System.out.println("A button is clicked");
+17  }
+18
+19  public static void main(String[] args) {
+20    JFrame frame = new Test();
+21    frame.setSize(300, 300);
+22    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+23    frame.setVisible(true);
+24  }
+25}
+
+a. The program has compile errors on Lines 11 and 12 because Test does not implement ActionListener.
+b. The program has compile errors on Line 15 because the signature of actionperformed is wrong.
+c. The program has compile errors on Line 20 because new Test() is assigned to frame (a variable of JFrame).
+d. The program has runtime errors on Lines 9 and 10 because jbtOK and jbtCancel are added to the same location in the container.
+e. None of the above.
+
+20. Analyze the following code.
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Test extends A {
+  public static void main(String[] args) {
+    A frame = new Test();
+    frame.setSize(200, 100);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+
+  JButton jbtOK = new JButton("OK");
+
+  public Test() {
+    getContentPane().add(jbtOK);
+    jbtOK.addActionListener(this);
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    super.actionPerformed(e);
+
+    if (e.getSource() == jbtOK)
+      System.out.println("OK button is clicked");
+  }
+}
+
+class A extends JFrame implements ActionListener {
+  JButton jbtCancel = new JButton("Cancel");
+
+  public A() {
+    getContentPane().setLayout(new FlowLayout());
+    getContentPane().add(jbtCancel);
+    jbtCancel.addActionListener(this);
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    if (e.getSource() == jbtCancel)
+      System.out.println("Cancel button is clicked");
+  }
+}
+a. The program displays Cancel button on the left of the OK button.
+b. When you click the OK button the message "OK button is clicked" is displayed.
+c. When you click the Cancel button the message "Cancel button is clicked" is displayed.
+d. If the super.actionPerformed(e) statement in the actionPerformed method in the Test class is omitted, no message is displayed if you click the Cancel button.
+e. All of the above.
+
+Section 16.8 Mouse Events
+21.	To detect whether the right button of the mouse is pressed, you use the method __________ in the MouseEvent object evt.
+a.	evt.isAltDown()
+b.	evt.isControlDown()
+c.	evt.isMetaDown()
+d.	evt.isShiftDown()
+
+22.	To listen to mouse clicked events, the listener must implement the __________ interface or extend the _______ adapter.
+a.	MouseListener/MouseAdapter
+b.	MouseMotionListener/MouseMotionAdapter
+c.	WindowListener/WindowAdapter
+d.	ComponentListener/ComponentAdapter
+
+23.	To listen to mouse moved events, the listener must implement the __________ interface or extend the _______ class.
+a.	MouseListener/MouseAdapter
+b.	MouseMotionListener/MouseMotionAdapter
+c.	WindowListener/WindowAdapter
+d.	ComponentListener/ComponentAdapter
+
+24.	To get the x coordinate of the mouse pointer for the MouseEvent evt, you use __________.
+a.	evt.getX()
+b.	evt.getPoint().x
+c.	Either A or B
+d.	Neither A nor B
+
+25.	The listener's __________ method is invoked after a mouse button is pressed (but not released yet).
+a.	public void mousePressed(MouseEvent e)
+b.	public void mouseReleased(MouseEvent e)
+c.	public void mouseEntered(MouseEvent e)
+d.	public void mouseExited(MouseEvent e)
+e.	public void mouseClicked(MouseEvent e)
+
+26.	The listener's __________ method is invoked after a mouse button is released.
+a.	public void mousePressed(MouseEvent e)
+b.	public void mouseReleased(MouseEvent e)
+c.	public void mouseEntered(MouseEvent e)
+d.	public void mouseExited(MouseEvent e)
+e.	public void mouseClicked(MouseEvent e)
+
+Section 16.9 Listener Interface Adapters
+16. Which of the following are correct names for listener adapters?
+a. ActionAdapter
+b. MouseAdapter
+c. KeyAdapter
+d. WindowAdapter
+
+Section 16.10 Keyboard Events
+27.	To listen to keyboard actions, the listener must implement the __________ interface or extend the _________ class.
+a.	MouseListener/MouseAdapter
+b.	KeyListener/KeyAdapter
+c.	WindowListener/WindowAdapter
+d.	ComponentListener/ComponentAdapter
+
+28. Which of the following statements are true?
+a. The keyPressed handler is invoked when a key is pressed.
+b. The keyReleased handler is invoked when a key is released.
+c. The keyTyped handler is invoked when a key is entered. 
+d. The keyTyped handler is invoked when a Unicode character is entered. 
+
+29. 	To check whether a DELETE key is pressed or released, which handler should be used?
+a.	keyPressed(KeyEvent e)
+b.	keyReleased(KeyEvent e)
+c.	keyTyped(KeyEvent e)
+
+30.	The getKeyCode() method of the KeyEvent returns __________.
+a.	a character
+b.	the ASCII code of the character
+c.	the Unicode code of the character
+d.	None of the above.
+
+31.	What is the value of evt.getKeyCode() or evt.getChar() for the keyTyped() events?
+a.	A character
+b.	The ASCII code of the character
+c.	The Unicode code of the character
+d.	VK_UNDEFINED
+
+32.	To enable a component to listen to keyboard events, you need to ____
+a.	Implement the KeyListener interface for the component.
+b.	Override the isFocusTraversable method defined in the Component class to return true. 
+c.	Invoke the component's requestFocus method to set focus on this component.   
+
+33. To be a listener for ActionEvent, an object must be an instance of ____________.
+a.	ActionEvent 
+b.	ActionListener 
+c.	EventObject 
+d.	WindowListener 
+e.	WindowEvent
+
+34. You can use getWhen() to find the time of an ____________.
+a.	ActionEvent 
+b.	MouseEvent
+c.	KeyEvent
+d.	ComponentEvent
+e.	WindowEvent
+
+Section 16.11 Animation Using the Timer Class
+35.	Which of the following statements are true?
+a.	You can add a listener in the Timer constructor.
+b.	You can use the addActionListener method in the Timer class to add a listener.
+c.	You can specify a delay in the Timer constructor.
+d.	You can specify a delay using the setDelay method.
+
+36.	Which of the following statements are true?
+a.	You must always specify a listener when creating a Timer object.
+b.	You can add multiple listeners for a Timer object.
+c.	To stop a timer, invoke timer.stop().
+d.	To start a timer, invoke timer.start().
+e.  When a timer is created, it is automatically started.

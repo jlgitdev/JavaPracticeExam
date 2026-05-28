@@ -1,0 +1,62 @@
+Chapter 24 Developing Efficient Algorithms
+
+1. O(n) is ________.
+a. constant time
+b. logarithmic time
+c. linear time
+d. log-linear time
+Key:c
+
+#
+2. O(nlong) is ________.
+a. constant time
+b. logarithmic time
+c. linear time
+d. log-linear time
+e. quadratic time
+Key:d
+
+#
+3. O(n*n) is ________.
+a. constant time
+b. logarithmic time
+c. linear time
+d. log-linear time
+e. quadratic time
+Key:e
+
+#
+4. The worst-time complexity for linear search is ________.
+a. O(1)
+b. O(logn)
+c. O(n)
+d. O(nlong)
+e. O(n*n)
+Key:c
+
+#
+5. The worst-time complexity for binary search is ________.
+a. O(1)
+b. O(logn)
+c. O(n)
+d. O(nlong)
+e. O(n*n)
+Key:b
+
+#
+6. The worst-time complexity for selection sort is ________.
+a. O(1)
+b. O(logn)
+c. O(n)
+d. O(nlong)
+e. O(n*n)
+Key:e
+
+#
+7. The worst-time complexity for the Towers of Hanoi problem is ________.
+a. O(2^n)
+b. O(logn)
+c. O(n)
+d. O(nlong)
+e. O(n*n)
+Key:a Exponetial tim

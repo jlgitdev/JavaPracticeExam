@@ -1,0 +1,145 @@
+Chapter 18 Applets and Multimedia
+
+1.	Applets must be embedded in an HTML page.
+a. true
+b. false
+Key:a
+
+#
+2.	You can add menus into an applet.
+a. true
+b. false
+Key:b
+
+#
+3.	You can place an applet into a frame.
+a. true
+b. false
+Key:a
+
+#
+4.	You can launch frames from an applet.
+a. true
+b. false
+Key:a
+
+#
+5.	You can write an applet to run both as an applet and as an application.
+a. true
+b. false
+Key:a
+
+#
+6.	You can pass HTML parameters to an applet.
+a. true
+b. false
+Key:a
+
+#
+7.	Having a main() method in an applet causes errors.
+a. true
+b. false
+Key:b
+
+#
+8.	A main() method is required to run an applet.
+a. true
+b. false
+Key:b
+
+#
+9.	A main() method is required to run an application.
+a. true
+b. false
+Key:a
+
+#
+10.	You must always override the init() method in the applet.
+a. true
+b. false
+Key:b
+
+#
+11.	If you pass HTML parameters to an applet, you must override the init() method to receive the parameters.
+a. true
+b. false
+Key:a
+
+#
+12.	The return type of init(), start(), stop(), and destroy() is void.
+a. true
+b. false
+Key:a
+
+#
+13.	The init(), start(), stop(), and destroy() methods have no arguments.
+a. true
+b. false
+Key:a
+
+#
+14.	You can set a title for an applet using the setTitle() method.
+a. true
+b. false
+Key:b
+
+#
+15.	The Applet's getParameter method can be invoked from the applet's default constructor.
+a. true
+b. false
+Key:b It can be invoked only after the applet is created.
+
+#
+3.	Java only accepts .au format audio files.
+a. true
+b. false
+Key:b
+
+#
+4.	Java can display .gif and .jpg image files.
+a. true
+b. false
+Key:b
+
+#
+5.	You can get audio files only through the Applet class.
+a. true
+b. false
+Key:a
+
+#
+6. An applet must have a no-arg constructor implicitly or explicitly.
+a. true
+b. false
+Key:a
+
+#
+7. You can view an applet using _______.
+a. a Web browser
+b. an applet viewer
+c. the java command
+Key:ab
+
+#
+9. An applet must _______.
+a. contain a main method
+b. override the init() method
+c. override the start() method
+d. contain a no-arg constructor explicitly or implicitly
+Key:d
+
+#
+10. An applet is declared by extending _______.
+a. JFrame
+b. JApplet
+c. Applet
+d. JPanel
+Key:bc
+
+#
+11. An applet may contain _______.
+a. a main method
+b. a static method
+c. a no-arg constructor plus other overloaded constructors
+d. an instance method
+Key:abcd

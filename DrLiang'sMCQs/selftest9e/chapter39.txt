@@ -1,0 +1,252 @@
+Chapter 39 MVC and Swing MVC Components
+
+Section 39.2 MVC 
+1. The component for storing and handling data, known as _________, contains the actual contents of the component.
+a. a model
+b. a view
+c. a controller
+Key:a
+
+#
+2. Which of the following statements are true?
+a. The model-view-controller (MVC) approach is a way of developing components by separating data storage and handling from the visual representation of the data. 
+b. The model-view-controller (MVC) approach makes multiple views possible so that data can be shared through the same model. 
+c. The model-view-controller (MVC) approach simplifies the task of writing complex applications and makes the components scalable and easy to maintain. Changes can be made to the view without affecting the model, and vice versa.
+d. Models and views are synchronized to ensure that a view displays the data consistently.
+Key:abcd
+
+#
+Section 39.4 Swing Model-View-Controller Architecture
+3.	Which of the following statements are true?
+a. Each Swing user interface component (except some containers and dialog boxes such as JPanel, JSplitPane, JFileChooser, and JColorChooser) has a property named model that refers to its data model. 
+b. The data model is defined in an interface whose name ends with Model. For example, the model for button component is ButtonModel.
+c. Most model interfaces have a default implementation class that is commonly named DefaultX, where X is its model interface name. For example, the default implementation class for ButtonModel is DefaultButtonModel. 
+d. For convenience, most Swing components contain some properties of their models, and these properties can be accessed and modified directly from the component without knowing the existence of the model. 
+e. It is unnecessary to use the models for the simple Swing components such as JButton, JToggleButton, JCheckBox, JRadioButton, JTextField, and JTextArea, because the frequently used properties in their models are also in these components.
+Key:abcde
+
+#
+4.	Analyze the following code.
+public class Test {
+  public static void main(String[] args) {
+    javax.swing.JButton jbt1 = new javax.swing.JButton();
+    javax.swing.JButton jbt2 = new javax.swing.JButton();
+
+    // Create a new button model
+    javax.swing.ButtonModel model = 
+      new javax.swing.DefaultButtonModel();
+
+    // Set properties in the model
+    model.setActionCommand("OK");
+    model.setMnemonic('O');
+
+    // Assign the model to the button
+    jbt1.setModel(model);
+    jbt2.setModel(model);
+   
+    jbt2.setActionCommand("Cancel");
+
+    // Display the property values from the component
+    System.out.println("jbt1's actionCommand is " + jbt1.getActionCommand());
+    System.out.println("jbt1's mnemonic is " + jbt1.getMnemonic());
+    System.out.println("jbt2's actionCommand is " + jbt2.getActionCommand());
+    System.out.println("jbt2's mnemonic is " + jbt2.getMnemonic());
+  }
+}
+a.	jbt1 and jbt2 are the same object.
+b.	jbt1 and jbt2 have the the same model.
+c.	jbt1 and jbt2 have the same actionCommand property.
+d.	jbt1 and jbt2 have the same mnemonic property.
+Key:bcd
+
+#
+Section 39.5 JSpinner
+5. If you create a JSpinner object without specifying a model, the spinner displays _______.
+a. a sequence of integers 
+b. a sequence of double values 
+c. a sequence of positive integers
+d. a sequence of non-negative integers
+Key:a
+
+#
+6. JSpinner fires _________ when a new value is selected.
+a. java.awt.ActionEvent
+b. java.awt.event.ItemEvent
+c. javax.swing.event.ChangeEvent
+d. javax.swing.event.AdjustmentEvent
+Key:c
+
+#
+7. A listener of a JSpinner must implement _________.
+a. the java.awt.ActionListener interface
+b. the java.awt.ItemListener interface
+c. javax.swing.event.ChangeListener
+d. javax.swing.event.AdjustmentListener
+Key:c
+
+#
+8. JSpinner has the following methods:
+a. getNextValue()
+b. getPreviousValue()
+c. getValue()
+d. setValue(Object)
+Key:abcd
+
+#
+9. __________ uses a java.util.List to store a sequence of custom defined data in the model.
+a. SpinnerListModel
+b. SpinnerNumberModel
+c. SpinnerDateModel
+d. SpinnerModel
+Key:a
+
+#
+10. You can create a SpinnerListModel using __________.
+a. new SpinnerListModel()
+b. new SpinnerListModel(new ArrayList())
+c. new SpinnerListModel(new int[10])
+d. new SpinnerListModel(new Integer[10])
+Key:abd
+
+#
+11. You can create a SpinnerNumberModel using __________.
+a. new SpinnerNumberModel()
+b. new SpinnerNumberModel(0, -10, 10, 1)
+c. new SpinnerNumberModel(0, -10, 10, 0.5)
+d. new SpinnerNumberModel(new Integer(0), new Integer(-10), new Integer(10), new Integer(1))
+Key:abcd
+
+#
+12. Which of the following are the properties in SpinnerNumberModel?
+a. maximum
+b. minimum
+c. stepSize
+d. nextValue
+e. previousValue
+Key:abcde
+
+#
+13. Which of the following are the properties in SpinnerDateModel?
+a. start
+b. end
+c. nextValue
+d. previousValue
+Key:abcd
+
+#
+Section 39.7 JList
+14. You can create a JList using __________.
+a. new JList()
+b. new JList(new String[]{"red", "green", "blue"})
+c. new JList(new Vector())
+d. new JList(new DefaultListModel());
+Key:abcd
+
+#
+15. The layoutOrientation property in JList specifies how elements are laid out in a list with the following possible values:
+a. JList.VERTICAL
+b. JList.HORIZONTAL_WRAP
+c. JList.VERTICAL_WRAP
+d. JList.NO_WRAP
+e. Default is JList.VERTICAL
+Key:abce
+
+#
+16. The selectionMode property in JList specifies how items in a list can be selected with the following possible values:
+a. ListSelectionModel.SINGLE_SELECTION
+b. ListSelectionModel.SINGLE_INTERVAL_SELECTION
+c. ListSelectionModel.MULTIPLE_INTERVAL_SELECTION
+d. Default is ListSelectionModel.MULTIPLE_INTERVAL_SELECTION
+Key:abcd
+
+#
+17. _________ are the properties in JList.
+a. visibleRowCount
+b. model
+c. fixedCellHeight
+d. fixedCellWidth
+e. selectionMode
+Key:abcde
+
+#
+18. JList fires _________ when a new item is selected.
+a. java.awt.ActionEvent
+b. java.awt.event.ItemEvent
+c. javax.swing.event.ChangeEvent
+d. javax.swing.event.AdjustmentEvent
+Key:c
+
+#
+19. A listener of a JList must implement _________.
+a. the java.awt.ActionListener interface
+b. the java.awt.ItemListener interface
+c. javax.swing.event.ChangeListener
+d. javax.swing.event.AdjustmentListener
+Key:c
+
+#
+20. The data in DefaultListModel are stored in ___________.
+a. an array.
+b. an ArrayList
+c. a LinkedList
+d. a Vector
+Key:d
+
+#
+21. The data in DefaultListModel are stored in ___________.
+a. an array.
+b. an ArrayList
+c. a LinkedList
+d. a Vector
+Key:d
+
+#
+22. The DefaultListModel class contains the methods __________.
+a. clear()
+b. add(Object)
+c. remove(Object)
+d. contains(Object)
+e. size()
+Key:abcde
+
+#
+23. DefaultListCellRenderer can display _________.
+a. only a string
+b. only an icon
+c. both string and icon
+d. a string or an icon
+Key:d
+
+#
+Section 39.10 JComboBox
+24. You can create a JComboBox using __________.
+a. new JComboBox()
+b. new JList(new String[]{"red", "green", "blue"})
+c. new JList(new Vector())
+d. new JList(new DefaultComboBoxModel());
+Key:abcd
+
+#
+25. _________ are the properties in JList.
+a. visibleRowCount
+b. maximumRowCount
+c. editable
+d. itemCount
+e. selectedIndex
+Key:bcde
+
+#
+26. JComboBox fires _________ when a new item is selected.
+a. java.awt.ActionEvent
+b. java.awt.event.ItemEvent
+c. javax.swing.event.ChangeEvent
+d. javax.swing.event.AdjustmentEvent
+Key:ab
+
+#
+27. JComboBox contains the methods ___________.
+a. for adding an item (addItem(Object))
+b. for inserting an item (insertItemAt(Object item, int index)
+c. for removing an item (removeItemAt(int index))
+d. for removing all items (removeAllItems())
+Key:abcd

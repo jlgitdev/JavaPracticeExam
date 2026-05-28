@@ -1,0 +1,209 @@
+Chapter 38 Menus, Toolbars, and Dialogs
+
+Section 38.2 Menus
+1.	The method __________ places a menu bar mb into the frame f.
+a.	f.setJMenu(mb)
+b.	f.add(mb)
+c.	f.setJMenuBar(mb)
+d.	f.addBar(mb)
+Key:c
+
+#
+2.	The method __________ places a menu mu into a menu bar mb.
+a.	mb.add(mu)
+b.	mb.addMenuItem(mu)
+c.	mb.addItem(mu)
+d.	None of the above.
+Key:a
+
+#
+3.	The method __________ places a menu item mi into a menu mu.
+a.	mu.add(mi)
+b.	mu.addMenuItem(mi)
+c.	mu.addItem(mi)
+d.	None of the above.
+Key:a
+
+#
+4.	A MenuItem object can generate __________ events.
+a.	ActionEvent
+b.	ItemEvent
+c.	ComponentEvent
+d.	ContainerEvent
+Key:a
+
+#
+5.	The method __________ separates menu items in a menu mu.
+a.	mu.add('-')
+b.	mu.addSeparator()
+c.	mu.separator()
+d.	mu.useSeparator()
+Key:ab
+
+#
+6.	A JMenuItem is a subclass of ________.
+a.	JButton
+b.	AbstractButton
+c.	JComponent
+d.	JMenu
+Key:bc
+
+#
+7.	A JMenu is a subclass of ________.
+a.	JMenuItem
+b.	AbstractButton
+c.	JComponent
+d.	JButton
+Key:abc
+
+#
+8.	A JCheckBoxMenuItem is a subclass of ________.
+a.	JMenuItem
+b.	AbstractButton
+c.	JComponent
+d.	JMenu
+Key:abc
+
+#
+9.	A JRadioButtonMenuItem is a subclass of ________.
+a.	JMenuItem
+b.	AbstractButton
+c.	JComponent
+d.	JMenu
+Key:abc
+
+#
+10.	You can set a mnemonic property on ___________.
+a.	a JMenu
+b.	a JMenuItem
+c.	a JCheckBoxMenuItem
+d.	a JRadioButtonMenuItem
+Key:abcd
+
+#
+11.	You can set an imageIcon property on ___________.
+a.	a JMenu
+b.	a JMenuItem
+c.	a JCheckBoxMenuItem
+d.	a JRadioButtonMenuItem
+Key:abcd
+
+#
+12.	You can add a menu item into set an imageIcon property on ___________.
+a.	a JMenu
+b.	a JMenuItem
+c.	a JCheckBoxMenuItem
+d.	a JRadioButtonMenuItem
+Key:abcd
+
+#
+13. Which of the following statements are true?
+a. You can add a JMenuItem to a JMenu.
+b. You can add a JMenu to a JMenuItem.
+c. You can add a JRadioButtonMenuItem to a JMenuItem.
+d. You can add a JRadioButtonMenuItem to a JMenu.
+e. You can add a JMenuItem to a JRadioButtonMenuItem.
+Key:acd
+
+#
+Section 38.3 Popup Menus
+14.	A JPopupMenu is a subclass of ________.
+a.	JMenuItem
+b.	AbstractButton
+c.	JComponent
+d.	JMenu
+Key:c
+
+#
+15. Which of the following statements are true?
+a. You can add a JMenuItem to a JPopupMenu.
+b. You can add a JMenu to a JPopupMenu.
+c. You can add a JRadioButtonMenuItem to a JPopupMenu.
+d. You can add a JCheckBoxMenuItem to a JPopupMenu.
+e. You can add a JPopupMenu to a JMenu.
+Key:acd
+
+#
+16. How do you display a JPopupMenu?
+a. Invoke the setVisible(true) from a JPopupMenu.
+b. Invoke the show() from a JPopupMenu.
+c. Invoke the show(Component, x, y) from a JPopupMenu.
+d. Add the JPopupMenu to a container.
+Key:c
+
+#
+17. _____________ is the action that causes a popup menu to be displayed.
+a. Popup trigger
+b. Popup action
+c. Popup event
+d. Popup reaction
+Key:a
+
+#
+Section 38.4 JToolBar
+18. JToolBar uses _________.
+a. FlowLayout
+b. SpringLayout
+c. BoxLayout
+d. GridLayout
+e. BorderLayout
+Key:c
+
+#
+19. Which of the following statements are correct?
+a. You can add any GUI component to a JToolBar.
+b. A JToolBar is a GUI component, so it can be added to a container.
+c. A JToolBar may be floatable.
+d. You can set orientation of a JToolBar.
+Key:abcd
+
+#
+Section 38.5 Processing Actions Using the Action Interface 
+20. Which of the following statements are true?
+a. Action is a subinterface of ActionListener.
+b. JMenu has an add method that enables you to add an instance of ActionListener to the menu.
+c. JMenu has an add method that enables you to add an instance of Action to the menu.
+d. JToolBar has an add method that enables you to add an instance of ActionListener to the menu.
+Key:ac
+
+#
+21. Which of the following statements are true?
+a. JToolBar has an add method that enables you to add an instance of ActionListener to the menu.
+b. JToolBar has an add method that enables you to add an instance of Action to the menu.
+c. JButton has an add method that enables you to add an instance of ActionListener to the menu.
+d. JButton has an add method that enables you to add an instance of Action to the menu.
+e. JButton has a constructor new JButton(Action) that enables you to add an instance of Action to the menu.
+Key:be
+
+#
+Section 38.6 JOptionPane Dialogs 
+22. ______________ displays a message that alerts the user and waits for the user to click the OK button to close the dialog.
+a. A message dialog 
+b. A confirmation dialog
+c. An input dialog
+d. An option dialog
+Key:a
+
+#
+23. ____________ asks a question and requires the user to respond with an appropriate button. 
+a. A message dialog 
+b. A confirmation dialog
+c. An input dialog
+d. An option dialog
+Key:b
+
+#
+24. __________ is used to receive input from the user. 
+a. A message dialog 
+b. A confirmation dialog
+c. An input dialog
+d. An option dialog
+Key:c
+
+#
+25. ___________ allows you to create custom buttons.
+a. A message dialog 
+b. A confirmation dialog
+c. An input dialog
+d. An option dialog
+Key:d

@@ -1,0 +1,302 @@
+Chapter 4 Loops
+
+1.	You can always convert a for loop to a while loop.
+a. true
+b. false
+Key:a
+
+#
+2.	You can always convert a while loop to a for loop.
+a. true
+b. false
+Key:a You can rewrite the following while loop <p>while (continuation-condition) <br>{ <br>&nbsp; // body<br>}<br><br>to a for loop as follows:<br><br>for (; ;)<br>{<br>  &nbsp;&nbsp; if (continuation-condition)<br>  &nbsp; {<br> &nbsp;&nbsp;&nbsp; // body <br> &nbsp; }<br>  &nbsp; else <br>    &nbsp;&nbsp;&nbsp; exit;<br>}<br>
+
+#
+3.	The while loop and the do loop are equivalent in their expressive power; in other words, you can rewrite a while loop using a do loop, and vice versa.
+a. true
+b. false
+Key:a
+
+#
+4.	You can always write a program without using break or continue in a loop.
+a. true
+b. false
+Key:a
+
+#
+5.	The elements inside the for loop control are separated using semicolons instead of commas.
+a. true
+b. false
+Key:a
+
+#
+11.	A break statement can be used only in a loop.
+a. true
+b. false
+Key:b A break statement can be used inside a switch statement too. A break statement can only be used with a loop and a switch statement.
+
+#
+12.	A continue statement can be used only in a loop.
+a. true
+b. false
+Key:a
+
+#
+24.	Which of the loop statements always have their body executed at least once.
+a.	The while loop
+b.	The do-while loop
+c.	The for loop
+Key:b
+
+#
+3.	What will be displayed when the following code is executed?
+
+    int number = 6;
+    while (number >= 0) {
+      number -= 3;
+      System.out.print(number + " ");
+    }
+a.	6 3 0
+b.	6 3 
+c.	3 0
+d.      3 0 -3
+e.      0 -3
+Key:d
+
+#
+25.	Analyze the following code.
+
+    int x = 1;
+    while (0 < x) && (x < 100)
+      System.out.println(x++);
+a.	The loop runs forever. 
+b.	The code does not compile because the loop body is not in the braces.
+c.	The code does not compile because (0 < x) && (x < 100) is not enclosed in a pair of parentheses.
+d.	The numbers 1 to 99 are displayed. 
+e.	The numbers 2 to 100 are displayed. 
+Key:c
+
+#
+26.	Analyze the following code.
+
+double sum = 0;
+for (double d = 0; d < 10; sum += sum + d)  {  
+  d += 0.1;
+}
+a.	The program has a syntax error because the adjustment statement is incorrect in the for loop.
+b.	The program has a syntax error because the control variable in the for loop cannot be of the double type.
+c.	The program compiles but does not stop because d would always be less than 10.
+d.	The program compiles and runs fine.
+Key:d
+
+#
+27.	What is y after the following for loop statement is executed?
+
+int y = 0;
+for (int i = 0; i < 10; ++i)  { 
+   y += 1;   
+}
+a.	9
+b.	10
+c.	11
+d.	12
+Key:b
+
+#
+28.	What balance after the following code is executed?
+
+int balance = 10;
+
+while (balance >= 1) {
+  if (balance < 9) continue;
+  balance = balance - 9;
+}
+a. -1
+b.	0
+c.	1
+d.	2
+e.	The loop does not end
+Key:e
+
+#
+29.	What is the value of balance after the following code is executed?
+
+int balance = 10;
+
+while (balance >= 1) {
+  if (balance < 9) break;
+  balance = balance - 9;
+}
+a. -1
+b.	0
+c.	1
+d.	2
+Key:c
+
+#
+35. Assume x is 0. What is the output of the following statement?
+
+if (x > 0)
+   printf("x is greater than 0");
+else if (x < 0)
+   printf("x is less than 0");
+else
+   printf("x equals 0");
+a. x is greater than 0  
+b. x is less than 0
+c. x equals 0
+d. None
+Key:c
+
+#
+36. What is the output of the following fragment?
+
+int i = 1;
+int j = 1;
+while (i < 5) {
+  i++;
+  j = j * 2;
+}
+System.out.println(j);
+a. 4  
+b. 8
+c. 16
+d. 32
+e. 64
+Key:c
+
+#
+37. What is the output of the following fragment?
+
+    for (int i = 0; i < 15; i++) {
+      if (i % 4 == 1)
+        System.out.print(i + " "); 
+    }
+a. 1 3 5 7 9 11 13 15  
+b. 1 5 9 13
+c. 1 5 9 13 16
+d. 1 3 5 7 9 11 13 
+e. 1 4 8 12 
+Key:b
+
+#
+38. Which of the following loops produces the output
+
+1 2 3 4 1 2 3 1 2 1
+
+(I)
+    for (int i = 5; i > 0; i--) {
+      for (int j = 1; j < i; j++)
+        System.out.print(j + " ");
+      System.out.println();
+    }
+
+(II)
+    for (int i = 1; i < 5; i++) {
+      for (int j = 1; j < i; j++)
+        System.out.print(j + " ");
+      System.out.println();
+    }
+
+(III)
+    int i = 0;
+    while (i < 5) {
+      for (int j = 1; j < i; j++)
+        System.out.print(j + " ");
+      System.out.println();
+      i++;
+    }
+
+(IV)
+    int i = 5;
+    while (i > 0) {
+      for (int j = 1; j < i; j++)
+        System.out.print(j + " ");
+      System.out.println();
+      i--;
+    }
+
+a. (I)
+b. (II)
+c. (III)
+d. (IV)
+Key:ad
+
+#
+41. In a for statement, if the continuation condition is blank, the condition is assumed to be ______.
+a. true
+b. false
+Key:a
+
+#
+43. What the output of the following code:
+
+for ( ; ; ) 
+  System.out.println("Welcome to Java");
+a. does not print anything.
+b. prints out Welcome to Java one time.
+c. prints out Welcome to Java two times.
+d. prints out Welcome to Java forever.
+Key:d
+
+#
+44. What the output of the following code:
+
+for ( ; false ; ) 
+  System.out.println("Welcome to Java");
+a. does not print anything.
+b. prints out Welcome to Java one time.
+c. prints out Welcome to Java two times.
+d. prints out Welcome to Java forever.
+Key:a
+
+#
+10.	A variable declared in the for loop control can be used after the loop exits.
+a. true
+b. false
+Key:b
+
+#
+34. Suppose cond1 is a Boolean expressions. When will this while condition be true?
+
+while (cond1) ...
+
+a. in case cond1 is true  
+b. in case cond1 is false
+c. always true
+d. always false
+Key:a
+
+#
+41. Which of the following expression yields an integer between 0 and 100, inclusive?
+a. (int)(Math.random() * 100)
+b. (int)(Math.random() * 101)
+c. (int)(Math.random() * 100) + 1
+d. (int)(Math.random() * 100 + 1)
+Key:b
+
+#
+12. Given the following four patterns,
+
+Pattern A        Pattern B        Pattern C        Pattern D
+1                1 2 3 4 5 6                1      1 2 3 4 5 6
+1 2              1 2 3 4 5                2 1        1 2 3 4 5
+1 2 3            1 2 3 4                3 2 1          1 2 3 4
+1 2 3 4          1 2 3                4 3 2 1            1 2 3
+1 2 3 4 5        1 2                5 4 3 2 1              1 2
+1 2 3 4 5 6      1                6 5 4 3 2 1                1
+
+
+Which of the pattern is produced by the following code?
+  public static void main(String[] args) {
+    for (int i = 1; i <= 6; i++) {
+      for (int j = 1; j <= 6; j++)
+        System.out.print(i <= j ? j + " " : "  ");
+      System.out.println();
+    }
+  }
+a.	Pattern A
+b.	Pattern B
+c.	Pattern C
+d.	Pattern D
+Key:d

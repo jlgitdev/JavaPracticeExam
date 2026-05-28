@@ -1,0 +1,235 @@
+Chapter 5 Methods
+	
+1.	A method can be declared with no parameters.
+a. true
+b. false
+Key:a
+
+#
+2.	You can define two methods in the same class with the same name and parameter list.
+a. true
+b. false
+Key:b
+
+#
+3.	A method can be defined inside a method in Java.
+a. true
+b. false
+Key:b
+
+#
+4. The modifiers and return value type do not contribute toward distinguishing one method from another, only the parameter list.
+a. true
+b. false
+Key:a
+
+#
+5. A call for the method with a void return type is always a statement itself, but a call for the method with a non-void return type can be treated as either a statement or an expression. 
+a. true
+b. false
+Key:a
+
+#
+6.	You must have a return statement in a non-void method.
+a. true
+b. false
+Key:a
+
+#
+8.	You may have a return statement in a void method.
+a. true
+b. false
+Key:a
+
+#
+9.	The actual parameters of a method must match the formal parameters in type, order, and number.
+a. true
+b. false
+Key:a
+
+#
+11.	You can redeclare the variable if it is declared in the method signature.
+a. true
+b. false
+Key:b If a variable is declared as the formal parameter in the method, it's scope is the entire method. Therefore, it cannot be redeclared inside the method.
+
+#
+12.	The signature of a method consists of the method name, parameter list and return type.
+a. true
+b. false
+Key:b  The signature of a method consists of the method name, parameter list, but not the return type. A class cannot have the methods with identical signature.
+
+#
+1.	A variable that is declared inside a method is called ________ variable.
+a.	a static
+b.	an instance
+c.	a local
+d.	a global
+e.	a class
+Key:c
+
+#
+2.	Each Java class must contain a main method.
+a.	true
+b.	false
+Key:b
+
+#
+3.	What is (int)Math.random()?
+a.	0
+b.	1
+c.	0.5
+d.	1.1
+Key:a
+
+#
+4. Analyze the following code:
+
+class Test { 
+  public static void main(String[] args) {
+    System.out.println(xMethod((double)5));
+  }
+
+  public static int xMethod(int n) {
+    System.out.println("int");
+    return n;
+  }
+
+  public static long xMethod(long n) {
+    System.out.println("long");
+    return n;
+  }
+}
+
+a.	The program displays int followed by 5.
+b.	The program displays long followed by 5.
+c.	The program runs fine but displays things other than 5.
+d. 	The program does not compile.
+Key:d
+
+#
+5.	You may have a return statement in a void method.  
+a.	true
+b.	false
+Key:a
+
+#
+10.	Which of the following is not an advantage of using methods.
+a.	Using methods makes programs run faster.
+b.	Using methods makes reusing code easier.
+c.	Using methods makes programs easier to read.
+d.	Using methods hides detailed implementation from the clients.
+Key:a
+
+#
+11.	Which of the following is a possible output for (int)(51 * Math.random())?
+a.	0
+b.	50
+c.	100
+d.	500
+Key:ab
+
+#
+12.	Which of the following method results in 8.0?
+a.	Math.round(8.5)
+b.	Math.rint(8.5)
+c.	Math.ceil(8.5)
+d.	Math.floor(8.5)
+Key:bd
+
+#
+13.	Which of the following method returns the sine of 90 degree?
+a.	Math.sine(90)
+b.	Math.sin(90)
+c.	Math.sin(PI)
+d.	Math.sin(Math.toRadian(90))
+e.	Math.sin(Math.PI)
+Key:d
+
+#
+15. If a method does not contain any parameters, you must invoke it with a pair of empty parentheses.
+a.	true
+b.	false
+Key:a
+
+#
+16. Math.pow(3, 3) returns _______.
+a.	27
+b.	9
+c.      27.0
+d.      9.0
+Key:c
+
+#
+17. Math.sqrt(4) returns _______.
+a.	2
+b.	2.0
+c.      1
+d.      1.0
+Key:b
+
+#
+18. A _____ method does not return a value.
+a.	void
+b.	non-void
+Key:a
+
+#
+19. Variables defined inside a method are called _____.
+a.	parameters
+b.	arguments
+c.	local variables
+d.	global variables
+Key:c
+
+#
+20. Variables defined in the method header are called _____.
+a.	parameters
+b.	arguments
+c.	local variables
+d.	global variables
+Key:a
+
+#
+21. A variable or a value listed in a call to a method is called
+a.	a parameter
+b.	an argument
+c.	a local variable
+d.	a global variable
+Key:b
+
+#
+22. Java allows you to declare methods with the same name in a class. This is called ________.
+a.	method duplication
+b.	method overriding
+c.	method overloading
+d.	method redeclaration
+Key:c
+
+#
+23. A return statement without any value can be used in _______.
+a.	a non-void method
+b.	void method
+Key:b
+
+#
+24. Methods can be declared in any order in a class.
+a. true
+b. false
+Key:a
+
+#
+25. Math.ceil(5.5) evaluates to _____.
+a. 5.0
+b. 6.0
+c. 5
+d. 6
+Key:b
+
+#
+26. Math.floor(5.5) evaluates to _____.
+a. 5.0
+b. 6.0
+c. 5
+d. 6
+Key:a

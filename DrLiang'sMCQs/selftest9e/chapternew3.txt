@@ -1,0 +1,381 @@
+Chapter 3 Selections
+
+6.	You can always convert a switch statement to an equivalent if statement.
+a. true
+b. false
+Key:a
+
+#
+7.	You can always convert an if statement to a switch statement.
+a. true
+b. false
+Key:b
+
+#
+14. System.exit(0) can be used to terminate the program.
+a. true
+b. false
+Key:a
+
+#
+8.	The break keyword must be used in a switch statement; otherwise, a syntax error occurs.
+a. true
+b. false
+Key:b
+
+#
+9.	The default case must be specified in a switch statement.
+a. true
+b. false
+Key:b
+
+#
+13.	In a switch statement, the default case must appear last among all cases. Otherwise, it would result in a compilation error. 
+a. true
+b. false
+Key:b The cases can be in any order including the default case. However, it is a good programming practice, to place the default case last.
+
+#
+14.	Analyze the following code:
+
+    // Enter an integer
+    String numString = JOptionPane.showInputDialog(null, 
+        "Enter a number:",
+        "Exam Input", JOptionPane.QUESTION_MESSAGE);
+    int number = Integer.parseInt(numString);
+
+    if (number <= 0)
+      System.out.println(number);
+
+a.	The if statement is wrong, because it does not have the else clause;
+b.	System.out.println(number); must be placed inside braces;
+c.	If number is zero, number is displayed;
+d.	If number is positive, number is displayed.  
+e.	number entered from the input cannot be negative.
+Key:c
+
+#
+15.	What is the output of the following code: (Please indent the statement correctly first.)
+
+int x = 9;
+int y = 8;
+int z = 7;    
+
+if (x > 9)
+  if (y > 8)
+    System.out.println("x > 9 and y > 8");
+else if (z >= 7)
+  System.out.println("x <= 9 and z >= 7");
+else 
+  System.out.println("x <= 9 and z < 7");
+
+a.	x > 9 and y > 8;
+b.	x <= 9 and z >= 7;
+c.	x <= 9 and z < 7;
+d.	none
+Key:d
+
+#
+16.	Analyze the following code:
+
+    String numString = JOptionPane.showInputDialog(null, 
+       "Enter a number:",
+       "Exam Input", JOptionPane.QUESTION_MESSAGE);
+    int number = Integer.parseInt(numString);
+    if (number <= 0)
+      System.out.println(number);
+      System.out.println(number);
+
+a.	number is always printed out at least once;
+b.	number is printed out twice if number is zero;
+c.	number is printed out twice if number is negative;
+d.	number is printed out once if number is positive.
+Key:abcd
+
+#
+17.	What is y after the following switch statement?
+
+    int x = 0;
+    int y = 0;  
+    switch (x + 1)  {
+      case 0: y = 0; 
+      case 1: y = 1;
+      default: y = -1
+    }
+
+a.	1
+b.	-1
+c.	0
+d.	2
+Key:b
+	
+#
+18.	Analyze the following code.
+
+    int x = 0;
+    int y = ((x < 100) && (x > 0)) ? 1: -1;
+
+a.	y becomes 1 after the code is executed.
+b.	y becomes -1 after the code is executed.
+Key:b
+	
+#
+19.	Which of the following is not a valid boolean expression.
+a.	(1 < x < 100)
+b.	(x = 1) || (x != 1)
+c.	(x =< 5) && (x>=5)
+d.	x == 1
+Key:abc
+		
+#
+20.	Which of the following expression is equivalent to (x > 1). 
+
+a.	x >= 1
+b.	!(x <= 1)
+c.	!(x = 1)
+d.	!(x < 1)
+Key:b
+
+#
+21.	Analyze the following two code fragments.
+(i)
+    int x = 5;
+    if (0 < x) && (x < 100)
+      System.out.println("x is between 1 and 100");
+(ii)
+    int x = 5;
+    if (0 < x && x < 100)
+      System.out.println("x is between 1 and 100");
+a.	The first fragment has a syntax error.
+b.	The second fragment has a syntax error.
+c.	Both fragments produce the same output.
+d.	Both fragments compile, but produce different results.
+Key:a
+
+#
+22.	Analyze the following fragment.
+
+    double x = 0;
+    double d = 1;
+    switch (d + 4)  {
+      case 5: x++;
+      case 6: --x;
+    }
+a.	The required break keyword is missing in the switch statement.
+b.	The required default keyword is missing in the switch statement.
+c.	The switch control variable cannot be double.
+d.	d + 4 should be replaced by 5.
+Key:c
+
+#
+23.	Analyze the following code.
+
+    int x = 0;
+    if (x > 0);
+    {
+      System.out.println("x");
+    }
+a.	The symbol x is always printed.
+b.	The value of variable x is always printed.
+c.	Nothing is printed because x > 0 is false.
+d.	The symbol x is always printed twice.
+Key:a
+
+#
+30.	What is x after evaluating 
+
+x = (2 > 3) ? 2 : 3;
+
+a.	2
+b.	3
+c.	4
+d.	5
+Key:b
+
+#
+31. Analyze the following code:
+
+boolean even = ((231 % 2) == 0);
+if (even = true) 
+   System.out.println("It is even!");
+else 
+   System.out.println("It is odd!");
+
+a. The program has a syntax error 
+b. The program has a runtime error 
+c. The program displays "It is odd!"
+d. The program displays "It is even!"
+Key:d
+
+#
+32. Suppose cond1 and cond2 are two Boolean expressions. When will this if condition be true?
+
+if (cond1 && cond2) ...
+
+a. in case cond1 is true and cond2 is false  
+b. in case cond1 is true and cond2 is true 
+c. in case cond1 is false and cond2 is false 
+d. in case cond1 is false and cond2 is true
+Key:b
+
+#
+33. Suppose cond1 and cond2 are two Boolean expressions. When will this if condition be true?
+
+if (cond1 || cond2) ...
+
+a. in case cond1 is true and cond2 is false  
+b. in case cond1 is true and cond2 is true 
+c. in case cond1 is false and cond2 is false 
+d. in case cond1 is false and cond2 is true
+Key:abd
+
+#
+35. Assume x is 0. What is the output of the following statement?
+
+if (x > 0)
+   System.out.print("x is greater than 0");
+else if (x < 0)
+   System.out.print("x is less than 0");
+else
+   System.out.print("x equals 0");
+
+a. x is greater than 0  
+b. x is less than 0
+c. x equals 0
+d. None
+Key:c
+
+#
+39. The conditional operator ? : is a ______
+a. unary operator
+b. binary operator
+c. ternary operator
+Key:c
+
+#
+40. A break statement is required for a switch-case statement in Java.
+a. true
+b. false
+Key:b
+
+#
+42. What is 1.0 + 1.0 + 1.0 == 3.0?
+a. true
+b. false
+c. There is no guarantee that 1.0 + 1.0 + 1.0 == 3.0 is true.
+Key:c
+
+#
+8.	You can cast a Boolean value to an int, or an int to Boolean.
+a. true
+b. false
+Key:b
+
+#
+10.	The exclusive or (^) of true and true is true.
+a. true
+b. false
+Key:b
+
+#
+11.	The binary operator + is left-associative.
+a. true
+b. false
+Key:a
+
+#
+12.	The assignment operator = is left-associative.
+a. true
+b. false
+Key:b The assignment operators = and op= are right-associative. 
+
+#
+5.	Which of the Boolean expressions below has incorrect syntax?
+a.	(true) && (3 > 4)
+b.	!(x > 0) && (x > 0)
+c.	(x > 0) || (x < 0)
+d.	(x != 0) || (x = 0)
+Key:d
+
+#
+6.	Which of the following is the correct expression that evaluates to true if the number x is between 1 and 100 or the number is negative?
+a.	1 < x < 100 && x < 0
+b.	((x < 100) && (x > 1)) || (x < 0)
+c.	((x < 100) && (x > 1)) && (x < 0)
+d.	(1 > x > 100) || (x < 0)
+Key:b
+
+#
+16.	The not equal comparison operator in Java is __________.
+a.	<>
+b.	!=
+c.	!= = 
+d.	^=
+Key:b
+
+#
+20.	Suppose x=0 and y=0 what is x after evaluating the expression (y > 0) && (1 > x++).
+a.	0
+b.	-1
+c.	1
+Key:a
+
+#
+27. Suppose cond1, cond2, and cond3 are Boolean expressions. Which of the following expression is equivalent to cond1 || cond2 && cond3?
+a. (cond1 || cond2) && cond3 
+b. cond1 || (cond2 && cond3)  
+Key:b
+
+#
+28. Which of the following expression is equivalent to (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)?
+a. year % 4 == 0 && year % 100 != 0 || year % 400 == 0
+b. (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)
+c. (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0)
+d. year % 4 == 0 && (year % 100 != 0) || year % 400 == 0
+Key:abd
+
+#
+29.  The ________ operator can be used to compare two values.
+a.	relational
+b.	boolean
+c.	numerical
+d.	casting
+Key:a
+
+#
+30.  __________ are the boolean operators.
+a.	&&
+b.	>
+c.	^
+d.      !
+Key:acd
+
+#
+45. _____ are short-circuit operators.
+a. &&
+b. ^
+c. ||
+d. !
+Key:ac
+
+#
+46. Including a space between the relational operators >=, <=, ==, and != causes a syntax error.
+a. true
+b. false
+Key:a
+
+#
+47. Which of the following expressions evaluates to true?
+a. 'a' > 'A'
+b. 34 > 34
+c. 'A' > 'z'
+d. 2 > '2'
+Key:a 2 > '2' is same as 2 > (int)'2'
+
+#
+2.	Assume x = 14 and y = 15, Which of the following is true?
+a.      x % 2 == 0 && y % 2 == 0
+b.	x % 2 == 0 && y % 2 == 1
+c.	x % 2 == 0 || y % 2 == 0
+d.	x % 2 != 0 && y % 2 != 0
+Key:bc

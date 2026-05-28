@@ -1,0 +1,85 @@
+Chapter 31 Weighted Graphs and Applications
+
+Section 31.2 Representing Weighted Graphs
+1. True of False? The WeightedEdge class extends AbstractGraph.Edge.
+a. True
+b. False
+Key:a
+
+#
+1. A WeightedEdge object contains the public data fields _______.
+a. u
+b. v
+c. weight
+d. length
+Key:abc
+
+#
+1. The adjacent edge for each vertex in the graph is stored in _________.
+a. an ArrayList
+b. a LinkedList
+c. a PriorityQueue
+d. a Stack
+Key:c
+
+#
+Section 31.3 The WeightedGraph Class
+1. The WeightedGraph is a subtype of _________.
+a. UnweightedGraph
+b. AbstraGraph
+c. Graph
+d. WeightedEdge
+Key:bc
+
+#
+1. The addEge(u, v, w) method performs the following operations:
+a. Invokes super.add(u, v) to add an edge
+b. Adds a weighed edge to the queue for vertex u.
+c. Adds a weighed edge to the queue for vertex v.
+Key:abc
+
+#
+Section 31.4 Minimum Spanning Trees
+1. True or False? A graph may have several minimum spanning tree.
+a. True
+b. False
+Key:a
+
+#
+2. The MST class is subtype of __________.
+a. BST
+b. AVLTree
+c. AbstractGraph.Tree
+d. Tree
+Key:c
+
+#
+3. The getMinimumSpanningTree() method returns __________.
+a. an ArrayList
+b. a LinkedList
+c. a queue
+d. a MST
+Key:d
+
+#
+Section 31.5 Finding Shortest Paths
+2. A ___________ of a graph is a subgraph that is a tree and connects all vertices in the graph.
+a. spanning tree
+b. shorted path 
+Key:a
+
+#
+2. The ShortestPathTree class is subtype of __________.
+a. BST
+b. AVLTree
+c. AbstractGraph.Tree
+d. Tree
+Key:c
+
+#
+3. The getShortestPath() method returns __________.
+a. an ArrayList
+b. a LinkedList
+c. a ShortestPathTree
+d. a MST
+Key:c

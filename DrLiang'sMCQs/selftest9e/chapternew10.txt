@@ -1,0 +1,98 @@
+Chapter 10 Thinking in Objects
+
+18. The internal state of an immutable class cannot be changed. String is an immutable class.
+a. true
+b. false
+Key:a
+
+#
+20. ___________ can be accessed from any instance method in the class.
+a. A local variable
+b. An instance variable
+c. A static variable
+Key:bc
+
+#
+21. ___________ can be accessed from any static method in the class.
+a. A local variable
+b. An instance variable
+c. A static variable
+Key:c
+
+#
+22. A constructor can access ___________.
+a. A local variable defined in any method
+b. A private instance variable
+c. A public instance variable
+d. A static variable
+Key:bc
+
+#
+29. Java uses _______ to reference the current object.
+a. this
+b. that
+c. thisObject
+d. null
+Key:a
+
+#
+29. An immutable class cannot have _______.
+a. public data fields
+b. private data fields
+c. public constructors
+d. no-arg constructors
+e. static data fields
+Key:a
+
+#
+29. Every instance data field f in the class can be referenced using this.f in an instance method the same class.
+a. True
+b. False
+Key:a
+
+#
+29. Every instance data field f in the class can be referenced using this.f in a static method the same class.
+a. True
+b. False
+Key:b
+
+#
+29. A static data field can be accessed from any method in the same class.
+a. True
+b. False
+Key:a
+
+#
+2. What will be displayed by this program?
+public class Test {
+  private int i = 0;
+  static int j = 0;
+
+  public static void main(String[] args) {
+    new Test();
+  }
+
+  public Test() {
+    i++; 
+    j++;
+    int i = 1;
+    int j = 1;
+    System.out.println("i is " + j + " j is " + j);
+  }
+}
+
+A. i is 0 j is 0
+B. i is 1 j is 1
+C. i is 2 j is 2
+D. i is 0 j is 1
+E. i is 1 j is 0
+Key:b
+
+#
+47. To check whether a string s starts with a capital letter, use the Boolean expression _________.
+a. Character.isUppercase(s) 
+b. s.charAt(0) >= 'A' && s.charAt(0) <= 'Z'
+c. Character.isUppercase(s.at(1))
+d. s.charAt(0) >= 'A' || s.charAt(0) <= 'Z'
+e. s.charAt(1) >= 'A' && s.charAt(1) <= 'Z'
+Key:ab

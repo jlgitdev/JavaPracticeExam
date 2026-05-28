@@ -1,0 +1,63 @@
+Chapter 14 Exception Handling and Text I/O
+
+Section 14.3 Exception Types
+1.d
+2.c
+3.b
+4.a
+5.e 
+6.ace 
+7.a
+8.b
+9.c
+10.d
+11.e
+12.d
+
+Section 14.4 More on Exception Handling
+13.b
+14.abcd
+15.a 
+16.d 
+18.a 
+18.a
+19.c 
+
+Section 14.5 The finally Clause
+20.b
+21.b
+22.b 
+23.b
+24.c 
+25.b
+26.c
+27.d
+
+Section 14.6 When to Use Exceptions
+28.b
+29.b 
+
+Section 14.7 Rethrowing Exceptions
+30.c 
+
+Section 14.10 The File Class
+46.abcd
+47.b
+48.b
+49.e
+
+Section 14.11 Text I/O
+50.a
+51.b
+52.c
+53.b
+54.b
+55.c
+56.b 
+57.d 
+58.abc 
+58.abc
+59.ac
+
+Section 14.13 Reading Data from the Web
+16.c

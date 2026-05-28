@@ -1,0 +1,76 @@
+Chapter 19 Binary I/O
+
+1.	InputStream and OutputStream are abstract classes.
+a. true
+b. false
+Key:a
+
+#
+2.	The FileWriter, FileReader, FileInputStream, FileOutputStream, and RandomAccessFile classes can be used to process external files.
+a. true
+b. false
+Key:a
+
+#
+3.	A compilation error will occur if the file doesn't exist when creating a FileInputStream for the file.
+a. true
+b. false
+Key:b
+
+#
+4.	The FileNotFoundException occurs when creating FileInputStream for a nonexistent file.
+a. true
+b. false
+Key:a
+
+#
+5.	The FileFoundException occurs when creating FileOutputStream for a nonexistent file.
+a. true
+b. false
+Key:b
+
+#
+6.	To determine whether a file exists, you can use the exists() method on a File object.
+a. true
+b. false
+Key:a
+
+#
+7.	RandomAccessFile, DataInputStream, and DataOutputStream share the same file formats.
+a. true
+b. false
+Key:a
+
+#
+8.	The read method, the write method, and creating stream constructors can throw IOException errors.
+a. true
+b. false
+Key:a
+
+#
+9.	The class PrintStream is used in JDK 1.02, but is deprecated in JDK1.1.
+a. true
+b. false
+Key:a
+
+#
+12.	If you output ten int values to file using DataOutputStream, what will be the size of the file?
+a. 10 bytes
+b. 20 bytes
+c. 40 bytes
+b. 80 bytes
+Key:c
+
+#
+13.	Invoking new File(String filename) may throw ___________.
+a. FileNotFoundException
+b. IOException
+c. Exception
+d. Throwable
+Key:abcd FileNotFoundException is a subclass of IOException, IOException is a subclass of Exception, and Exception is subclass of Throwable.
+
+#
+14. Closing an OutputStream ensures that the data in the buffer are sent to the destination.
+a. true
+b. false
+Key:a

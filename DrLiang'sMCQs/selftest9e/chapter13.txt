@@ -1,0 +1,247 @@
+Chapter 13 Graphics
+
+Section 13.2 Section 13.3 The Graphics Class
+1.	The coordinate of the upper-left corner of a frame is __________.
+a.	(0, 0)
+b.	(25, 25)
+c.	(100, 100)
+d.	(10, 10)
+
+2.	Suppose a button jbt is placed in a frame, the coordinate of the button within the content pane of the frame is _______.
+a.	(jbt.getX(), jbt.getY())
+b.	(jbt.x, jbt.y)
+c.	cannot be obtained
+d.	(0, 0)
+
+3.	Which of the following statements are true?
+a.	Each GUI component contains a Graphics object that can be obtained using getGraphics() method.
+b.	Once a GUI component is visible, getGraphics() returns the object.
+c.	If a GUI component is not visible, getGraphics() returns null.
+d.	The Graphics object is automatically created for each visible GUI component.
+
+4.	The header for the paintComponent method is ________________.
+a.	private void paintComponent(Graphics g)
+b.	protected void paintComponent(Graphics g)
+c.	public void paintComponent(Graphics g)
+d.	protected void paintComponent()
+
+5.	You should override the __________ method to draw things on a Swing component.
+a.	repaint()
+b.	update()
+c.	paintComponent()
+d.	init()
+
+6.	You can draw graphics on any GUI components.
+a.	true
+b.	false
+
+7. Which of the following statements are true?
+a. You may create a Graphics object using new Graphics().
+b. Whenever a GUI component is displayed, its Graphics object is automatically created.
+c. The paintComponent method is automatically invoked by the JVM. You should never invoke it directly.
+d. Invoking repaint() causes paintComponent to be invoked by the JVM. 
+
+8.	To draw graphics, it is better to define a class that extends ________ and override the paintComponent method.
+a.	JLabel
+b.	JButton
+c.	JPanel
+d.	JComponent
+
+9. Analyze the following code.
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Test  {
+  public static void main(String[] args) {
+    JFrame frame = new JFrame("My Frame");
+    frame.add(new MyDrawing("Welcome to Java!"));
+    frame.setSize(300, 300);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+    frame.setVisible(true);
+  }
+}
+
+class MyDrawing extends JPanel {
+  String message;
+
+  public MyDrawing(String message) {
+    this.message = message;
+  }
+
+  public void paintcomponent(Graphics g) {
+    super.paintComponent(g);
+
+    g.drawString(message, 20 ,20);
+  }
+} 
+a. The program runs fine and displays Welcome to Java!
+b. The program has a compile error because the paintcomponent should be spelled as paintComponent.
+c. The program has a runtime error because the paintcomponent should be spelled as paintComponent.
+d. The program runs, but it does not display the message.
+e. It is a runtime error to invoke the setVisible(true) twice.
+
+10. Analyze the following code.
+
+import java.awt.*;
+import javax.swing.*;
+
+public class Test extends JFrame  {
+  public Test() {
+    add(new MyDrawing("Welcome to Java!"));
+  }
+
+  public static void main(String[] args) {
+    JFrame frame = new JFrame();
+    frame.setSize(300, 300);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+}
+
+class MyDrawing extends JPanel {
+  String message;
+
+  public MyDrawing(String message) {
+    this.message = message;
+  }
+
+  public void paintComponent(Graphics g) {
+    super.paintComponent(g);
+
+    g.drawString(message, 20 ,20);
+  }
+}
+a. The program runs fine and displays Welcome to Java!
+b. The program would display Welcome to Java! if new JFrame() is replaced by Test().
+c. The program would display Welcome to Java! if new JFrame() is replaced by new Test().
+d. The program would display Welcome to Java! if new JFrame() is replaced by new Test("My Frame").
+
+11. Analyze the following code.
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Test1 extends JFrame {
+  public Test1() {
+    add(new MyCanvas());
+  }
+
+  public static void main(String[] args) {
+    JFrame frame = new Test1();
+    frame.setSize(300, 300);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+  }
+}
+
+class MyCanvas extends JPanel {
+  private String message;
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public void paintComponent(Graphics g) {
+    super.paintComponent(g);
+
+    g.drawString(message, 20, 20);
+  }
+}
+a. The program runs fine and displays nothing since you have not set a string value.
+b. The program would display Welcome to Java! if you replace new MyCanvas() by new MyCanvas("Welcome to Java!").
+c. The program has a compile error because new Test1() is assigned to frame.
+d. The program has a NullPointerException since message is null when g.drawString(message, 20, 20) is executed.
+
+Section 13.3 Drawing Strings, Lines, rectangles, and Ovals
+12.	Given a Graphics object g, to draw a line from the upper left corner to the bottom right corner, you use __________.
+a.	g.drawLine(0, 0, 100, 100)
+b.	g.drawLine(0, 0, getWidth(), getHeight())
+c.	g.drawLine(0, 0, getHeight(), getHeight())
+d.	g.drawLine(0, 0, getWidth(), getWidth())
+
+14.	Given a Graphics object g, to draw an outline of a rectangle of width 20 and height 50 with the upper-left corner at (20, 20), you use __________.
+a.	g.drawRect(20, 50, 20, 20)
+b.	g.drawRectFill(20, 20, 20, 50)
+c.	g.drawRect(20, 20, 20, 50)
+d.	g.drawRectFill(20, 50, 20, 20)
+
+14.	Given a Graphics object g, to draw an circle with radius 20 centered at (50, 50), you use __________.
+a.	g.drawOval(50, 50, 20, 20)
+b.	g.drawOval(50, 50, 40, 40)
+c.	g.drawOval(30, 30, 20, 20)
+d.	g.drawOval(30, 30, 40, 40)
+
+15.	Given a Graphics object g, to draw a filled oval with width 20 and height 30 centered at (50, 50), you use __________.
+a.	g.fillOval(50, 50, 20, 30)
+b.	g.fillOval(50, 50, 40, 30)
+c.	g.fillOval(30, 30, 20, 30)
+d.	g.fillOval(30, 30, 40, 30)
+e.	g.fillOval(40, 35, 20, 30)
+
+16.	Which of the following methods draws a filled 3D rectangle?
+a.	g.fill3DRect(50, 50, 20, 30)
+b.	g.fill3DRect(50, 50, 20, 30, 1)
+c.	g.fill3DRect(50, 50, 20, 30, true)
+d.	g.fill3DRect(50, 50, 20, 30, false)
+
+Section 13.4 Case Study: The FigurePanel Class
+17.	To repaint graphics, invoke __________ on a Swing component.
+a.	repaint()
+b.	update()
+c.	paintComponent()
+d.	init()
+
+Section 13.5 Drawing Arcs
+18.	Given a Graphics object g, to draw a filled arc with radius 20 centered at (50, 50) and start angle 0 and spanning angle 90, you use __________.
+a.	g.fillArc(50, 50, 40, 40, 0, Math.toRadian(90))
+b.	g.fillArc(50, 50, 40, 40, 0, 90)
+c.	g.fillArc(30, 30, 40, 40, 0, Math.toRadian(90))
+d.	g.fillArc(30, 30, 40, 40, 0, 90)
+e.      g.fillArc(50, 50, 20, 20, 0, 90)
+
+Section 13.6 Drawing Polygons and Polylines
+19.	Given a Graphics object g, to draw a polygon to connect points (3, 3), (4, 10), (10, 20), (2, 100), you use __________.
+a.	g.drawPolyline(new int[]{3, 4, 10, 2}, new int[]{3, 10, 20, 100}, 4)
+b.	g.drawPolyline({3, 4, 10, 2}, {3, 10, 20, 100}, 4)
+c.	g.drawPolygon(new int[]{3, 4, 10, 2}, new int[]{3, 10, 20, 100}, 4)
+d.	g.drawPolygon({3, 4, 10, 2}, {3, 10, 20, 100}, 4)
+
+20.	Given a Graphics object g, to draw a polyline to connect points (3, 3), (4, 10), (10, 20), (2, 100), you use __________.
+a.	g.drawPolyline(new int[]{3, 4, 10, 2}, new int[]{3, 10, 20, 100}, 4)
+b.	g.drawPolyline({3, 4, 10, 2}, {3, 10, 20, 100}, 4)
+c.	g.drawPolygon(new int[]{3, 4, 10, 2}, new int[]{3, 10, 20, 100}, 4)
+d.	g.drawPolygon({3, 4, 10, 2}, {3, 10, 20, 100}, 4)
+
+Section 13.7 Centering Display Using the FontMetrics Class
+21. Which of the following statements are true?
+a. You can create a FontMetric using new FontMetrics().
+b. You can obtain a FontMetrics from a Font object using the getFontMetrics() method.
+c. A font determines the font metrics.
+d. You can obtain the leading, ascent, descent, and height for a font from a FontMetrics object.
+
+22. Invoking __________ returns the width of the string in a FontMetrics object fm.
+a. getLength(s)
+b. fm.getHeight(s)
+c. fm.stringWidth(s)
+d. fm.getWidth(s)
+
+23. The following are the methods to obtain font properties in a FontMetrics object fm.
+a. fm.getAscent()
+b. fm.getDescent()
+c. fm.getLeading()
+d. fm.getHeight()
+
+Section 13.10 Displaying Images 
+24. To create an Image object from an ImageIcon object imageIcon, use the __________ method.
+a. imageIcon.image()
+b. imageIcon.getImage()
+c. imageIcon.setImage()
+d. imageIcon.returnImage()
+
+25. Which of the following statements are correct?
+a. You can set an image on a label, but the image is not resizable.
+b. You can set an image on a button, but the image is not resizable.
+c. You can draw an image on a GUI component using the drawImage method in the Graphics object. This image is resizable.

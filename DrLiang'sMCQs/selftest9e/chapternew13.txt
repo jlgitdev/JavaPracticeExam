@@ -1,0 +1,101 @@
+Chapter 13 Graphics
+
+4.	You can draw things on a frame.
+a. true
+b. false
+Key:a
+
+#
+5.	You can draw things on a panel.
+a. true
+b. false
+Key:a
+
+#
+6.	You can draw things on an applet. 
+a. true
+b. false
+Key:a
+
+#
+10.	You should never directly call the paintComponent() method.
+a. true
+b. false
+Key:a
+
+#
+11.	You should never directly call the repaint() method.
+a. true
+b. false
+Key:b
+
+#
+12.	The repaint() method has a parameter of Graphics type.
+a. true
+b. false
+Key:b
+
+#
+13.	The paint() method has a parameter of Graphics type.
+a. true
+b. false
+Key:a
+
+#
+22.	The _________ point of a component has coordinate (0, 0).
+a. up-left corner
+b. up-right corner
+c. bottom-left corner
+d. bottom-right corner
+Key:a
+
+#
+23.	The higher resolution, _________ pixels on the screen.
+a. the less 
+b. the more
+Key:b
+
+#
+23.	The center of a GUI component c is at _________.
+a. (0, 0)
+b. (c.getX(), c. getY())
+c. (c.getWidth() / 2, g.getHeight() / 2)
+d. (c.getWidth(), c.getHeihgt())
+Key:c
+
+#
+23.	To paint a GUI component, invoke its _________.
+a. paint method
+b. paintComponent method
+c. repaint method
+d. paintComponents method
+Key:b
+
+#
+2. Given a Graphics object g, to draw a line from the upper right corner to the bottom left corner, you use __________.
+
+A. g.drawLine(0, 0, 100, 100)
+B. g.drawLine(0, 0, getWidth(), getHeight())
+C. g.drawLine(0, getHeight(), 0, getWidth())
+D. g.drawLine(0, getHeight(), getWidth(), 0)
+E. g.drawLine(0, getWidth(), getWidth(), 0)
+Key:d
+
+#
+13.  Given a Graphics object g, to draw an outline of a rectangle of width 100 and height 20 with the upper-left corner at (40, 50), you use __________.
+
+A. g.drawRect(40, 50, 20, 20)
+B. g.drawRectFill(40, 20, 20, 50)
+C. g.drawRect(40, 20, 20, 50)
+D. g.drawRectFill(40, 50, 20, 20)
+E. g.drawRect(40, 50, 100, 20)
+Key:e
+
+15  Given a Graphics object g, to draw a filled circle with radius 50 in the center of the component, use __________.
+
+A. g.fillOval(getWidth() / 2 - 50, 50, 50, 50)
+B. g.fillOval(getWidth() / 2 - 50, getHeigt() / 2 - 50, 50, 50)
+C. g.fillOval(getWidth() / 2 - 50, getHeigt() / 2 - 50, 100, 100)
+D. g.fillOval(getWidth() / 2 + 50, getHeigt() / 2 + 50, 100, 100)
+E. g.fillOval(getWidth() / 2 - 50, getHeigt() / 2 + 50, 100, 100)
+Key:c

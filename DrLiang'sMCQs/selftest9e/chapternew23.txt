@@ -1,0 +1,59 @@
+Chapter 23 Sets and Maps
+1. 	The HashSet and TreeSet hold non-duplicate elements.
+a. true
+b. false
+Key:a
+
+#
+2.	The elements in HashSet are ordered.
+a. true
+b. false
+Key:b
+
+#
+3. You can use index to traverse elements in a set.
+a. true
+b. false
+Key:b
+
+#
+8.	All the update methods in the Java Collection framework are synchronized.
+a. true
+b. false
+Key:b Only the update methods in Vector and Stack are synchronized.
+
+#
+10. 	The keys must be unique for Map.
+a. true
+b. false
+Key:a
+
+#
+13.	The union, difference, and intersection apply to set as well as list, because the methods addAll, removeAll, and retainAll are defined in the Collection interface.
+a. true
+b. false
+Key:a These concrete classes implement the Cloneable and Serializable interfaces.
+
+#
+14.	The classes HastSet, LinkedHashSet, TreeSet, ArrayList, Vector, Stack, LinkedList, HashMap, LinkedHashMap, and TreeMap are cloneable and serializable.
+a. true
+b. false
+Key:a
+
+#
+29. Suppose you write a program that reads numbers and displays the distinct numbers in their input order. The best data structure for storing the numbers in the program is _________,
+a. HashSet
+b. TreeSet
+c. LinkedHashSet
+d. ArrayList
+e. LinkedList
+Key:c
+
+#
+29. Suppose you write a program that reads numbers and displays the distinct numbers. The order of the number does not matter. The best data structure for storing the numbers in the program is _________,
+a. HashSet
+b. TreeSet
+c. LinkedHashSet
+d. ArrayList
+e. LinkedList
+Key:a

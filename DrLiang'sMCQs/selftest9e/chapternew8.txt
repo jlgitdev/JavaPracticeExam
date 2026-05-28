@@ -1,0 +1,174 @@
+Chapter 8 Objects and Classes
+
+1.	Java assigns a default value to a data member of a class if the data is not initialized.
+a. true
+b. false
+Key:a
+
+#
+9.	A source code file may contain several classes.
+a. true
+b. false
+Key:a
+
+#
+10.	Each class in the file is compiled into a separate bytecode file.
+a. true
+b. false
+Key:a
+
+#
+2.	The default value for a data member of boolean type is true.
+a. true
+b. false
+Key:b
+
+#
+3.	The default value null is assigned to a data member of object type, even though the data member is not created yet.
+a. true
+b. false
+Key:a
+
+#
+4.	Java assigns a default value to a local variable in a method if the variable is not initialized.
+a. true
+b. false
+Key:b
+
+#
+5.	The default constructor has no arguments.
+a. true
+b. false
+Key:a
+
+#
+6.	You can always use the default constructor even though the non-default constructors are defined in the class.
+a. true
+b. false
+Key:b
+
+#
+7.	You can access a class variable using a syntax like objectName.classVariable or ClassName.classVariable.
+a. true
+b. false
+Key:a
+
+#
+8.	You cannot use the private modifier on classes.
+a. true
+b. false
+Key:a
+
+#
+9.	You cannot use modifiers on local variables inside a method except final.
+a. true
+b. false
+Key:a
+
+#
+10.	A static method in a class can access the instance variables in the same class.
+a. true
+b. false
+Key:b
+
+#
+11.	A static method in a class can access the class variables in the same class.
+a. true
+b. false
+Key:a
+
+#
+12.	You can declare a local variable in a method that has same name as an instance variable in the class.
+a. true
+b. false
+Key:a
+
+#
+13.	You can declare variables of the same name in a method even though they are in the same block.
+a. true
+b. false
+Key:b
+
+#
+14.	You can declare variables of the same name in a method if they are in non-nesting blocks.
+a. true
+b. false
+Key:a
+
+#
+15.	You can create an instance of the Math class.
+a. true
+b. false
+Key:b The constructor of the Math class is private. So, you cannot create instances using the Math class.
+
+#
+16.	You use underline to denote static variables and methods.
+a. true
+b. false
+Key:a
+
+#
+17.	You use the plus sign (+) to denote public data or methods.
+a. true
+b. false
+Key:a
+
+#
+19. The order of methods in a class is immaterial.
+a. true
+b. false
+Key:a
+
+#
+23. You use the _________ operator to access members of an object.
+a. .
+b. ()
+c. *
+d. %
+Key:a
+
+#
+24. Suppose you declare Date d. d is now called _______.
+a. an object
+b. a reference variable for an object
+c. an object value
+d. a variable that holds an integer value
+Key:b
+
+#
+24. Array variable are reference variables.
+a. true
+b. false
+Key:a
+
+#
+25. All data fields in an object have default values.
+a. true
+b. false
+Key:a
+
+#
+26. All local variables in a method have default values.
+a. true
+b. false
+Key:b
+
+#
+26. If the parameter is an object, both formal parameter and actual parameter reference to the same object.
+a. true
+b. false
+Key:a
+
+#
+27. If the parameter is of a primitive type, both formal parameter and actual parameter reference to the same memory.
+a. true
+b. false
+Key:b
+
+#
+28. Which of the following are properties of a constructor?
+a. A constructor must have the same name as the class.
+b. A constructor is called using the new operator.
+c. Constructors may be overloaded.
+Key:abc
+

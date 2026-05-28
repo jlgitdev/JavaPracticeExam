@@ -1,0 +1,488 @@
+Chapter 9 Strings
+
+Section 9.2 The String Class
+1. Suppose s is a string with the value "java". What will be assigned to x if you execute the following code?
+
+char x = s.charAt(4);
+a. 'a'
+b. 'v'
+c. Nothing will be assigned to x, because the execution causes the runtime error StringIndexOutofBoundsException.
+
+2. Which of the following statements is preferred to create a string "Welcome to Java"?
+a. String s = "Welcome to Java";
+b. String s = new String("Welcome to Java");
+c. String s; s = "Welcome to Java";
+d. String s; s = new String("Welcome to Java");
+
+3.	What is the output of the following code?
+
+public class Test
+  {
+  public static void main(String[] args)
+  {
+    String s1 = "Welcome to Java!";
+    String s2 = s1;
+
+    if (s1 == s2)
+      System.out.println("s1 and s2 reference to the same String object");
+    else
+      System.out.println("s1 and s2 reference to different String objects");
+  }
+}
+a.	s1 and s2 reference to the same String object
+b.	s1 and s2 reference to different String objects
+
+4.	What is the output of the following code?
+
+public class Test
+  {
+  
+  public static void main(String[] args)
+  {
+    String s1 = "Welcome to Java!";
+    String s2 = "Welcome to Java!";
+
+    if (s1 == s2)
+      System.out.println("s1 and s2 reference to the same String object");
+    else
+      System.out.println("s1 and s2 reference to different String objects");
+  }
+}
+a.	s1 and s2 reference to the same String object
+b.	s1 and s2 reference to different String objects
+
+5.	What is the output of the following code?
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    String s1 = new String("Welcome to Java!");
+    String s2 = new String("Welcome to Java!");
+
+    if (s1 == s2)
+      System.out.println("s1 and s2 reference to the same String object");
+    else
+      System.out.println("s1 and s2 reference to different String objects");
+  }
+}
+a.	s1 and s2 reference to the same String object
+b.	s1 and s2 reference to different String objects
+
+6.	Suppose s1 and s2 are two strings. What is the result of the following code?
+
+    s1.equals(s2) == s2.equals(s1)
+a.	true
+b.	false
+
+7.	What is the output of the following code?
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    String s1 = new String("Welcome to Java!");
+    String s2 = new String("Welcome to Java!");
+
+    if (s1.equals(s2))
+      System.out.println("s1 and s2 have the same contents");
+    else
+      System.out.println("s1 and s2 have different contents");
+  }
+}
+a.	s1 and s2 have the same contents
+b.	s1 and s2 have different contents
+
+8.	What is the output of the following code?
+
+public class Test
+{ 
+  public static void main(String[] args)
+  {
+    String s1 = new String("Welcome to Java!");
+    String s2 = s1.toUpperCase();
+
+    if (s1 == s2)
+      System.out.println("s1 and s2 reference to the same String object");
+    else if (s1.equals(s2))
+      System.out.println("s1 and s2 have the same contents");
+    else
+      System.out.println("s1 and s2 have different contents");
+  }
+}
+a.	s1 and s2 reference to the same String object
+b.	s1 and s2 have the same contents
+c.      s1 and s2 have different contents
+
+9.	What is the output of the following code?
+
+public class Test
+{  
+  public static void main(String[] args)
+  {
+    String s1 = new String("Welcome to Java");
+    String s2 = s1;
+
+    s1 += "and Welcome to HTML";
+
+    if (s1 == s2)
+      System.out.println("s1 and s2 reference to the same String object");
+    else
+      System.out.println("s1 and s2 reference to different String objects");
+  }
+}
+a.	s1 and s2 reference to the same String object
+b.	s1 and s2 reference to different String objects
+
+10.	Suppose s1 and s2 are two strings. Which of the following statements or expressions are incorrect?
+a.	String s = new String("new string");
+b.	String s3 = s1 + s2
+c.	s1 &gt;= s2
+d.	int i = s1.length
+e.      s1.charAt(0) = '5'
+
+11.	Suppose s1 and s2 are two strings. Which of the following statements or expressions is incorrect?
+a.	String s3 = s1 - s2;
+b.	boolean b = s1.compareTo(s2);
+c.	char c = s1[0];
+d.	char c = s1.charAt(s1.length());
+
+12.	"abc".compareTo("aba") returns ___________.
+a.	1
+b.	2
+c.	-1
+d.	-2
+e.      0
+
+13.	"AbA".compareToIgnoreCase("abC") returns ___________.
+a.	1
+b.	2
+c.	-1
+d.	-2
+e.      0
+
+14.	____________________ returns true.
+a.	"peter".compareToIgnoreCase("Peter")
+b.	"peter".compareToIgnoreCase("peter")
+c.	"peter".equalsIgnoreCase("Peter")
+d.	"peter".equalsIgnoreCase("peter")
+e.      "peter".equals("peter")
+
+15.	What is the output of the following code?
+
+String s = "University";
+s.replace("i", "ABC");
+System.out.println(s);
+
+a. UnABCversity
+b. UnABCversABCty
+c. UniversABCty
+d. University
+
+16.	What is the return value of "SELECT".substring(0, 5)?
+a.	"SELECT"
+b.	"SELEC"
+c.	"SELE"
+d.   	"ELECT"
+
+17.	What is the return value of "SELECT".substring(4, 4)?
+a.	an empty string
+b.	C
+c.	T
+d.   	E
+
+18.	Analyze the following code.
+
+class Test
+{  
+  public static void main(String[] args) 
+  {
+    String s;
+    System.out.println("s is " + s);
+  }
+}
+a. The program has a compilation error because s is not initialized, but it is referenced in the println statement.
+b. The program has a runtime error because s is not initialized, but it is referenced in the println statement.
+c. The program has a runtime error because s is null in the println statement.
+d. The program compiles and runs fine.
+
+19.	To check if a string s contains the prefix "Java", you may write 
+
+a. if (s.startsWith("Java")) ...
+b. if (s.indexOf("Java") == 0) ...
+c. if (s.substring(0, 4).equals("Java")) ...
+d. if (s.charAt(0) == 'J' && s.charAt(1) == 'a' && s.charAt(2) == 'v' && s.charAt(3) == 'a') ...
+
+20.	To check if a string s contains the suffix "Java", you may write 
+
+a. if (s.endsWith("Java")) ...
+b. if (s.lastIndexOf("Java") >= 0) ...
+c. if (s.substring(s.length() - 4).equals("Java")) ...
+d. if (s.substring(s.length() - 5).equals("Java")) ...
+e. if (s.charAt(s.length() - 4) == 'J' && s.charAt(s.length() - 3) == 'a' && s.charAt(s.length() - 2) == 'v' && s.charAt(s.length() - 1) == 'a') ...
+
+21.	Which of the following is the correct statement to return JAVA?
+
+a. toUpperCase("Java")
+b. "Java".toUpperCase("Java")
+c. "Java".toUpperCase()
+d. String.toUpperCase("Java")
+
+22.	Which of the following is the correct statement to return a string from an array a of characters?
+
+a. toString(a)
+b. new String(a)
+c. convertToString(a)
+d. String.toString(a)
+
+23. Assume s is "   abc  ", the method __________ returns a new string "abc".
+a. s.trim(s)
+b. trim(s)
+c. String.trim(s)
+d. s.trim()
+
+24. Assume s is "ABCABC", the method __________ returns a new string "aBCaBC".
+a. s.toLowerCase(s)
+b. s.toLowerCase()
+c. s.replace('A', 'a')
+d. s.replace('a', 'A')
+e. s.replace("ABCABC", "aBCaBC")
+
+25. Assume s is "ABCABC", the method __________ returns an array of characters.
+a. toChars(s)
+b. s.toCharArray()
+c. String.toChars()
+d. String.toCharArray()
+e. s.toChars()
+
+26. __________ returns a string.
+a. String.valueOf(123)
+b. String.valueOf(12.53)
+c. String.valueOf(false)
+d. String.valueOf(new char[]{'a', 'b', 'c'})
+
+27. The following program displays __________.
+
+public class Test
+{  
+  public static void main(String[] args)
+  {
+    String s = "Java";
+    StringBuilder buffer = new StringBuilder(s);
+    change(s);
+    System.out.println(s);
+  }
+  private static void change(String s)
+  {
+    s = s + " and HTML";
+  }
+}
+
+a. Java
+b. Java and HTML
+c. and HTML
+d. nothing is displayed
+
+28. What is displayed by the following statement?
+        System.out.println("Java is neat".replaceAll("is", "AAA"));
+a.	JavaAAAneat
+b.	JavaAAA neat
+c.	Java AAA neat
+d.	Java AAAneat
+
+29. What is displayed by the following code?
+  public static void main(String[] args)
+  {
+    String[] tokens = "Welcome to Java".split("o");
+    for (int i = 0; i < tokens.length; i++)
+    {
+      System.out.print(tokens[i] + " ");
+    }
+  }
+a.	Welcome to Java
+b.	Welc me to Java
+c.	Welc me t  Java
+d.	Welcome t  Java
+
+29. What is displayed by the following code?
+    System.out.print("Hi, ABC, good".matches("ABC ") + " ");
+    System.out.println("Hi, ABC, good".matches(".*ABC.*"));
+a.	false fasle
+b.	true fasle
+c.	true true
+d.	false true
+
+29. What is displayed by the following code?
+    System.out.print("A,B;C".replaceAll(",;", "#") + " ");
+    System.out.println("A,B;C".replaceAll("[,;]", "#"));
+a.	A B C A#B#C
+b.	A#B#C A#B#C
+c.	A,B;C A#B#C
+d.	A B C A B C
+
+29. What is displayed by the following code?
+
+    String[] tokens = "A,B;C;D".split("[,;]");
+    for (int i = 0; i < tokens.length; i++)
+      System.out.print(tokens[i] +  " ");
+a.	A,B;C;D
+b.	A B C D
+c.	A B C;D
+d.	A B;C;D
+
+Section 9.5 The Character Class
+30.	Which of following is not a correct method in Character?
+a. isLetterOrDigit(char)
+b. isLetter(char)
+c. isDigit()
+d. toLowerCase(char)
+e. toUpperCase()
+
+31. Suppose Character x = new Character('a'), __________________ returns true.
+a.	x.equals(new Character('a'))
+b.	x.compareToIgnoreCase('A')
+c.	x.equalsIgnoreCase('A')
+d.      x.equals('a')
+e.      x.equals("a")
+
+Section 9.6 The StringBuilder/StringBuffer Class
+32.	Analyze the following code.
+
+class Test
+{
+  public static void main(String[] args) 
+  {
+    StringBuilder strBuf = new StringBuilder(4);
+    strBuf.append("ABCDE");
+    System.out.println("What's strBuf.charAt(5)? " + strBuf.charAt(5));
+  }
+}
+a. The program has a compilation error because you cannot specify initial capacity in the StringBuilder constructor.
+b. The program has a runtime error because because the buffer's capacity is 4, but five characters "ABCDE" are appended into the buffer.
+c. The program has a runtime error because the length of the string in the buffer is 5 after "ABCDE" is appended into the buffer. Therefore, strBuf.charAt(5) is out of range.
+d. The program compiles and runs fine.
+
+33.	Which of the following is true?
+a. You can add characters into a string buffer.
+b. You can delete characters into a string buffer.
+c. You can reverse the characters in a string buffer.
+d. The capacity of a string buffer can be automatically adjusted.
+
+34. _________ returns the last character in a StringBuilder variable named strBuf?
+a. strBuf.charAt(strBuf.length() - 1)
+b. strBuf.charAt(strBuf.capacity() - 1)
+c. StringBuilder.charAt(strBuf.length() - 1)
+d. StringBuilder.charAt(strBuf.capacity() - 1)
+
+35. Assume StringBuilder strBuf is "ABCDEFG", after invoking _________, strBuf contains "AEFG".
+a. strBuf.delete(0, 3)
+b. strBuf.delete(1, 3)
+c. strBuf.delete(1, 4)
+d. strBuf.delete(2, 4)
+
+36. Assume StringBuilder strBuf is "ABCDEFG", after invoking _________, strBuf contains "ABCRRRRDEFG".
+a. strBuf.insert(1, "RRRR")
+b. strBuf.insert(2, "RRRR")
+c. strBuf.insert(3, "RRRR")
+d. strBuf.insert(4, "RRRR")
+
+37. Assume StringBuilder strBuf is "ABCCEFC", after invoking _________, strBuf contains "ABTTEFT".
+a. strBuf.replace('C', 'T')
+b. strBuf.replace("C", "T")
+c. strBuf.replace("CC", "TT")
+d. strBuf.replace('C', "TT")
+e. strBuf.replace(2, 7, "TTEFT")
+
+38. The StringBuilder methods _____________ not only change the contents of a string buffer, but also returns a reference to the string buffer.
+a. delete
+b. append
+c. insert
+d. reverse
+e. replace
+
+39. The following program displays __________.
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    String s = "Java";
+    StringBuilder buffer = new StringBuilder(s);
+    change(buffer);
+    System.out.println(buffer);
+  }
+  private static void change(StringBuilder buffer)
+  {
+
+    buffer.append(" and HTML");
+  }
+}
+
+a. Java
+b. Java and HTML
+c. and HTML
+d. nothing is displayed
+
+Section 9.7 Command-Line Arguments
+40.	How can you get the word "abc" in the main method from the following call?
+
+java Test "+" 3 "abc" 2
+a.	args[0]
+b.	args[1]
+c.	args[2]
+d.	args[3]
+
+41. Given the following program:
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    for (int i = 0; i < args.length; i++)
+  	{
+      System.out.print(args[i] + " ");
+    }
+  }
+}
+
+What is the output, if you run the program using 
+
+java Test 1 2 3
+
+a.	3
+b.	1
+c.	1 2 3
+d.	1 2
+
+42. 	Which code fragment would correctly identify the number of arguments passed via the command line to a Java application, excluding the name of the class that is being invoked?
+a.	int count = args.length; 
+b.	int count = args.length - 1; 
+c.	int count = 0; while (args[count] != null) count ++; 
+d.	int count=0; while (!(args[count].equals(""))) count ++; 
+
+43. 	Which correctly creates an array of five empty Strings?
+a.	String[] a = new String [5]; 
+b.	String[] a = {"", "", "", "", ""}; 
+c.	String[5] a; 
+d.	String[ ] a = new String [5]; for (int i = 0; i &lt; 5; a[i++] = null); 
+
+44. Identify the problems in the following code.
+                
+public class Test
+{
+  public static void main(String argv[])
+  {
+    System.out.println("argv.length is " + argv.length);
+  }
+} 
+a. The program has a compile error because String argv[] is wrong and it should be replaced by String[] args.
+b. The program has a compile error because String args[] is wrong and it should be replaced by String args[].
+c. If you run this program without passing any arguments, the program would have a runtime error because argv is null.
+d. If you run this program without passing any arguments, the program would display argv.length is 0.
+
+45. Which of the following is the correct header of the main method?
+a. public static void main(String[] args)
+b. public static void main(String args[])
+c. public static void main(String[] x)
+d. public static void main(String x[])
+e. static void main(String[] args)

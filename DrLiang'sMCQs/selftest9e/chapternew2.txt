@@ -1,0 +1,372 @@
+Chapter 2 Elementary Programming
+
+0.      Any assignment statement can be used as an assignment expression.
+a. true
+b. false
+Key:a
+
+#
+1.	You can define a constant twice in a block.
+a. true
+b. false
+Key:b
+
+#
+44. _____ are valid Java identifiers.
+a. $Java
+b. _RE4
+c. 3ere
+d. 4+4
+e. int
+Key:ab
+
+#
+2.	You can define a variable twice in a block.
+a. true
+b. false
+Key:b
+
+#
+3.	The value of a variable can be changed.
+a. true
+b. false
+Key:a
+
+#
+4.	The result of an integer division is the integer part of the division; the fraction part is truncated.
+a. true
+b. false
+Key:a
+
+#
+5.	You can always assign a value of int type to a variable of long type without loss of information.
+a. true
+b. false
+Key:a
+
+#
+6.	You can always assign a value of long type to a variable of int type without loss of precision.
+a. true
+b. false
+Key:b
+
+#
+9.	You can cast a character value to an int, or an int to char.
+a. true
+b. false
+Key:a
+
+#
+13.	A variable may be assigned a value only once in the program.
+a. true
+b. false
+Key:b
+
+#
+14.	You can change the value of a constant.
+a. true
+b. false
+Key:b
+
+#
+15.	Is 'a' larger than 'A'?
+a. Yes
+b. No
+Key:a See Appendix B, "The ASCII Character Set."
+
+#
+1.	To add a to b and store result in b, you write  (Note: Java is case-sensitive)
+a.	b += a;
+b.	a = b + a;
+c.	b = A + b;
+d.	a += b;
+Key:a
+	
+#
+2.	To declare a constant PI, you write
+a.	final static PI = 3.14159;
+b.	final float PI = 3.14159;
+c.	static double PI = 3.14159;
+d.	final double PI = 3.14159;
+Key:d
+
+#
+3.	To declare an int variable x with initial value 200, you write
+a.	int x = 200L;
+b.	int x = 200l;
+c.	int x = 200;
+d.	int x = 200.0;
+Key:c
+
+#
+4.	To assign a double variable d to an int variable x, you write
+a.	x = (long)d
+b.	x = (int)d;
+c.	x = d;
+d.	x = (float)d;
+Key:b
+	
+#
+7.	Which of the following is the correct expression of character a?
+a.	'a'
+b.	"a"
+c.	'\000a'
+d.	'\a'
+Key:a
+
+#
+8.	Which of the following is a constant, according to Java naming conventions?
+a.	MAX_VALUE
+b.	Test
+c.	read
+d.	ReadInt
+Key:a
+
+#
+9.	Which of the following assignment statements is illegal?
+a.	float f = -34;
+b.	int t = 23;
+c.	short s = 10;
+d.	float f = 34.0;
+Key:d
+
+#
+10.	A Java statement ends with a __________.
+a.	comma (,)
+b.	semicolon (;)
+c.	period (.)
+d.	closing brace
+Key:b
+
+#
+11.	The assignment operator in Java is __________.
+a.	:=
+b.	=
+c.	= = 
+d.	<-
+Key:b
+
+#
+12.	Which of these data types requires the least amount of memory?
+a.	float
+b.	double
+c.	short 
+d.	byte
+Key:d
+	
+#
+13.	Which of the following operators has the highest precedence?
+a.	casting
+b.	+
+c.	*
+d.	/
+Key:a
+
+#
+14.	You can assign the value in ________ to an int variable.
+a.	'x'
+b.	93
+c.	98.3
+d.	true
+Key:ab
+
+#
+15.	Which of the following assignment statements is correct to assign character 5 to c?
+a.	char c = '5';
+b.	char c = 5;
+c.	char c =  "5";
+d.	char c = "344";
+Key:a
+	
+#
+17.	If you attempt to add an int, a byte, a long, and a float, the result will be a __________ value.
+a.	float
+b.	int
+c.	long
+d.	double
+Key:a
+
+#
+18.	If a program compiles fine, but it terminates abnormally at runtime, then the program suffers  __________.
+a.	a syntax error
+b.	a runtime error
+c.	a logic error
+Key:b
+
+#
+24. 	What is 1 % 2?
+a.     0
+b.     1
+c.     2
+Key:b
+
+#
+25. 	What is "Welcome" + 1 + 1*2?
+a.     Welcome11*2
+b.	Welcome4
+c.	Welcome12
+d.	Welcome3
+Key:c
+
+#
+26. What will be displayed by the following code?
+
+double x = 10.1;
+int y = (int)x;
+System.out.println("x is " + x + " and y is " + y);
+
+a. x is 10 and y is 10
+b. x is 10.0 and y is 10.0
+c. x is 11 and y is 11
+d. x is 10.1 and y is 10
+e. x is 10.1 and y is 10.0
+Key:d
+
+#
+32. The compiler checks _______.
+a. syntax errors
+b. logical errors
+c. runtime errors
+Key:a
+
+#
+33. You can cast a double value to _______.
+a. byte
+b. short
+c. int
+d. long
+e. float
+Key:abcde
+
+#
+34. The keyword _______ must be used to declare a constant.
+a. const
+b. final
+c. static
+d. double
+e. int
+Key:b
+
+#
+35. parseInt is a method in the _______ class.
+a. Integer
+b. Double
+c. Math
+d. System
+Key:a
+
+#
+36. parseDouble is a method in the _______ class.
+a. Integer
+b. Double
+c. Math
+d. System
+Key:b
+
+#
+37. pow is a method in the _______ class.
+a. Integer
+b. Double
+c. Math
+d. System
+Key:c
+
+#
+38. currentTimeMills is a method in the _______ class.
+a. Integer
+b. Double
+c. Math
+d. System
+Key:d
+
+#
+39. 5 % 1 is _____
+a. 1
+b. 2
+c. 3
+d. 4
+e. 0
+Key:e
+
+#
+40. 5 % 2 is _____
+a. 1
+b. 2
+c. 3
+d. 4
+e. 0
+Key:a
+
+#
+41. 5 % 3 is _____
+a. 1
+b. 2
+c. 3
+d. 4
+e. 0
+Key:b
+
+#
+42. 5 % 4 is _____
+a. 1
+b. 2
+c. 3
+d. 4
+e. 0
+Key:a
+
+#
+43. 5 % 5 is _____
+a. 1
+b. 2
+c. 3
+d. 4
+e. 0
+Key:e
+
+#
+43. -5 % 5 is _____
+a. -1
+b. -2
+c. -3
+d. -4
+e. 0
+Key:e
+
+#
+43. -15 % 4 is _____
+a. -1
+b. -2
+c. -3
+d. -4
+e. 0
+Key:c
+
+#
+43. -15 % -4 is _____
+a. -1
+b. -2
+c. -3
+d. -4
+e. 0
+Key:c
+
+#
+43. A variable must be declared before it can be used.
+a. True
+b. False
+Key:a
+
+#
+43. A constant can be defined using using the final keyword.
+a. True
+b. False
+Key:a
+
+#
+43. Which of the following are not valid assignment statements?
+a. x = 55;
+b. x = 56 + y;
+c. 55 = x;
+d. x += 3;
+Key:c

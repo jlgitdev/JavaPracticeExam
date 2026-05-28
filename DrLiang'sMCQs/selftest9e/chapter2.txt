@@ -1,0 +1,738 @@
+Chapter 2 Elementary Programming
+
+Section 2.3 Reading Input from the Console 
+1.	Suppose a Scanner object is created as follows:
+
+Scanner input = new Scanner(System.in);
+
+What method do you use to read an int value?
+
+a.  input.nextInt();
+b.  input.nextInteger();
+c.  input.int();
+d.  input.integer();
+
+#
+2.	The following code fragment reads in two numbers:
+
+Scanner input = new Scanner(System.in);
+int i = input.nextInt();
+double d = input.nextDouble();
+
+What are the correct ways to enter these two numbers?
+
+a.  Enter an integer, a space, a double value, and then the Enter key.
+b.  Enter an integer, two spaces, a double value, and then the Enter key.
+c.  Enter an integer, an Enter key, a double value, and then the Enter key.
+d.  Enter a numeric value with a decimal point, a space, an integer, and then the Enter key.
+
+#
+6. _______ is the code with natural language mixed with Java code.
+a. Java program
+b. A Java statement
+c. Pseudocode  
+d. A flowchart diagram
+
+#
+3. If you enter 1 2 3, when you run this program, what will be the output?
+
+import java.util.Scanner;
+
+public class Test1
+{
+  public static void main(String[] args)
+  {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter three numbers: ");
+    double number1 = input.nextDouble();
+    double number2 = input.nextDouble();
+    double number3 = input.nextDouble();
+
+    // Compute average
+    double average = (number1 + number2 + number3) / 3;
+
+    // Display result
+    System.out.println(average);
+  }
+}
+
+a.	1.0
+b.	2.0
+c.	3.0
+d.	4.0
+
+#
+4.	What is the exact output of the following code?
+
+  double area = 3.5;
+  System.out.print("area");
+  System.out.print(area);
+
+a.	3.53.5
+b.	3.5 3.5
+c. 	area3.5
+d.      area 3.5
+
+#
+Section 2.4 Identifiers
+4. Every letter in a Java keyword is in lowercase?
+a.	true
+b.	false
+
+#
+5. Which of the following is a valid identifier?
+a.	$343
+b.	class
+c.  9X
+d.  8+9
+e.  radius
+
+#
+Section 2.5 Variables
+6.	Which of the following are correct names for variables according to Java naming conventions?
+a.	radius
+b.	Radius
+c. 	RADIUS
+d.	findArea
+e.  FindArea
+
+#
+7.	Which of the following are correct ways to declare variables?
+a.	int length; int width;
+b.	int length, width;
+c. 	int length; width;
+d.  int length, int width;
+
+#
+Section 2.6 Assignment Statements and Assignment Expressions
+8.	____________ is the Java assignment operator.
+a.	==
+b.	:=
+c. 	=
+d.  =:
+
+#
+9. To assign a value 1 to variable x, you write
+a.	1 = x;
+b.	x = 1;
+c. 	x := 1;
+d.  1 := x;
+e.  x == 1;
+
+#
+10. Which of the following assignment statements is incorrect?
+a. 	i = j = k = 1; 
+b.	i = 1; j = 1; k = 1;
+c. 	i = 1 = j = 1 = k = 1;
+d.  i == j == k == 1;
+
+#
+Section 2.7 Named Constants
+11.	To declare a constant MAX_LENGTH inside a method with value 99.98, you write
+a.	final MAX_LENGTH = 99.98;
+b.	final float MAX_LENGTH = 99.98;
+c. 	double MAX_LENGTH = 99.98;
+d.	final double MAX_LENGTH = 99.98;
+
+#
+12.	Which of the following is a constant, according to Java naming conventions?
+a.	MAX_VALUE
+b.	Test
+c.	read
+d.	ReadInt
+e.	COUNT
+
+#
+13.	To improve readability and maintainability, you should declare _________ instead of using literal values such as 3.14159.
+a.	variables
+b.	methods
+c.	constants
+d.	classes
+
+#
+Section 2.8 Naming Conventions
+60.	According to Java naming convention, which of the following names can be variables?
+a.	FindArea
+b.	findArea
+c.	totalLength
+d.	TOTAL_LENGTH
+e.  class
+
+#
+Section 2.9 Numeric Data Types and Operations
+14.	Which of these data types requires the most amount of memory?
+a.	long
+b.	int
+c.	short 
+d.	byte
+
+#
+34. If a number is too large to be stored in a variable of the float type, it _____________.
+a. causes overflow
+b. causes underflow
+c. causes no error
+d. cannot happen in Java
+
+#
+15.	Analyze the following code:
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    int n = 10000 * 10000 * 10000;
+    System.out.println("n is " + n);
+  }
+}
+a.	The program displays n is 1000000000000
+b.	The result of 10000 * 10000 * 10000 is too large to be stored in an int variable n. This causes an overflow and the program is aborted. 
+c.	The result of 10000 * 10000 * 10000 is too large to be stored in an int variable n. This causes an overflow and the program continues to execute because Java does not report errors on overflow. 
+d.	The result of 10000 * 10000 * 10000 is too large to be stored in an int variable n. This causes an underflow and the program is aborted. 
+e.  The result of 10000 * 10000 * 10000 is too large to be stored in an int variable n. This causes an underflow and the program continues to execute because Java does not report errors on underflow.      
+
+#
+16. What is the result of 45 / 4?
+a. 10
+b. 11
+c. 11.25
+d. 12
+
+#
+18. Which of the following expression results in a value 1?
+a. 2 % 1
+b. 15 % 4
+c. 25 % 5
+d. 37 % 6
+
+#
+19. 25 % 1 is _____
+a. 1
+b. 2
+c. 3
+d. 4
+e. 0
+
+#
+20. -25 % 5 is _____
+a. 1
+b. 2
+c. 3
+d. 4
+e. 0
+
+#
+21. 24 % 5 is _____
+a. 1
+b. 2
+c. 3
+d. 4
+e. 0
+
+#
+22. -24 % 5 is _____
+a. -1
+b. -2
+c. -3
+d. -4
+e. 0
+
+#
+23. -24 % -5 is _____
+a. 3
+b. -3
+c. 4
+d. -4
+e. 0
+
+#
+30. Math.pow(2, 3) returns __________.
+a.  9
+b.  8
+c.  9.0
+d.  8.0
+
+#
+30. Math.pow(4, 1 / 2) returns __________.
+a.  2
+b.  2.0
+c.  0
+d.  1.0
+e.  1
+
+#
+30. Math.pow(4, 1.0 / 2) returns __________.
+a.  2
+b.  2.0
+c.  0
+d.  1.0
+e.  1
+
+#
+31. The __________ method returns a raised to the power of b.
+a.	Math.power(a, b)
+b.	Math.exponent(a, b)
+c.	Math.pow(a, b)
+d.	Math.pow(b, a)
+
+#
+Section 2.10 Numeric Literals
+15.	To declare an int variable number with initial value 2, you write
+a.	int number = 2L;
+b.	int number = 2l;
+c.	int number = 2;
+d.	int number = 2.0;
+
+#
+32. Analyze the following code.
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    int month = 09;
+    System.out.println("month is " + month);
+  }  
+}
+a. The program displays month is 09
+b. The program displays month is 9
+c. The program displays month is 9.0
+d. The program has a syntax error, because 09 is an incorrect literal value.
+
+#
+15. Which of the following are the same as 1545.534?
+a.	1.545534e+3
+b.	0.1545534e+4
+c.	1545534.0e-3
+d.	154553.4e-2
+
+#
+Section 2.11 Evaluating Expressions and Operator Precedence
+24.     The expression 4 + 20 / (3 - 1) * 2 is evaluated to
+a.	4
+b.	20
+c. 	24
+d.  9
+e.  25
+
+#
+Section 2.13 Augmented Assignment Operators
+24.      To add a value 1 to variable x, you write
+a.	1 + x = x;
+b.	x += 1;
+c. 	x := 1;
+d.  x = x + 1;
+e.  x = 1 + x;
+
+#
+25.	To add number to sum, you write  (Note: Java is case-sensitive)
+a.	number += sum;
+b.	number = sum + number;
+c.	sum = Number + sum;
+d.	sum += number;
+e. sum = sum + number;
+
+#
+26.      Suppose x is 1. What is x after x += 2?
+a.	0
+b.	1
+c. 	2
+d.  3
+e.  4
+
+#
+27.      Suppose x is 1. What is x after x -= 1?
+a.	0
+b.	1
+c. 	2
+d.  -1
+e.  -2
+
+#
+28.	What is x after the following statements?
+
+int x = 2;
+int y = 1;
+x *= y + 1;
+
+a. x is 1.
+b. x is 2.	
+c. x is 3.
+d. x is 4.	
+
+#
+29.	What is x after the following statements?
+
+int x = 1;
+x *= x + 1;
+
+a. x is 1.
+b. x is 2.	
+c. x is 3.
+d. x is 4.	
+
+#
+29.	Which of the following statements are the same?
+
+(A) x -= x + 4
+(B) x = x + 4 - x
+(C) x = x - (x + 4)
+
+a. (A) and (B) are the same
+b. (A) and (C) are the same
+c. (B) and (C) are the same
+d. (A), (B), and (C) are the same	
+
+#
+Section 2.14 Increment and Decrement Operators
+21.	Are the following four statements equivalent?
+	number += 1;
+	number = number + 1;
+	number++;
+	++number;
+a. Yes
+b. No
+
+#
+34. What is the value of i printed?
+public class Test
+  {
+  public static void main(String[] args)
+  {
+    int j = 0;
+    int i = ++j + j * 5;
+
+    System.out.println("What is i? " + i);
+  }
+}
+a. 0
+b. 1
+c. 5
+d. 6
+
+#
+35. What is the value of i printed in the following code?
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    int j = 0;
+    int i = j++ + j * 5;
+
+    System.out.println("What is i? " + i);
+  }
+}
+a. 0
+b. 1
+c. 5
+d. 6
+
+#
+36. What is y displayed in the following code?
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    int x = 1;
+    int y = x++ + x;
+    System.out.println("y is " + y);
+  }  
+}
+a. y is 1.
+b. y is 2.
+c. y is 3.
+d. y is 4.
+
+#
+37. What is y displayed?
+
+public class Test
+{
+  public static void main(String[] args)
+  {
+    int x = 1;
+    int y = x + x++;
+    System.out.println("y is " + y);
+  }  
+}
+a. y is 1.
+b. y is 2.
+c. y is 3.
+d. y is 4.
+Key:b When evaluating x + x++, x is evaluated first, which is 1. X++ returns 1 since it is post-increment and 2. Therefore y is 1 + 1.
+
+#
+Section 2.15 Numeric Type Conversions
+38.	To assign a double variable d to a float variable x, you write
+a.	x = (long)d
+b.	x = (int)d;
+c.	x = d;
+d.	x = (float)d;
+Key:d
+
+#
+17. Which of the following expressions will yield 0.5?
+a. 1 / 2
+b. 1.0 / 2
+c. (double) (1 / 2)
+d. (double) 1 / 2
+e. 1 / 2.0
+Key:bde 1 / 2 is an integer division, which results in 0.
+
+#
+39. What will be displayed by the following code?
+
+double x = 5.5;
+int y = (int)x;
+System.out.println("x is " + x + " and y is " + y);
+a. x is 5 and y is 6
+b. x is 6.0 and y is 6.0
+c. x is 6 and y is 6
+d. x is 5.5 and y is 5
+e. x is 5.5 and y is 5.0
+Key:d The value is x is not changed after the casting.
+
+#
+40. Which of the following assignment statements is illegal?
+a.      float f = -34;
+b.      int t = 23;
+c.	short s = 10;
+d.	int t = (int)false;
+e.	int t = 4.5;
+Key:de
+
+#
+41. What is the value of (double)5/2?
+a.      2
+b.      2.5
+c.	3
+d.	2.0
+e.	3.0
+Key:b
+
+#
+42. What is the value of (double)(5/2)?
+a.      2
+b.      2.5
+c.	3
+d.	2.0
+e.	3.0
+Key:d
+
+#
+43. Which of the following expression results in 45.37?
+a. (int)(45.378 * 100) / 100 
+b. (int)(45.378 * 100) / 100.0 
+c. (int)(45.378 * 100 / 100) 
+d. (int)(45.378) * 100 / 100.0 
+Key:b 
+
+#
+43. The expression (int)(76.0252175 * 100) / 100 evaluates to _________.
+a. 76.02
+b. 76
+c. 76.0252175
+d. 76.03
+Key:b In order to obtain 76.02, you have divide 100.0.
+
+#
+44.	If you attempt to add an int, a byte, a long, and a double, the result will be a __________ value.
+a.	byte
+b.	int
+c.	long
+d.	double
+Key:d
+
+#
+Section 2.16 Software Life Cycle 
+1. _____________ is a formal process that seeks to understand the problem and document in detail what the software system needs to do. 
+a. Requirements specification
+b. Analysis
+c. Design
+d. Implementation
+e. Testing
+Key:a 
+
+#
+57. _____________ seeks to analyze the data flow and to identify the system's input and output. 
+a. Requirements specification
+b. System analysis
+c. Design
+d. Implementation
+e. Testing
+Key:b 
+
+#
+Section 2.17 Character Data Type and Operations
+45.	Which of the following is the correct expression of character 4?
+a.	4
+b.	"4"
+c.	'\0004'
+d.  '4'
+Key:d You have to write '4'.
+
+#
+46.	A Java character is stored in __________.
+a.	one byte
+b.	two bytes
+c.	three bytes
+d.	four bytes
+Key:b Java characters use Unicode encoding.
+
+#
+47.	Suppose x is a char variable with a value 'b'. What will be displayed by the statement System.out.println(++x)?
+a.	a
+b.	b
+c.	c
+d.	d
+Key:c
+
+#
+48.	Which of the following statement prints smith\exam1\test.txt?
+a.	System.out.println("smith\exam1\test.txt");
+b.	System.out.println("smith\\exam1\\test.txt");
+c.	System.out.println("smith\"exam1\"test.txt");
+d.	System.out.println("smith"\exam1"\test.txt");
+Key:b
+
+#
+49.	Suppose i is an int type variable. Which of the following statements display the character whose Unicode is stored in variable i?
+a.	System.out.println(i);
+b.	System.out.println((char)i);
+c.	System.out.println((int)i);
+d.	System.out.println(i + " ");
+Key:B
+
+#
+50.	The Unicode of 'a' is 97. What is the Unicode for 'c'?
+a.	96
+b.	97
+c.	98
+d.	99
+Key:d
+
+#
+51.	Will System.out.println((char)4) display 4?
+a.	Yes
+b.	No
+Key:b The Unicode \u0004 is to be displayed, not number 4.
+
+#
+52.	What will be displayed by System.out.println('z' - 'a')?
+a.	25
+b.	26
+c.	a
+d.	z
+Key:a
+
+#
+53.	An int variable can hold __________.
+a.	'x'
+b.	120
+c.	120.0
+d.	"x"
+e.      "120"
+Key:ab Choice (A) is also correct, because a character can be implicitly cast into an int variable. The Unicode value of character is assignment to the int variable. In this case, the code is 120 (see Appendix B).
+
+#
+54.	Which of the following assignment statements is correct?
+a.	char c = 'd';
+b.	char c = 100;
+c.	char c =  "d";
+d.	char c = "100";
+Key:ab Choice (B) is also correct, because an int value can be implicitly cast into a char variable. The Unicode of the character is the int value. In this case, the character is d (see Appendix B).
+
+#
+54.	'3' - '2' + 'm' / 'n' is ______.
+a.	0
+b.	1
+c.	2
+d.	3
+Key:b
+
+#
+Section 2.18 The String Type
+55.	The expression "Java " + 1 + 2 + 3 evaluates to ________.
+a. Java123
+b. Java6
+c. Java 123
+d. java 123
+e. Illegal expression
+key:c
+
+#
+56.	Note that the Unicode for character A is 65. The expression "A" + 1 evaluates to ________.
+a. 66
+b. B
+c. A1
+d. Illegal expression
+key:c
+
+#
+57.	Note that the Unicode for character A is 65. The expression 'A' + 1 evaluates to ________.
+a. 66
+b. B
+c. A1
+d. Illegal expression
+key: a
+
+#
+58. The System.currentTimeMillis() returns ________________ .
+a.	the current time.
+b.	the current time in milliseconds.
+c.	the current time in milliseconds since midnight.
+d.	the current time in milliseconds since midnight, January 1, 1970.
+e.      the current time in milliseconds since midnight, January 1, 1970 GMT (the Unix time).
+Key:e
+
+#
+Section 2.19 Getting Input from Input Dialogs
+62.	The __________ method displays an input dialog for reading a string.
+a.  String string = JOptionPane.showMessageDialog(null, "Enter a string", "Input Demo", JOptionPane.QUESTION_MESSAGE);
+b.  String string = JOptionPane.showInputDialog(null, "Enter a string", "Input Demo", JOptionPane.QUESTION_MESSAGE);
+c.  String string = JOptionPane.showInputDialog("Enter a string", "Input Demo", JOptionPane.QUESTION_MESSAGE);
+d.  String string = JOptionPane.showInputDialog(null, "Enter a string");
+e.  String string = JOptionPane.showInputDialog("Enter a string");
+Key:bde
+
+#
+63. The __________ method parses a string s to an int value.
+a.	integer.parseInt(s);
+b.	Integer.parseInt(s);
+c.	integer.parseInteger(s);
+d.	Integer.parseInteger(s);
+Key:b
+
+#
+64. The __________ method parses a string s to a double value.
+a.	double.parseDouble(s);
+b.	Double.parsedouble(s);
+c.	double.parse(s);
+d.	Double.parseDouble(s);
+Key:d
+
+#	
+65. Analyze the following code.
+
+import javax.swing.*;
+
+public class ShowErrors
+{
+  public static void main(String[] args)
+  {
+    int i;
+    int j;
+    String s = JOptionPane.showInputDialog(null, 
+      "Enter an integer", "Input", 
+      JOptionPane.QUESTION_MESSAGE);
+    j = Integer.parseInt(s);
+
+    i = (i + 4);
+  }
+}
+a. The program cannot compile because j is not initialized.
+b. The program cannot compile because i does not have an initial value when it is used in i = i + 4;
+c. The program compiles but has a runtime error because i does not have an initial value when it is used in i = i + 4;
+d. The program compiles and runs fine.
+Key:b

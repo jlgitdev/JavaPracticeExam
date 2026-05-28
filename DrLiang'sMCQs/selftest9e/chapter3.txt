@@ -1,0 +1,609 @@
+Chapter 3 Selections
+
+Section 3.2 boolean Data Type 
+1.	The "less than or equal to" comparison operator in Java is __________.
+a.	<
+b.	<=
+c.	=<
+d.	<<
+e.      !=
+Key:b
+	
+#
+2.	The equal comparison operator in Java is __________.
+a.      <>
+b.	!=
+c.	== 
+d.	^=
+Key:c
+
+#
+3. What is 1 + 1 + 1 + 1 + 1 == 5?
+a. true
+b. false
+c. There is no guarantee that 1 + 1 + 1 + 1 + 1 == 5 is true.
+Key:a
+
+#
+4. What is 1.0 + 1.0 + 1.0 + 1.0 + 1.0 == 5.0?
+a. true
+b. false
+c. There is no guarantee that 1.0 + 1.0 + 1.0 + 1.0 + 1.0 == 5.0 is true.
+Key:c becuase floating-point numbers are approximated.
+
+#
+5.	In Java, the word true is ________.
+a.      a Java keyword
+b.	a Boolean literal 
+c.	same as value 1
+d.	same as value 0
+Key:b true is a Boolean literal just like integer literal 10.
+
+#
+Sections 3.3-3.10
+7. Which of the following code displays the area of a circle if the radius is positive.
+a. if (radius != 0) System.out.println(radius * radius * 3.14159);
+b. if (radius >= 0) System.out.println(radius * radius * 3.14159);
+c. if (radius > 0) System.out.println(radius * radius * 3.14159);
+d. if (radius <= 0) System.out.println(radius * radius * 3.14159);
+key:c
+
+#
+8. Suppose x = 1, y = -1, and z = 1. What will be displayed by the following statement? (Please indent the statement correctly first.)
+
+if (x > 0)
+   if (y > 0)
+      System.out.println("x > 0 and y > 0");
+else if (z > 0)
+      System.out.println("x < 0 and z > 0");
+a.	x > 0 and y > 0
+b.	x < 0 and z > 0
+c.	x < 0 and z < 0
+d.	none
+Key:b
+
+#
+9.	Analyze the following code:
+
+boolean even = false;
+if (even = true) {
+  System.out.println("It is even!");
+}
+a. The program has a compile error.
+b. The program has a runtime error.
+c. The program runs, but displays nothing.
+d. The program runs and displays It is even!.
+Key:d It is a common mistake to use the = operator in the condition test. What happens is that true is assigned to even when you write even = true. So even is true. The program compiles and runs fine and prints "It is even!". 
+
+#
+10. Suppose isPrime is a boolean variable, which of the following is the correct and best statement for testing if isPrime is true.
+
+a. if (isPrime = true) 
+b. if (isPrime == true) 
+c. if (isPrime) 
+d. if (!isPrime = false) 
+e. if (!isPrime == false) 
+Key:c
+
+#
+10. What is the output of the following code?
+
+int x = 0;
+if (x < 4) {
+  x = x + 1;
+}
+System.out.println("x is " + x);
+
+a. x is 0
+b. x is 1
+c. x is 2
+d. x is 3
+e. x is 4
+Key:b
+
+#
+10. Analyze the following code.
+
+boolean even = false;
+if (even) {
+  System.out.println("It is even!");
+}
+a. The code displays It is even!
+b. The code displays nothing.
+c. The code is wrong. You should replace if (even) with if (even == true)
+d. The code is wrong. You should replace if (even) with if (even = true)
+Key:b
+
+#
+11. The following code displays ___________.
+
+double temperature = 50;
+
+if (temperature >= 100)
+  System.out.println("too hot");
+else if (temperature <= 40)
+  System.out.println("too cold");
+else
+  System.out.println("just right");
+
+a. too hot
+b. too cold
+c. just right
+d. too hot too cold just right
+Key:c
+
+#
+12.	Analyze the following code:
+
+Code 1:
+
+int number = 45;
+boolean even;
+
+if (number % 2 == 0) 
+  even = true;
+else 
+  even = false;
+
+Code 2:
+
+int number = 45;
+boolean even = (number % 2 == 0);
+
+a. Code 1 has compile errors.
+b. Code 2 has compile errors.
+c. Both Code 1 and Code 2 have compile errors.
+d. Both Code 1 and Code 2 are correct, but Code 2 is better.
+Key:d 
+
+#
+13.  Suppose income is 4001, what is the output of the following code:
+
+if (income > 3000) {
+  System.out.println("Income is greater than 3000");
+}
+else if (income > 4000) {
+  System.out.println("Income is greater than 4000");
+}
+a. no output
+b. Income is greater than 3000 
+c. Income is greater than 3000 followed by Income is greater than 4000
+d. Income is greater than 4000
+e. Income is greater than 4000 followed by Income is greater than 3000
+Key:b 
+
+#
+14.	The __________ method immediately terminates the program.
+a.	System.terminate(0);
+b.	System.halt(0);
+c.	System.exit(0);
+d.	System.quit(0);
+e.	System.stop(0);
+Key:c
+
+#
+3. Suppose you write the code to display "Cannot get a driver's license" if age is less than 16 
+and "Can get a driver's license" if age is greater than or equal to 16. 
+Which of the following code is correct?
+
+I: 
+if (age < 16) 
+  System.out.println("Cannot get a driver's license"); 
+if (age >= 16) 
+  System.out.println("Can get a driver's license"); 
+
+II:
+if (age < 16) 
+  System.out.println("Cannot get a driver's license"); 
+else 
+  System.out.println("Can get a driver's license"); 
+
+III:
+if (age < 16) 
+  System.out.println("Cannot get a driver's license"); 
+else if (age >= 16) 
+  System.out.println("Can get a driver's license"); 
+
+IV:
+if (age < 16) 
+  System.out.println("Cannot get a driver's license"); 
+else if (age > 16) 
+  System.out.println("Can get a driver's license"); 
+else if (age == 16) 
+  System.out.println("Can get a driver's license"); 
+
+a. I
+b. II
+c. III
+d. IV
+Key:abcd
+
+#
+3. Suppose you write the code to display "Cannot get a driver's license" if age is less than 16 and 
+"Can get a driver's license" if age is greater than or equal to 16. 
+Which of the following code is the best?
+
+I: 
+if (age < 16) 
+  System.out.println("Cannot get a driver's license"); 
+if (age >= 16) 
+  System.out.println("Can get a driver's license"); 
+
+II:
+if (age < 16) 
+  System.out.println("Cannot get a driver's license"); 
+else 
+  System.out.println("Can get a driver's license"); 
+
+III:
+if (age < 16) 
+  System.out.println("Cannot get a driver's license"); 
+else if (age >= 16) 
+  System.out.println("Can get a driver's license"); 
+
+IV:
+if (age < 16) 
+  System.out.println("Cannot get a driver's license"); 
+else if (age > 16) 
+  System.out.println("Can get a driver's license"); 
+else if (age == 16) 
+  System.out.println("Can get a driver's license"); 
+
+a. I
+b. II
+c. III
+d. IV
+Key:b
+
+#
+Sections 3.11-3.13
+15.	Which of the Boolean expressions below is incorrect?
+a.	(true) && (3 => 4)
+b.	!(x > 0) && (x > 0)
+c.	(x > 0) || (x < 0)
+d.	(x != 0) || (x = 0)
+e.	 (-10 < x < 0)
+Key:ade a: (3 => 4) should be (3 >= 4), d: (x = 0) should be (x == 0), and e: should be (-10 < x) &&  (x < 0)
+
+#
+16.	Which of the following is the correct expression that evaluates to true if the number x is between 1 and 100 or the number is negative?
+a.	1 < x < 100 && x < 0
+b.	((x < 100) && (x > 1)) || (x < 0)
+c.	((x < 100) && (x > 1)) && (x < 0)
+d.	(1 > x >  100) || (x < 0)
+Key:b
+
+#
+2.	Assume x = 4 and y = 5, Which of the following is true?
+a.      x < 5 && y < 5
+b.	x < 5 || y < 5
+c.	x > 5 && y > 5
+d.	x > 5 || y > 5
+Key:b
+
+#
+2.	Assume x = 4, Which of the following is true?
+a.      !(x == 4)
+b.	x != 4
+c.	x == 5
+d.	x != 5
+Key:d
+
+#
+2.	Assume x = 4 and y = 5, Which of the following is true?
+a.      !(x == y)
+b.	x != y
+c.	x == y
+d.	x >= y
+Key:ab
+
+#
+2. Which of the following is equivalent to x != y?
+a.      ! (x == y)
+b.	x > y && x < y
+c.	x > y || x < y
+d.	x >= y || x <= y
+Key:ac
+
+#
+17.	Suppose x=10 and y=10. What is x after evaluating the expression (y > 10) && (x-- > 10)? 
+a.	9
+b.	10
+c.	11
+Key:b For the && operator, the right operand is not evaluated, if the left operand is evaluated as false.
+
+#
+18.	Suppose x=10 and y=10 what is x after evaluating the expression (y > 10) && (x++ > 10).
+a.	9
+b.	10
+c.	11
+Key:b For the && operator, the right operand is not evaluated, if the left operand is evaluated as false.
+
+#
+19.	Suppose x=10 and y=10 what is x after evaluating the expression (y >= 10) || (x-- > 10). 
+a.	9
+b.	10
+c.	11
+Key:b For the || operator, the right operand is not evaluated, if the left operand is evaluated as true.
+
+#
+20.	Suppose x=10 and y=10 what is x after evaluating the expression (y >= 10) || (x++ > 10).
+a.	9
+b.	10
+c.	11
+Key:b For the || operator, the right operand is not evaluated, if the left operand is evaluated as true.
+
+#
+21. To check whether a char variable ch is an uppercase letter, you write ___________.
+a.	(ch >= 'A' && ch >= 'Z')
+b.	(ch >= 'A' && ch <= 'Z')
+c.	(ch >= 'A' || ch <= 'Z')
+d.	('A' <= ch <= 'Z')
+Key:b
+
+#
+22. Analyze the following code:
+
+if (x < 100) && (x > 10)
+  System.out.println("x is between 10 and 100");
+a.The statement has compile errors because (x<100) & (x > 10) must be enclosed inside parentheses.
+b.The statement has compile errors because (x<100) & (x > 10) must be enclosed inside parentheses and the println(…) statement must be put inside a block.
+c.The statement compiles fine.
+d.The statement compiles fine, but has a runtime error.
+Key:a
+
+#
+23. What is the output of the following code?
+
+char ch = 'F';
+if (ch >= 'A' && ch <= 'Z')
+  System.out.println(ch);
+
+a. F
+b. f
+c. nothing
+d. F f
+Key:a
+
+#
+Section 3.14 switch Statements
+24. What is y after the following switch statement is executed?
+
+int x = 3; int y = 4;
+switch (x + 3) {
+  case 6:  y = 0;
+  case 7:  y = 1;
+  default: y += 1;
+}
+a.	1
+b.	2
+c.	3
+d.	4
+e.	0
+Key:b
+
+#
+25. What will be displayed by the following switch statement?
+
+    char ch = 'a';
+    
+    switch (ch) {
+      case 'a':
+      case 'A':
+        System.out.print(ch); break;
+      case 'b':
+      case 'B':
+        System.out.print(ch); break;
+      case 'c':
+      case 'C':
+        System.out.print(ch); break;
+      case 'd':
+      case 'D':
+        System.out.print(ch);
+    }
+
+a.	abcd
+b.	a
+c.	aa
+d.      ab
+e.      abc
+Key:b
+
+#
+26. What will be displayed by the following switch statement?
+
+    char ch = 'b';
+    
+    switch (ch) {
+      case 'a':
+        System.out.print(ch);
+      case 'b':
+        System.out.print(ch);
+      case 'c':
+        System.out.print(ch);
+      case 'd':
+        System.out.print(ch);
+    }
+
+a.	abcd
+b.	bcd
+c.	b
+d.      bb
+e.      bbb
+Key:e
+
+#
+27.	Analyze the following program fragment:
+
+int x;
+double d = 1.5;
+
+switch (d) {
+  case 1.0: x = 1;
+  case 1.5: x = 2;
+  case 2.0: x = 3;
+}
+a.	The program has a compile error because the required break statement is missing in the switch statement.
+b.	The program has a compile error because the required default case is missing in the switch statement.
+c.	The switch control variable cannot be double.
+d.	No errors.
+Key:c
+
+#
+Section 3.15 Conditional Expressions
+28.	What is y after the following statement is executed?
+
+x = 0;
+y = (x > 0) ? 10 : -10;
+a.	-10
+b.	 0
+c.	 10
+d.	 20
+e. Illegal expression
+Key:a
+
+#
+29.	Analyze the following code fragments that assign a boolean value to the variable even.
+
+Code 1: 
+if (number % 2 == 0)
+  even = true;
+else 
+  even = false;
+
+Code 2: 
+even = (number % 2 == 0) ? true: false;
+
+Code 3:
+even = number % 2 == 0;
+a. Code 2 has a compile error, because you cannot have true and false literals in the conditional expression.
+b. Code 3 has a compile error, because you attempt to assign number to even.
+c. All three are correct, but Code 1 is preferred.
+d. All three are correct, but Code 2 is preferred.
+e. All three are correct, but Code 3 is preferred.
+Key:e Code 3 is the simplest. Code 1 and Code 2 contain redundant code.
+ 
+#
+30. What is the output of the following code?
+
+boolean even = false;
+System.out.println((even ? "true" : "false"));
+
+a. true
+b. false
+c. nothing
+d. true false
+Key:b
+
+#
+Section 3.16 Formatting Console Output and Strings
+31. Which of the following are valid specifiers for the printf statement?
+a.	%4c 
+b.	%10b
+c.	%6d
+d.	%8.2d
+e.      %10.2e
+Key:abce
+
+#
+32. The statement System.out.printf("%3.1f", 1234.56) outputs ___________.
+a.	123.4 
+b.	123.5
+c.	1234.5
+d.	1234.56
+e.      1234.6
+Key:e
+
+#
+33. The statement System.out.printf("%3.1e", 1234.56) outputs ___________.
+a.	0.1e+04 
+b.	0.123456e+04
+c.	0.123e+04
+d.	1.2e+03
+e.      1.23+03
+Key:d
+
+#
+34. The statement System.out.printf("%5d", 123456) outputs ___________.
+a.	12345 
+b.	23456
+c.	123456
+d.	12345.6
+Key:c
+
+#
+35. The statement System.out.printf("%10s", "123456") outputs ___________. (Note: * represents a space)
+a.	123456**** 
+b.	23456*****
+c.	12345*****
+d.	****123456
+Key:d
+
+#
+13. Suppse number contains integer value 4, which of the following statement is correct?
+a. System.out.printf("%3d %4d", number, Math.pow(number, 1.5));
+b. System.out.printf("%3d %4.2d", number, Math.pow(number, 1.5));
+c. System.out.printf("%3d %4.2f", number, Math.pow(number, 1.5));
+d. System.out.printf("%3f %4.2d", number, Math.pow(number, 1.5));
+e. System.out.printf("%3f %4.2f", number, Math.pow(number, 1.5));
+Key: c Math.pow(number, 1.5) is a floating-point value and must be formatted using the specifier f, not d. number is an int and must be formatted using the specifier d.
+
+#
+36. Analyze the following code:
+
+int i = 3434; double d = 3434;
+System.out.printf("%5.1f %5.1f", i, d);
+
+a. The code compiles and runs fine to display 3434.0 3434.0.
+b. The code compiles and runs fine to display 3434 3434.0.
+c. i is an integer, but the format specifier %5.1f specifies a format for double value. The code has an error.
+Key:c i is an integer, but the format specifier %5.1f specifies a format for double value. Type does not match. 
+
+#	
+Section 3.17 Operator Precedence and Associativity
+37.	The order of the precedence (from high to low) of the operators binary +, *, &&, || is:
+a.	&&, ||, *, +
+b.	*, +, &&, ||
+c.      *, +, ||, &&
+d.      ||, &&, *, +
+Key:b
+
+#
+33. What is y displayed in the following code?
+
+public class Test1 {
+  public static void main(String[] args) {
+    int x = 1;
+    int y = x = x + 1;
+    System.out.println("y is " + y);
+  }  
+}
+a. y is 0.
+b. y is 1 because x is assigned to y first.
+c. y is 2 because x + 1 is assigned to x and then x is assigned to y.
+d. The program has a compile error since x is redeclared in the statement int y = x = x + 1.
+Key:c The = operator is right-associative.
+
+#
+38. Which of the following operators are right-associative. 
+a. *
+b. + (binary +)
+c. %
+d. &&
+e. =
+Key:e
+
+#
+39.	What is the value of the following expression?
+true || true && false
+a.	true
+b.	false
+Key:a && has higher precedence than ||, so && is evaluated first.
+
+#
+40. Which of the following statements are true?
+a. (x > 0 && x < 10) is same as ((x > 0) && (x < 10))
+b. (x > 0 || x < 10) is same as ((x > 0) || (x < 10))
+c. (x > 0 || x < 10 && y < 0) is same as (x > 0 || (x < 10 && y < 0)) 
+d. (x > 0 || x < 10 && y < 0) is same as ((x > 0 || x < 10) && y < 0)
+Key:abc

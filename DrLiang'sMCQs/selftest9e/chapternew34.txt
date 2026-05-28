@@ -1,0 +1,6 @@
+Chapter 34 Java Database Programming
+
+1. Java compiler can detect SQL syntax errors?
+a. true
+b. false
+Key:b

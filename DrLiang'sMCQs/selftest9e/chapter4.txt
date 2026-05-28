@@ -1,0 +1,572 @@
+Chapter 4 Loops
+
+Section 4.2 The while Loop
+1.	How many times will the following code print "Welcome to Java"?
+
+int count = 0;
+while (count < 10) {
+  System.out.println("Welcome to Java");
+  count++;
+}
+a.	8
+b.	9
+c.	10
+d.	11
+e.      0
+Key:c
+
+#
+10. What is the output of the following code?
+
+int x = 0;
+while (x < 4) {
+  x = x + 1;
+}
+System.out.println("x is " + x);
+
+a. x is 0
+b. x is 1
+c. x is 2
+d. x is 3
+e. x is 4
+Key:e
+
+#
+2. Analyze the following code.
+
+int count = 0;
+while (count < 100) {
+  // Point A
+  System.out.println("Welcome to Java!");
+  count++;
+  // Point B
+}
+
+  // Point C
+a.	count < 100 is always true at Point A
+b.	count < 100 is always true at Point B
+c.	count < 100 is always false at Point B
+d.	count < 100 is always true at Point C
+e.      count < 100 is always false at Point C
+Key:ae
+
+#
+3.	How many times will the following code print "Welcome to Java"?
+
+int count = 0;
+while (count++ < 10) {
+  System.out.println("Welcome to Java");
+}
+a.	8
+b.	9
+c.	10
+d.	11
+e.      0
+Key:c
+
+#
+3.	What will be displayed when the following code is executed?
+
+    int number = 6;
+    while (number > 0) {
+      number -= 3;
+      System.out.print(number + " ");
+    }
+a.	6 3 0
+b.	6 3 
+c.	3 0
+d.      3 0 -3
+e.      0 -3
+Key:c
+
+#
+Section 4.3 The do-while Loop
+4.	How many times will the following code print "Welcome to Java"?
+
+int count = 0;
+do {
+  System.out.println("Welcome to Java");
+  count++;
+} while (count < 10);
+a.	8
+b.	9
+c.	10
+d.	11
+e.      0
+Key:c
+
+#
+5.	How many times will the following code print "Welcome to Java"?
+
+int count = 0;
+do {
+  System.out.println("Welcome to Java");
+} while (count++ < 10);
+a.	8
+b.	9
+c.	10
+d.	11
+e.      0
+Key:d
+
+#
+6.	How many times will the following code print "Welcome to Java"?
+
+int count = 0;
+do {
+  System.out.println("Welcome to Java");
+} while (++count < 10);
+a.	8
+b.	9
+c.	10
+d.	11
+e.      0
+Key:c
+
+#
+7.	What is the value in count after the following loop is executed?
+
+int count = 0;
+do {
+  System.out.println("Welcome to Java");
+} while (count++ < 9);
+System.out.println(count);
+a.	8
+b.	9
+c.	10
+d.	11
+e.      0
+Key:c
+
+#
+Section 4.4 The for Loop
+8.	Analyze the following statement:
+
+double sum = 0;
+for (double d = 0; d < 10;) {
+  d += 0.1;
+  sum += sum + d;
+}
+a.	The program has a compile error because the adjustment is missing in the for loop.
+b.	The program has a compile error because the control variable in the for loop cannot be of the double type.
+c.	The program runs in an infinite loop because d&lt;10 would always be true.
+d.	The program compiles and runs fine.
+Key:d
+
+#
+3. Which of the following loops prints "Welcome to Java" 10 times?
+
+A:
+for (int count = 1; count <= 10; count++) {
+  System.out.println("Welcome to Java");
+}
+
+B:
+for (int count = 0; count < 10; count++) {
+  System.out.println("Welcome to Java");
+}
+
+C:
+for (int count = 1; count < 10; count++) {
+  System.out.println("Welcome to Java");
+}
+
+D:
+for (int count = 0; count <= 10; count++) {
+  System.out.println("Welcome to Java");
+}
+a. BD
+b. ABC
+c. AC
+d. BC
+e. AB
+Key:e
+
+#
+3. Which of the following loops correctly computes 1/2 + 2/3 + 3/4 + ... + 99/100?
+
+A:
+double sum = 0;
+for (int i = 1; i <= 99; i++) {
+  sum = i / (i + 1);
+}
+System.out.println("Sum is " + sum);
+
+B:
+double sum = 0;
+for (int i = 1; i < 99; i++) {
+  sum += i / (i + 1);
+}
+System.out.println("Sum is " + sum);
+
+C:
+double sum = 0;
+for (int i = 1; i <= 99; i++) {
+  sum += 1.0 * i / (i + 1);
+}
+System.out.println("Sum is " + sum);
+
+D:
+double sum = 0;
+for (int i = 1; i <= 99; i++) {
+  sum += i / (i + 1.0);
+}
+System.out.println("Sum is " + sum);
+
+E:
+double sum = 0;
+for (int i = 1; i < 99; i++) {
+  sum += i / (i + 1.0);
+}
+System.out.println("Sum is " + sum);
+
+a. BCD
+b. ABCD
+c. B
+d. CDE
+e. CD
+Key:e
+
+#
+3. The following loop displays _______________.
+
+for (int i = 1; i <= 10; i++) {
+  System.out.print(i + " ");
+  i++;
+}
+
+a. 1 2 3 4 5 6 7 8 9
+b. 1 2 3 4 5 6 7 8 9 10
+c. 1 2 3 4 5 
+d. 1 3 5 7 9
+e. 2 4 6 8 10
+Key:d
+
+#
+9.	Do the following two statements in (I) and (II) result in the same value in sum?
+
+(I):
+for (int i = 0; i&lt;10; ++i) {
+  sum += i;   
+}
+
+(II):
+for (int i = 0; i&lt;10; i++) {
+  sum += i;   
+}
+a.	Yes
+b.	No
+Key:a
+
+#
+10.	What is the output for y?
+
+int y = 0;
+for (int i = 0; i&lt;10; ++i) {
+  y += i;   
+}
+System.out.println(y);
+
+a.	10
+b.	11
+c.	12
+d.	13
+e.      45
+Key:e y should be 0 + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45
+
+#
+11.	What is i after the following for loop?
+
+int y = 0;
+for (int i = 0; i&lt;10; ++i) {
+  y += i;   
+}
+a.	9
+b.	10
+c.	11
+d.	undefined
+Key:d The scope of i is inside the loop. After the loop, i is not defined. 
+
+#
+12.	Is the following loop correct?
+
+for (;  ; );
+a.	Yes
+b.	No
+Key:a
+
+#
+12. Given the following four patterns,
+
+Pattern A        Pattern B        Pattern C        Pattern D
+1                1 2 3 4 5 6                1      1 2 3 4 5 6
+1 2              1 2 3 4 5                2 1        1 2 3 4 5
+1 2 3            1 2 3 4                3 2 1          1 2 3 4
+1 2 3 4          1 2 3                4 3 2 1            1 2 3
+1 2 3 4 5        1 2                5 4 3 2 1              1 2
+1 2 3 4 5 6      1                6 5 4 3 2 1                1
+
+
+Which of the pattern is produced by the following code?
+    for (int i = 1; i <= 6; i++) {
+      for (int j = 6; j >= 1; j--)
+        System.out.print(j <= i ? j + " " : "  ");
+      System.out.println();
+    }
+a.	Pattern A
+b.	Pattern B
+c.	Pattern C
+d.	Pattern D
+Key:c
+
+#
+Section 4.5 Which Loop to Use?
+13.	Analyze the following fragment:
+
+double sum = 0;
+double d = 0;
+while (d != 10.0) {
+  d += 0.1;
+  sum += sum + d;
+}
+a.	The program does not compile because sum and d are declared double, but assigned with integer value 0.
+b.	The program never stops because d is always 0.1 inside the loop.
+c.	The program may not stop because of the phenomenon referred to as numerical inaccuracy for operating with floating-point numbers.
+d.	After the loop, sum is 0 + 0.1 + 0.2 + 0.3 + ... + 1.9
+Key:c  
+
+#
+14. Analyze the following code:
+
+public class Test {  
+  public static void main (String args[]) {
+    int i = 0;
+    for (i = 0; i < 10; i++);
+      System.out.println(i + 4);
+  }
+}	
+a.	The program has a compile error because of the semicolon (;) on the for loop line.
+b.	The program compiles despite the semicolon (;) on the for loop line, and displays 4.
+c.	The program compiles despite the semicolon (;) on the for loop line, and displays 14.
+d.	The for loop in this program is same as for (i = 0; i < 10; i++) { }; System.out.println(i + 4);
+Key:cd This is a logic error. System.out.println(i + 4) is not a part the for loop because the for loop ends with the last semicolon at for (i=0; i&lt;10; i++);
+
+#
+Section 4.6 Nested Loops
+15.	How many times is the println statement executed?
+
+for (int i = 0; i < 10; i++) 
+  for (int j = 0; j < 10; j++) 
+    System.out.println(i * j);
+
+a. 100
+b. 20
+c. 10
+d. 45
+Key:a
+
+#
+15.	How many times is the println statement executed?
+
+for (int i = 0; i < 10; i++) 
+  for (int j = 0; j < i; j++) 
+    System.out.println(i * j);
+
+a. 100
+b. 20
+c. 10
+d. 45
+Key:d 
+
+#
+Section 4.7 Minimizing Numerical Errors
+16. To add 0.01 + 0.02 + ... + 1.00, what order should you use to add the numbers to get better accuracy?
+
+a. add 0.01, 0.02, ..., 1.00 in this order to a sum variable whose initial value is 0.
+b. add 1.00, 0.99, 0.98, ..., 0.02, 0.01 in this order to a sum variable whose initial value is 0.
+Key:a
+
+#
+Section 4.9 Keywords break and continue
+17.	Will the following program terminate?
+
+int balance = 10;
+
+while (true) {
+  if (balance &lt; 9) break;
+  balance = balance - 9;
+}
+a.	Yes
+b.	No
+Key:a
+
+#
+18.	What is sum after the following loop terminates?
+
+int sum = 0;
+int item = 0;
+do {
+  item++;
+  sum += item;
+  if (sum &gt; 4) break;
+}
+while (item &lt; 5);
+a.	5
+b.	6
+c.	7
+d.	8
+Key:b
+
+#
+18.	What will be displayed after the following loop terminates?
+
+int number = 25;
+int i;
+
+boolean isPrime = true;
+for (i = 2; i < number && isPrime; i++) {
+  if (number % i == 0) {
+    isPrime = false;
+  }
+}
+
+System.out.println("i is " + i + " isPrime is " + isPrime);
+
+a.	i is 5 isPrime is true
+b.	i is 5 isPrime is false
+c.	i is 6 isPrime is true
+d.	i is 6 isPrime is false
+Key:d
+
+#
+18.	What will be displayed after the following loop terminates?
+
+int number = 25;
+int i;
+
+boolean isPrime = true;
+for (i = 2; i < number; i++) {
+  if (number % i == 0) {
+    isPrime = false; break;
+  }
+}
+
+System.out.println("i is " + i + " isPrime is " + isPrime);
+
+a.	i is 5 isPrime is true
+b.	i is 5 isPrime is false
+c.	i is 6 isPrime is true
+d.	i is 6 isPrime is false
+Key:b
+
+#
+19.	What is sum after the following loop terminates?
+
+int sum = 0;
+int item = 0;
+do {
+  item++;
+  sum += item;
+  if (sum &gt;= 4) continue;
+}
+while (item &lt; 5);
+a.	15
+b.	16
+c.	17
+d.	18
+Key:a
+
+#
+20.	Will the following program terminate?
+
+int balance = 10;
+
+while (true) {
+  if (balance &lt; 9) continue;
+  balance = balance - 9;
+}
+a.	Yes
+b.	No
+Key:b
+
+#
+22. What is the number of iterations in the following loop:
+
+  for (int i = 1; i < n; i++) {
+    // iteration
+  }  
+
+a. 2*n
+b. n
+c. n - 1
+d. n + 1
+Key:c  
+
+#
+23. What is the number of iterations in the following loop:
+
+  for (int i = 1; i <= n; i++) {
+    // iteration
+  }  
+
+a. 2*n
+b. n
+c. n - 1
+d. n + 1
+Key:b  
+
+#
+24. Suppose the input for number is 9. What is the output from running the following program?
+
+import java.util.Scanner;
+
+public class Test {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter an integer: ");
+    int number = input.nextInt();   
+
+    int i;
+
+    boolean isPrime = true;
+    for (i = 2; i < number && isPrime; i++) {
+      if (number % i == 0) {
+        isPrime = false;
+      }
+    }
+
+    System.out.println("i is " + i);
+
+    if (isPrime)
+      System.out.println(number + " is prime");
+    else
+      System.out.println(number + " is not prime");   
+  }
+}
+
+a. i is 3 followed by 9 is prime
+b. i is 3 followed by 9 is not prime
+c. i is 4 followed by 9 is prime
+d. i is 4 followed by 9 is not prime
+Key:d  
+
+#
+24. Analyze the following code:
+
+import java.util.Scanner;
+
+public class Test { 
+  public static void main(String[] args) {
+    int sum = 0;
+    for (int i = 0; i < 100000; i++) {
+      Scanner input = new Scanner(System.in);
+      sum += input.nextInt();
+    }
+  }
+}
+
+a. The program does not compile because the Scanner input = new Scanner(System.in); statement is inside the loop.                          
+b. The program compiles, but does not run because the Scanner input = new Scanner(System.in); statement is inside the loop.
+c. The program compiles and runs, but it is not effient and unnecessary to execute the Scanner input = new Scanner(System.in); statement inside the loop. You should move the statement before the loop.
+d. The program compiles, but does not run because there is not prompting message for entering the input.
+Key:c

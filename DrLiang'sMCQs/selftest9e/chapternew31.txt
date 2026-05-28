@@ -1,0 +1,7 @@
+Chapter 31 Weighted Graphs and Applications
+
+1. A graph has a unique minimum spanning tree if all edges are distinct.
+a. true
+b. false
+Key:a
+

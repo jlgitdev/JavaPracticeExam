@@ -1,0 +1,8 @@
+Chapter 29 AVL Trees 
+
+11. The height difference between two subtrees of any node in an An AVL tree may be _________.
+a. 0
+b. 1
+c. 2
+d. 3
+Key:ab

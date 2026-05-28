@@ -1,0 +1,99 @@
+Chapter 1 Introduction to Computers, Programs, and Java
+
+1.	Java is an object-oriented programming language.
+a. true
+b. false
+Key:a
+
+#
+2.	Java was originally developed by a team led by James Gosling at Sun Microsystems.
+a. true
+b. false
+Key:a
+
+#
+3.	Java source code can be executed on a Java Virtual Machine.
+a. true
+b. false
+Key:b
+
+#
+4.	A Java interpreter is a program that translates Java source code into Java bytecode.
+a. true
+b. false
+Key:b
+
+#
+5.	Which of the following statements is true?
+a. A Java application can be executed from a Web browser.
+b. A Java applet can be executed from a Web browser.
+Key:b
+
+#
+6.	A Java application must have a main method.
+a. true
+b. false
+Key:a
+
+#
+7. Four bytes have ________ bits.
+a. 8
+b. 16
+c. 32
+d. 64
+Key:c
+
+#
+8.	The public classname must be the same as the filename that contains the class.
+a. true
+b. false
+Key:a
+
+#
+11.	A Java program block starts with an open brace ({) and ends with a closing brace (}).
+a. true
+b. false
+Key:a
+
+#		
+12.	The compiler generates bytecode even if the program has syntax errors.
+a. true
+b. false
+Key:b If the program has syntax errors, no bytecode is generated.
+
+#
+22. 	The command to compile a class in the file Test.java is
+a. java Test
+b. java Test.java
+c. javac Test.java
+d. javac Test
+e. JAVAC Test.java
+Key:c
+
+#
+30. 	The _________ loads Java bytecode to the memory.
+a. Java virtual machine
+b. bytecode verifier
+c. class loader
+d. Java compiler
+Key:c
+
+#
+31.  _________ are secondary storage.
+a. floppy disk
+b. hard disk
+c. CD
+d. RAM
+Key:abc
+
+#
+32. The keywords in Java are all in lowercase.
+a. true
+b. false
+Key:a
+
+#
+33. You use ________ to run a Java program.
+a. javac
+b. java
+Key:b

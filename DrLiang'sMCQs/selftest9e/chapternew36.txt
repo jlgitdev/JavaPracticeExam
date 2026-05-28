@@ -1,0 +1,6 @@
+Chapter 36 JavaBeans and Bean Events
+
+1. Is every Swing component a JavaBean?
+a.	Yes
+b.	No
+Key:a

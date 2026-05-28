@@ -1,0 +1,106 @@
+Chapter 15 Abstract Classes and Interfaces
+
+1. The Number class is an instance of Comparable.
+a. true
+b. false
+Key:b The Number class is a subclass of Comparable.
+
+#
+2. All the numeric wrapper classes implement the Comparable interface.
+a. true
+b. false
+Key:a
+
+#
+3. You can create an Integer object from an integer by using the Integer constructor with the int argument.
+a. true
+b. false
+Key:a
+
+#
+4. The methods parseInt, parseDouble, parseFloat, parseLong are in the classes Integer, Double, Float, and Long to convert a numeric string into an integer, double, float, or long.
+a. true
+b. false
+Key:a
+
+#
+5. The numeric wrapper classes are subclasses of Number.
+a. true
+b. false
+Key:a
+
+#
+6.	You cannot create an instance of an abstract class using the new operator.
+a. true
+b. false
+Key:a
+
+#
+7.	An abstract class can be extended.
+a. true
+b. false
+Key:a
+
+#
+8.	The name of abstract class and interface is in italic in the UML.
+a. true
+b. false
+Key:a
+
+#
+9.	A subclass of a non-abstract class must be non-abstract.
+a. true
+b. false
+Key:b
+
+#
+10.	All methods in an interface are abstract.
+a. true
+b. false
+Key:a
+
+#
+11.	At least one method in an abstract class must be abstract. 
+a. true
+b. false
+Key:b
+
+#
+12.	An interface can extend any number of interfaces using the extends keyword.
+a. true
+b. false
+Key:a
+
+#
+13.	An interface can extend any number of interfaces using the implements keyword.
+a. true
+b. false
+Key:b
+
+#
+14.	An interface cannot extend more than one interface.
+a. true
+b. false
+Key:b
+
+#
+15.	A subclass cannot extend more than one class, but may implement any number of interfaces.
+a. true
+b. false
+Key:a
+
+#
+16. Suppose Integer x = new Integer(3); x holds ____.
+a. an integer value
+b. a reference value to an Integer object
+c. value 3
+Key:b
+
+#
+17. Which of the following statements are true about abstract classes.
+a. An abstract method cannot be contained in a nonabstract class. 
+b. If a subclass of an abstract superclass does not implement all the abstract methods, the subclass must be declared abstract. 
+c. An abstract class cannot be instantiated using the new operator.
+d. It is possible to declare an abstract class that contains no abstract methods. 
+e. A subclass can be abstract even if its superclass is concrete. 
+Key:abcde

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MVHS Java practice final exam website (By James Liu the best TA)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>MVHS Java practice final exam website (By James Liu the best TA)</h1>
+    </header>
+
+    <main class="page">
+      <section id="quiz-view" class="quiz-view" aria-live="polite">
+        <div class="quiz-meta">
+          <span id="chapter-label"></span>
+          <span id="question-count"></span>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+
+        <article class="question-panel">
+          <div class="question-heading">
+            <span id="section-label"></span>
+            <span id="question-mode"></span>
+          </div>
+          <pre id="question-text" class="question-text"></pre>
+          <fieldset id="choices" class="choices"></fieldset>
+          <p id="feedback" class="feedback" hidden></p>
+        </article>
+
+        <div class="actions">
+          <button id="previous-button" type="button" class="secondary">Back</button>
+          <button id="check-button" type="button" class="secondary">Check answer</button>
+          <button id="next-button" type="button">Next</button>
+        </div>
+      </section>
+
+      <section id="dashboard-view" class="dashboard-view" hidden>
+        <div class="dashboard-header">
+          <h2>Results</h2>
+          <button id="restart-button" type="button" class="secondary">Start over</button>
+        </div>
+
+        <div id="stats" class="stats"></div>
+
+        <section class="summary-section">
+          <h3>By chapter</h3>
+          <div id="chapter-summary" class="chapter-summary"></div>
+        </section>
+
+        <section class="summary-section">
+          <h3>Missed or skipped</h3>
+          <div id="missed-list" class="missed-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <div id="jump-backdrop" class="jump-backdrop" hidden></div>
+    <nav id="jump-dock" class="jump-dock" aria-label="Question navigation">
+      <section
+        id="jump-panel"
+        class="jump-panel"
+        aria-label="Jump to question"
+        hidden
+      >
+        <div class="jump-panel-header">
+          <strong>Jump to question</strong>
+          <span id="jump-panel-count"></span>
+        </div>
+        <div id="jump-grid" class="jump-grid"></div>
+      </section>
+
+      <div class="jump-bar">
+        <span id="jump-current">Question 1 of 199</span>
+        <button
+          id="jump-toggle"
+          type="button"
+          class="secondary"
+          aria-expanded="false"
+          aria-controls="jump-panel"
+        >
+          Questions
+        </button>
+      </div>
+    </nav>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>

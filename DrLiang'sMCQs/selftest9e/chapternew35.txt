@@ -1,0 +1,60 @@
+Chapter 35 Internationalization
+
+1.	Java uses Unicode characters to display international language. 
+a. true
+b. false
+Key:a
+
+#
+2.	The locale property is in the Component class, thus, every Java Swing component has the locale property.
+a. true
+b. false
+Key:a
+
+#
+3.	You can find all the available locales from a Swing object.
+a. true
+b. false
+Key:b
+
+#
+4.	You can get all the available locales from an instance of Calendar, Collator, DateFormat, or NumberFormat.
+a. true
+b. false
+Key:a
+
+#
+5.	The TimeZone class has a static method for obtaining all the available time zone IDs.
+a. true
+b. false
+Key:a
+
+#
+6.	You can get hour, minute and second from the Date class.
+a. true
+b. false
+Key:b
+
+#
+7.	You can get year, month, day, hour, minute, and second from an instance of GregorianCalendar.
+a. true
+b. false
+Key:a
+
+#
+8.	To display date and time in desired format, you have to use the DateFormat class or its subclasses.
+a. true
+b. false
+Key:a
+
+#
+9.	To display number in desired format, you have to use the NumberFormat class or its subclasses.
+a. true
+b. false
+Key:a
+
+#
+10.	Resource bundle can only be used for storing strings.
+a. true
+b. false
+Key:b

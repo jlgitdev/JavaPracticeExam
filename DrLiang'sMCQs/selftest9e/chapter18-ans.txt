@@ -1,0 +1,293 @@
+Chapter 18 Applets and Multimedia
+
+Section 18.2 Developing Applets
+1. Which of the following is true?
+a. Any applet must be an instance of java.awt.Applet.
+b. You must always provide a no-arg constructor for an applet.
+c. You must always provide a main method for an applet.
+d. You must always override the init method in an applet.
+Key:a
+
+#
+2.	If your applet does not have the init() method, which of the following will happen?
+a. 	Your program will not compile.
+b. 	Your program will compile, but not execute.
+c. 	You must have a main method.
+d.	Your program will run just fine since the init() method is defined in the Applet class.
+Key:d
+
+#
+3.	The method that executes immediately after the init() method in an applet is __________.
+a. 	destroy()
+b.	start()
+c. 	stop()
+d. 	run()
+Key:b
+
+#
+4.	The __________ method is executed when the page becomes inactive. 
+a. 	init()
+b. 	start()
+c. 	stop()
+d. 	destroy()
+Key:c
+
+#
+5.	When you run an applet, which of the following is invoked first?
+a.	The init method.
+b.	The start method. 
+c.	The stop method.   
+d.	The destroy method.
+e.      The applet's default constructor.
+Key:e When the applet is loaded to the Web browser, the Web browser creates an instance of the applet by invoking the applet’s default constructor.
+
+#
+6. Which of the following is true?
+a. The Applet class is in javax.swing package.
+b. The JApplet class is in javax.swing package.
+c. Applet is a subclass of JApplet.
+d. JApplet is a subclass of Applet.
+Key: bd
+
+#
+7.	The default layout of the contentPane of a JApplet is __________.
+a.	FlowLayout
+b.	GridLayout
+c.	BorderLayout
+d.	None
+Key:c
+
+#
+Section 18.3 The HTML File and the <applet> Tag
+8. 	To use an applet in the HTML document, you use __________ in the <applet> tag.
+a. 	.java source code file
+b. 	.class bytecode
+c. 	.exe executable file
+d. 	.html file
+Key:b
+
+#
+9. 	The HTML tags are enclosed within __________.
+a. 	curly braces
+b. 	parentheses
+c. 	angle brackets
+d. 	square brackets
+Key:c
+
+#
+10.	When you run the following applet from a browser, what is displayed:
+
+import javax.swing.*;
+
+public class Test extends JApplet {
+  public Test() {
+    System.out.println("Default constructor is invoked");
+  }
+
+  public void init() {
+    System.out.println("Init method is invoked");
+  }
+}
+a. Default constructor is invoked, then Init method is invoked
+b. Init method is invoked, then Default constructor is invoked
+c. Default constructor is invoked 
+d. Init method is invoked
+Key:a When the applet is loaded to the Web browser, the Web browser first creates an instance of the applet by invoking the applet’s default constructor, and then invokes the init() method.
+
+#
+11. Analyze the following code.
+
+import javax.swing.*;
+
+public class Test extends JApplet {
+  public void init() {
+    add(new JLabel("OK"));
+  }
+
+  public static void main(String[] args) {
+    Test applet = new Test();
+  }
+}
+a. When you run the applet from a browser, the OK label is displayed.
+b. When you run the applet standalone from the main method, nothing is displayed.
+c. When you run the applet standalone from the main method, the OK label is not displayed because the init() was not invoked.
+d. All of the above.
+Key:d
+
+#
+Section 18.4 Applet Security Restrictions
+14. 	Which of the following statements are true?
+a. Applets are not allowed to read from, or write to, the file system of the computer.
+b. Applets are not allowed to run programs on the browser's computer.
+c. Applets are not allowed to establish connections between the user’s computer and any other computer, except for the server where the applets are stored. 
+d. In general, an applet can be converted to an application without loss of functionality. 
+e. An application can be converted to an applet as long as it does not violate the security restrictions imposed on applets.
+Key:abcde
+
+#
+Section 18.5 Enabling Applets to Run as Applications
+12. 	Java applications and applets both __________.
+a. 	have a main() method
+b. 	are executed using the java command
+c. 	are compiled using the javac command
+d. 	are executed from the HTML file
+Key:c
+
+#
+13. 	Which of the following statements are true?
+a. If an applet has a main method, it can be executed standalone.
+b. An applet is a GUI component and it can be added to a container.
+c. When an applet runs from a browser, its main method (if exists) is not invoked by the browser.
+d. When an applet runs from a browser, its init method is not invoked after its no-arg constructor is invoked.
+Key:abc
+
+#
+Section 18.6 Applet Life-Cycle Methods
+1. The _______ method in the applet is invoked when the user leaves the page that contains the applet.
+a. init
+b. start
+c. stop
+d. destroy
+Key:c
+
+#
+Section 18.7 Passing Strings to Applets
+15.	To specify an HTML parameter named message with the value "Welcome to Java", you write the following HTML tag:
+a.	<param name=message, value="Welcome to Java">
+b.	<param name=message, value=Welcome to Java>
+c.	<param name=message value="Welcome to Java">
+d.	None of the above.
+Key:c
+
+#
+16.	To retrieve an HTML parameter named message, you write the following code in the init() method:
+a.	String s = Parameter("message");
+b.	String s = getParameter("message");
+c.	String s = getParameter("MESSAGE");
+d.	String s = getParameter("Message");
+Key:bcd parameter name is NOT case-sensitive
+
+#
+17.	If you try to retrieve an HTML parameter that is not defined in the HTML page, what will happen?
+a.	You will get a compile error.
+b.	You will get a runtime error.
+c.	Your program will run with the parameter's value null.
+d.	Your program will run with an empty string in the parameter's value.
+Key:c
+
+#
+18. Suppose you pass parameter named message from HTML to the following applet, analyze the code:
+
+import javax.swing.*;
+
+public class Test extends JApplet {
+  public Test() {
+    String message = getParameter("MESSAGE");
+    add(new JLabel(message));
+  }
+}
+a. The program has a compile error because parameter names are case-sensitive. You should replace MESSAGE with message.
+b. The program has a compile error because you cannot invoke getParameter("MESSAGE") from the constructor.
+c. The program has a runtime error because you cannot invoke getParameter("MESSAGE") from the constructor.
+d. The program runs fine and displays the label with the message passed from the HTML file.
+Key:c The getParameter("MESSAGE") method must be invoked from the init() method.
+
+#
+Section 18.10 Locating Resource Using the URL Class 
+19. Which of the following statements are true?
+a. You can create a URL object for any public accessible resource on the Internet.
+b. You can create a URL object for a local file.
+c. A URL object may be created using the new URL(urlString) constructor.
+d. A URL object may be returned using the getSource method on a meta object (instance of java.lang.Class).
+Key:abcd
+
+#
+20. Which of the following statements are true?
+a. Classes are dynamically loaded when needed.
+b. When a class (e.g., java.lang.Math) is loaded, the JVM creates a meta-object for the class.
+c. Two objects of the same class share the same meta-object.
+d. A class will be loaded only once in an application or applet.
+Key:abcd
+
+#
+21.	To get an ImageIcon for the a specified URL, you use __________.
+a.	getImage(url)
+b.	createImage(url)
+c.	url.getImage()
+d.	url.createImage()
+e.  new ImageIcon(url);
+Key:e
+
+#
+22. What format of image files are currently supported?
+a. BMP
+b. GIF
+c. JPEG
+d. PNG
+Key:bcd
+
+#
+23. To create a URL for an image file located in the same directory with the class, use
+a. Class metaObject = this.getResource(imageFilenameString);
+b. URL url = this.getClass().getResource(imageFilenameString);
+c. Class metaObject = this.getClass(); URL url = metaObject.getResource(imageFilenameString);
+d. Object metaObject = this.getClass(); URL url = metaObject.getResource(imageFilenameString);
+Key:bc
+
+#
+24. To obtain an instance of Image from an ImageIcon, use 
+a. Image image = ImageIcon.getImage();
+b. Image image = imageIcon.getImage();
+c. Image image = ImageIcon.createImage();
+d. Image image = imageIcon.createImage();
+Key:b
+
+#
+25.	To draw the image im to fill in the whole viewing area, you use __________.
+a.	drawImage(im, 10, 10)
+b.	drawImage(im, 0, 0, getSize().width, getSize().height)
+c.	drawImage(im, 0, 0, this)
+d.	drawImage(im)
+Key:c
+
+#
+26.	The ImageViewer class was presented in Chapter 17. You can use the method _________ to create an Image from a file "image/us.gif" in the same directory of the this class.
+a.	ImageViewer.createImage("image/us.gif", this)
+b.	ImageViewer.createImageIcon("image/us.gif", this)
+c.	ImageViewer.createImage("image/us.gif", null)
+d.	ImageViewer.createImageIcon("image/us.gif", null)
+Key:a
+
+#
+27. The ImageViewer class was presented in Chapter 17. Which of the following statements are true?
+a. ImageViewer is a subclass of JPanel.
+b. You can display an image in an ImageViewer.
+c. You can specify where an image is displayed in an ImageViewer.
+d. You can specify whether an image can be stretched in an ImageViewer.
+Key:abcd
+
+#
+Section 18.11 Playing Audio
+28. What format of audio files are currently supported?
+a. WAV
+b. AIFF
+c. MIDI
+d. AU
+e. RMF
+Key:abcde
+
+#
+29.	To create an audio clip for a file named beep.au in the same directory of the applet, you use __________.
+a. URL url = this.getClass().getResource("beep.au"); AudioClip audioClip = Applet.newAudioClip(url);
+b. Class metaObject = this.getClass(); URL url = metaObject.getResource("beep.au"); AudioClip audioClip = Applet.newAudioClip(url);
+c. URL url = this.getClass().getResource("beep.au"); AudioClip audioClip = Applet.createAudioClip(url);
+d. Class metaObject = this.getClass(); URL url = metaObject.getResource("beep.au"); AudioClip audioClip = applet.createAudioClip(url);
+Key:ab
+
+#
+30.	To repeatedly play an instance of audio clip ac, you use __________.
+a.	ac.loop()
+b.	ac.repeat()
+c.	ac.repeating()
+d.	ac.continue()
+Key:a

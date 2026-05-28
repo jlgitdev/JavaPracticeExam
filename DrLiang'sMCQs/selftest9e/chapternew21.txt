@@ -1,0 +1,91 @@
+Chapter 21 Generics
+
+Section 21.2 Generic Types and Instantiation
+1. Which of the following statements is correct?
+a. Comparable<String> c = new String("abc");
+b. Comparable<String> c = "abc";
+c. Comparable<String> c = new Date();
+d. Comparable<Object> c = new Date();
+Key:ab
+
+#
+1. ______________ are generic classes or interfaces.
+a. ArrayList
+b. Comparable
+c. Integer
+d. String
+e. Date
+Key:ab
+
+#
+1. Fill in the code in ArrayList______ list = new ArrayList________();
+
+A. <String>
+B. <?>
+C. <Date>
+D. <E>
+Key:ab
+
+#
+1. Will the following code have a compile error?
+
+ArrayList<int> list = new ArrayList<int>();
+
+A. True
+B. False
+Key:a
+
+#
+1. Will the following code have a compile error?
+
+ArrayList<String> list = new ArrayList<String>();
+list.add(3);
+
+A. True
+B. False
+Key:a
+
+#
+1. Will the following code have a compile error?
+
+ArrayList list = new ArrayList();
+list.add(3);
+list.add("3");
+
+A. True
+B. False
+Key:b
+
+#
+1. Will the following code have a runtime error?
+
+Comparable c = new Date();
+int i = c.compareTo("time");
+
+A. True
+B. False
+Key:a
+
+#
+1. Which of the following is a correct generic type declaration?
+
+A. <E extends GeometriObject> 
+B. <?> 
+C. <? extends GeometriObject> 
+D. <? super GeometricObject>
+Key:abcd
+
+#
+1. You can substitute a generic type with a primitive data type?
+
+A. True
+B. False
+Key:b
+
+
+#
+1. ArrayList<Integer> is a subtype of ArrayList<Double>?
+
+A. True
+B. False
+Key:b
