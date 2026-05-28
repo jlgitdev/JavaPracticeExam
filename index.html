@@ -6,11 +6,21 @@
     <title>MVHS Java Practice Final Exam</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body data-ui-mode="classic">
     <div class="exam-shell">
       <header class="site-header">
         <div class="header-left">
-          <h1>Java Final Exam Practice Website by James Liu the best TA</h1>
+          <h1>MVHS Java practice final exam website (By James Liu the best TA)</h1>
+        </div>
+        <div class="header-actions">
+          <button
+            id="ui-mode-toggle"
+            class="ui-mode-toggle secondary"
+            type="button"
+            aria-pressed="false"
+          >
+            <span id="ui-mode-toggle-label">Bluebook mode</span>
+          </button>
         </div>
       </header>
 
@@ -73,6 +83,18 @@
               <p id="feedback" class="feedback" hidden></p>
             </article>
           </div>
+
+          <div id="inline-actions-mount" class="inline-actions-mount">
+            <div id="quiz-actions" class="actions">
+              <button id="previous-button" type="button" class="secondary">
+                Back
+              </button>
+              <button id="check-button" type="button" class="secondary">
+                Check answer
+              </button>
+              <button id="next-button" type="button">Next</button>
+            </div>
+          </div>
         </section>
 
         <section id="dashboard-view" class="dashboard-view" hidden>
@@ -116,7 +138,7 @@
         </section>
 
         <div class="jump-bar">
-          <span class="student-name">James Liu</span>
+          <span class="student-name">:)</span>
 
           <button
             id="jump-toggle"
@@ -129,15 +151,7 @@
             <span id="jump-toggle-label" aria-hidden="true"></span>
           </button>
 
-          <div class="actions">
-            <button id="previous-button" type="button" class="secondary">
-              Back
-            </button>
-            <button id="check-button" type="button" class="secondary">
-              Check answer
-            </button>
-            <button id="next-button" type="button">Next</button>
-          </div>
+          <div id="dock-actions-mount" class="dock-actions-mount"></div>
         </div>
       </nav>
     </div>

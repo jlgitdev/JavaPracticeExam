@@ -7,11 +7,15 @@ const state = {
   marked: questions.map(() => false),
   eliminated: questions.map(() => []),
   jumpOpen: false,
+  uiMode: "classic",
 };
 
 const elements = {
+  body: document.body,
   quizView: document.querySelector("#quiz-view"),
   dashboardView: document.querySelector("#dashboard-view"),
+  uiModeToggle: document.querySelector("#ui-mode-toggle"),
+  uiModeToggleLabel: document.querySelector("#ui-mode-toggle-label"),
   chapterLabel: document.querySelector("#chapter-label"),
   sectionLabel: document.querySelector("#section-label"),
   questionCount: document.querySelector("#question-count"),
@@ -24,6 +28,9 @@ const elements = {
   feedback: document.querySelector("#feedback"),
   markButton: document.querySelector("#mark-button"),
   markButtonLabel: document.querySelector("#mark-button-label"),
+  inlineActionsMount: document.querySelector("#inline-actions-mount"),
+  dockActionsMount: document.querySelector("#dock-actions-mount"),
+  actions: document.querySelector("#quiz-actions"),
   previousButton: document.querySelector("#previous-button"),
   checkButton: document.querySelector("#check-button"),
   nextButton: document.querySelector("#next-button"),
@@ -94,6 +101,39 @@ function renderMarkState() {
   elements.markButton.classList.toggle("marked", marked);
   elements.markButton.setAttribute("aria-pressed", String(marked));
   elements.markButtonLabel.textContent = marked ? "Marked for Review" : "Mark for Review";
+}
+
+function placeActions() {
+  const target = state.uiMode === "bluebook" ? elements.dockActionsMount : elements.inlineActionsMount;
+
+  if (elements.actions.parentElement !== target) {
+    target.append(elements.actions);
+  }
+}
+
+function updateJumpToggleState() {
+  const open = state.jumpOpen;
+  const classicLabel = open ? "Close" : "Questions";
+  const bluebookLabel = open ? "Close" : "Open";
+
+  elements.jumpToggleLabel.textContent = state.uiMode === "bluebook" ? bluebookLabel : classicLabel;
+  elements.jumpToggle.setAttribute(
+    "aria-label",
+    open ? "Close question overview" : "Open question overview",
+  );
+}
+
+function setUiMode(mode) {
+  state.uiMode = mode;
+  elements.body.dataset.uiMode = mode;
+  elements.uiModeToggle.setAttribute("aria-pressed", String(mode === "bluebook"));
+  elements.uiModeToggle.setAttribute(
+    "aria-label",
+    mode === "bluebook" ? "Switch to classic quiz UI" : "Switch to Bluebook testing UI",
+  );
+  elements.uiModeToggleLabel.textContent = mode === "bluebook" ? "Classic mode" : "Bluebook mode";
+  placeActions();
+  updateJumpToggleState();
 }
 
 function looksLikeCodeBlock(block) {
@@ -193,11 +233,7 @@ function setJumpOpen(open) {
   elements.jumpPanel.hidden = !open;
   elements.jumpBackdrop.hidden = !open;
   elements.jumpToggle.setAttribute("aria-expanded", String(open));
-  elements.jumpToggleLabel.textContent = open ? "Close" : "Open";
-  elements.jumpToggle.setAttribute(
-    "aria-label",
-    open ? "Close question overview" : "Open question overview",
-  );
+  updateJumpToggleState();
 }
 
 function renderQuestion() {
@@ -254,7 +290,13 @@ function renderQuestion() {
 
     const text = document.createElement("span");
     text.className = "choice-text";
-    text.textContent = option.text;
+    const prefix = document.createElement("span");
+    prefix.className = "choice-prefix";
+    prefix.textContent = `${option.letter.toUpperCase()}. `;
+    const optionText = document.createElement("span");
+    optionText.className = "choice-option";
+    optionText.textContent = option.text;
+    text.append(prefix, optionText);
 
     choice.append(input, letter, text);
     choice.classList.toggle("selected", input.checked);
@@ -271,7 +313,9 @@ function renderQuestion() {
       "aria-pressed",
       String(eliminated.has(option.letter)),
     );
-    strikeButton.innerHTML = `<span>${option.letter.toUpperCase()}</span>`;
+    const strikeLabel = document.createElement("span");
+    strikeLabel.textContent = option.letter.toUpperCase();
+    strikeButton.append(strikeLabel);
     strikeButton.addEventListener("click", () => {
       toggleEliminated(option.letter);
       const nowEliminated = state.eliminated[state.index].includes(option.letter);
@@ -391,19 +435,29 @@ function renderDashboard() {
 
   for (const [label, value] of stats) {
     const stat = document.createElement("div");
+    const statValue = document.createElement("span");
+    const statLabel = document.createElement("span");
+
     stat.className = "stat";
-    stat.innerHTML = `<span class="stat-value">${value}</span><span class="stat-label">${label}</span>`;
+    statValue.className = "stat-value";
+    statValue.textContent = String(value);
+    statLabel.className = "stat-label";
+    statLabel.textContent = label;
+    stat.append(statValue, statLabel);
     elements.stats.append(stat);
   }
 
   for (const chapter of results.byChapter.values()) {
     const row = document.createElement("div");
+    const title = document.createElement("span");
+    const scoreText = document.createElement("span");
     const percent = Math.round((chapter.correct / chapter.total) * 100);
+
     row.className = "chapter-row";
-    row.innerHTML = `
-      <span>${chapter.title}</span>
-      <span class="chapter-score">${chapter.correct}/${chapter.total} correct (${percent}%)</span>
-    `;
+    title.textContent = chapter.title;
+    scoreText.className = "chapter-score";
+    scoreText.textContent = `${chapter.correct}/${chapter.total} correct (${percent}%)`;
+    row.append(title, scoreText);
     elements.chapterSummary.append(row);
   }
 
@@ -417,21 +471,19 @@ function renderDashboard() {
 
   for (const item of results.missed) {
     const card = document.createElement("div");
+    const title = document.createElement("strong");
+    const prompt = document.createElement("p");
+    const selected = document.createElement("p");
+    const correct = document.createElement("p");
+
     card.className = "missed-item";
-    card.innerHTML = `
-      <strong>${item.question.chapterTitle}, question ${item.question.sourceNumber}</strong>
-      <p>${escapeHtml(item.question.prompt.split("\n")[0])}</p>
-      <p>Your answer: ${item.skipped ? "Skipped" : formatLetters(item.selected)}</p>
-      <p>Correct answer: ${formatLetters(item.question.correct)}</p>
-    `;
+    title.textContent = `${item.question.chapterTitle}, question ${item.question.sourceNumber}`;
+    prompt.textContent = item.question.prompt.split("\n")[0];
+    selected.textContent = `Your answer: ${item.skipped ? "Skipped" : formatLetters(item.selected)}`;
+    correct.textContent = `Correct answer: ${formatLetters(item.question.correct)}`;
+    card.append(title, prompt, selected, correct);
     elements.missedList.append(card);
   }
-}
-
-function escapeHtml(value) {
-  const span = document.createElement("span");
-  span.textContent = value;
-  return span.innerHTML;
 }
 
 elements.previousButton.addEventListener("click", () => {
@@ -472,6 +524,14 @@ elements.markButton.addEventListener("click", () => {
   updateJumpMenu();
 });
 
+elements.uiModeToggle.addEventListener("click", () => {
+  if (!elements.quizView.hidden) {
+    saveCurrentAnswer();
+  }
+
+  setUiMode(state.uiMode === "bluebook" ? "classic" : "bluebook");
+});
+
 elements.jumpToggle.addEventListener("click", () => {
   saveCurrentAnswer();
   setJumpOpen(!state.jumpOpen);
@@ -488,5 +548,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+setUiMode("classic");
 buildJumpMenu();
 renderQuestion();
