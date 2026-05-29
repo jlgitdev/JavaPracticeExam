@@ -314,6 +314,11 @@ body[data-ui-mode="classic"] .prompt-content {
   border-color: var(--strong-line);
 }
 
+.choice.locked,
+.choice.locked:hover {
+  cursor: default;
+}
+
 .choice input {
   margin-top: 4px;
 }

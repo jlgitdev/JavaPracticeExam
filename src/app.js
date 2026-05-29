@@ -1,11 +1,23 @@
 import { questions } from "./questions.js";
 
+const STORAGE_KEY = "javaQuiz.progress.v1";
+const PROGRESS_VERSION = 1;
+const QUIZ_ID = "mvhs-java-practice-final";
+const questionIds = questions.map((question, index) => {
+  return typeof question.id === "string" && question.id.length > 0
+    ? question.id
+    : `chapter-${question.chapter ?? "unknown"}-question-${question.sourceNumber ?? index + 1}`;
+});
+const questionIndexById = new Map(questionIds.map((id, index) => [id, index]));
+const questionIdSet = new Set(questionIds);
+
 const state = {
   index: 0,
   answers: questions.map(() => []),
   checked: questions.map(() => false),
   marked: questions.map(() => false),
   eliminated: questions.map(() => []),
+  completed: false,
   jumpOpen: false,
   uiMode: "classic",
 };
@@ -58,6 +70,160 @@ function formatLetters(letters) {
     .join(", ");
 }
 
+function clampQuestionIndex(index) {
+  if (!Number.isFinite(index) || questions.length === 0) {
+    return 0;
+  }
+
+  return Math.min(Math.max(Math.trunc(index), 0), questions.length - 1);
+}
+
+function decodeAnswerValue(value) {
+  if (Array.isArray(value)) {
+    return value
+      .filter((letter) => typeof letter === "string")
+      .map((letter) => letter.trim().toLowerCase())
+      .filter(Boolean);
+  }
+
+  if (typeof value !== "string") {
+    return [];
+  }
+
+  return value
+    .split(",")
+    .map((letter) => letter.trim().toLowerCase())
+    .filter(Boolean);
+}
+
+function getValidAnswersForQuestion(question, value) {
+  const validLetters = new Set(question.options.map((option) => option.letter));
+  return normalizeLetters([...new Set(decodeAnswerValue(value))]).filter((letter) =>
+    validLetters.has(letter),
+  );
+}
+
+function encodeAnswerValue(answers) {
+  return normalizeLetters(answers).join(",");
+}
+
+function normalizeProgress(progress) {
+  if (
+    !progress ||
+    progress.version !== PROGRESS_VERSION ||
+    progress.quizId !== QUIZ_ID ||
+    typeof progress.selectedAnswersByQuestionId !== "object" ||
+    progress.selectedAnswersByQuestionId === null ||
+    Array.isArray(progress.selectedAnswersByQuestionId)
+  ) {
+    return null;
+  }
+
+  const selectedAnswersByQuestionId = {};
+  const checkedQuestionIds = Array.isArray(progress.checkedQuestionIds)
+    ? progress.checkedQuestionIds.filter((questionId) => questionIdSet.has(questionId))
+    : [];
+
+  for (const [questionId, value] of Object.entries(progress.selectedAnswersByQuestionId)) {
+    if (!questionIdSet.has(questionId)) {
+      continue;
+    }
+
+    const questionIndex = questionIndexById.get(questionId);
+    const validAnswers = getValidAnswersForQuestion(questions[questionIndex], value);
+
+    if (validAnswers.length > 0) {
+      selectedAnswersByQuestionId[questionId] = encodeAnswerValue(validAnswers);
+    }
+  }
+
+  return {
+    version: PROGRESS_VERSION,
+    quizId: QUIZ_ID,
+    currentQuestionIndex: clampQuestionIndex(progress.currentQuestionIndex),
+    selectedAnswersByQuestionId,
+    checkedQuestionIds,
+    completed: progress.completed === true,
+    score: Number.isFinite(progress.score) ? progress.score : 0,
+    updatedAt:
+      typeof progress.updatedAt === "string" && progress.updatedAt.length > 0
+        ? progress.updatedAt
+        : new Date().toISOString(),
+  };
+}
+
+function loadProgress() {
+  try {
+    const rawProgress = localStorage.getItem(STORAGE_KEY);
+    return rawProgress ? normalizeProgress(JSON.parse(rawProgress)) : null;
+  } catch {
+    return null;
+  }
+}
+
+function saveProgress(progress) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  } catch {
+    // Storage can be unavailable in private browsing or locked-down environments.
+  }
+}
+
+function clearProgress() {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // Storage can be unavailable in private browsing or locked-down environments.
+  }
+}
+
+function buildProgress(completed = state.completed) {
+  const selectedAnswersByQuestionId = {};
+  const checkedQuestionIds = [];
+
+  state.answers.forEach((answers, index) => {
+    if (answers.length > 0) {
+      selectedAnswersByQuestionId[questionIds[index]] = encodeAnswerValue(answers);
+    }
+  });
+
+  state.checked.forEach((checked, index) => {
+    if (checked) {
+      checkedQuestionIds.push(questionIds[index]);
+    }
+  });
+
+  const results = getResults();
+  const score = results.total === 0 ? 0 : Math.round((results.correct / results.total) * 100);
+
+  return {
+    version: PROGRESS_VERSION,
+    quizId: QUIZ_ID,
+    currentQuestionIndex: clampQuestionIndex(state.index),
+    selectedAnswersByQuestionId,
+    checkedQuestionIds,
+    completed,
+    score,
+    updatedAt: new Date().toISOString(),
+  };
+}
+
+function persistProgress() {
+  saveProgress(buildProgress());
+}
+
+function applyProgress(progress) {
+  state.index = progress.currentQuestionIndex;
+  state.answers = questions.map((question, index) => {
+    const savedAnswer = progress.selectedAnswersByQuestionId[questionIds[index]];
+    return getValidAnswersForQuestion(question, savedAnswer);
+  });
+  state.checked = questions.map((question, index) =>
+    progress.checkedQuestionIds.includes(questionIds[index]),
+  );
+  state.completed = progress.completed;
+}
+
 function isCorrect(question, selected) {
   const expected = normalizeLetters(question.correct);
   const actual = normalizeLetters(selected);
@@ -68,6 +234,10 @@ function getSelectedInputs() {
   return [...elements.choices.querySelectorAll("input:checked")].map((input) => input.value);
 }
 
+function isAnswerLocked(index = state.index) {
+  return state.checked[index];
+}
+
 function updateChoiceSelection() {
   for (const choice of elements.choices.querySelectorAll(".choice")) {
     const input = choice.querySelector("input");
@@ -76,6 +246,10 @@ function updateChoiceSelection() {
 }
 
 function saveCurrentAnswer() {
+  if (isAnswerLocked()) {
+    return;
+  }
+
   state.answers[state.index] = getSelectedInputs();
 }
 
@@ -200,8 +374,10 @@ function buildJumpMenu() {
     button.addEventListener("click", () => {
       saveCurrentAnswer();
       state.index = index;
+      state.completed = false;
       setJumpOpen(false);
       renderQuestion();
+      persistProgress();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
@@ -241,11 +417,13 @@ function renderQuestion() {
   const selected = new Set(state.answers[state.index]);
   const eliminated = new Set(state.eliminated[state.index]);
   const usesCheckboxes = question.correct.length > 1;
+  const answerLocked = isAnswerLocked();
   const progressPercent = ((state.index + 1) / questions.length) * 100;
 
   elements.quizView.hidden = false;
   elements.dashboardView.hidden = true;
   elements.jumpDock.hidden = false;
+  state.completed = false;
   elements.chapterLabel.textContent = question.chapterTitle;
   elements.sectionLabel.textContent = question.section || `Chapter ${question.chapter}`;
   elements.questionCount.textContent = `Question ${state.index + 1} of ${questions.length}`;
@@ -267,20 +445,25 @@ function renderQuestion() {
     const choice = document.createElement("label");
     choice.className = "choice";
     choice.dataset.letter = option.letter;
+    choice.classList.toggle("locked", answerLocked);
+    choice.setAttribute("aria-disabled", String(answerLocked));
 
     const input = document.createElement("input");
     input.type = usesCheckboxes ? "checkbox" : "radio";
     input.name = "answer";
     input.value = option.letter;
     input.checked = selected.has(option.letter);
+    input.disabled = answerLocked;
     input.addEventListener("change", () => {
-      saveCurrentAnswer();
-      updateChoiceSelection();
-      if (state.checked[state.index]) {
-        renderFeedback();
-      } else {
-        updateJumpMenu();
+      if (isAnswerLocked()) {
+        return;
       }
+
+      saveCurrentAnswer();
+      state.completed = false;
+      persistProgress();
+      updateChoiceSelection();
+      updateJumpMenu();
     });
 
     const letter = document.createElement("span");
@@ -332,6 +515,8 @@ function renderQuestion() {
   }
 
   elements.previousButton.disabled = state.index === 0;
+  elements.checkButton.disabled = answerLocked;
+  elements.checkButton.textContent = answerLocked ? "Answer checked" : "Check answer";
   elements.nextButton.textContent = state.index === questions.length - 1 ? "Finish" : "Next";
 
   if (state.checked[state.index]) {
@@ -413,11 +598,16 @@ function getResults() {
   );
 }
 
-function renderDashboard() {
-  saveCurrentAnswer();
+function renderDashboard({ saveAnswer = true } = {}) {
+  if (saveAnswer) {
+    saveCurrentAnswer();
+  }
+
+  state.completed = true;
   setJumpOpen(false);
   const results = getResults();
   const score = results.total === 0 ? 0 : Math.round((results.correct / results.total) * 100);
+  saveProgress(buildProgress(true));
 
   elements.quizView.hidden = true;
   elements.dashboardView.hidden = false;
@@ -489,13 +679,21 @@ function renderDashboard() {
 elements.previousButton.addEventListener("click", () => {
   saveCurrentAnswer();
   state.index = Math.max(0, state.index - 1);
+  state.completed = false;
   renderQuestion();
+  persistProgress();
 });
 
 elements.checkButton.addEventListener("click", () => {
+  if (isAnswerLocked()) {
+    return;
+  }
+
   saveCurrentAnswer();
   state.checked[state.index] = true;
-  renderFeedback();
+  state.completed = false;
+  renderQuestion();
+  persistProgress();
 });
 
 elements.nextButton.addEventListener("click", () => {
@@ -505,7 +703,9 @@ elements.nextButton.addEventListener("click", () => {
     return;
   }
   state.index += 1;
+  state.completed = false;
   renderQuestion();
+  persistProgress();
 });
 
 elements.restartButton.addEventListener("click", () => {
@@ -514,7 +714,9 @@ elements.restartButton.addEventListener("click", () => {
   state.checked = questions.map(() => false);
   state.marked = questions.map(() => false);
   state.eliminated = questions.map(() => []);
+  state.completed = false;
   setJumpOpen(false);
+  clearProgress();
   renderQuestion();
 });
 
@@ -527,6 +729,7 @@ elements.markButton.addEventListener("click", () => {
 elements.uiModeToggle.addEventListener("click", () => {
   if (!elements.quizView.hidden) {
     saveCurrentAnswer();
+    persistProgress();
   }
 
   setUiMode(state.uiMode === "bluebook" ? "classic" : "bluebook");
@@ -536,6 +739,7 @@ elements.jumpToggle.addEventListener("click", () => {
   saveCurrentAnswer();
   setJumpOpen(!state.jumpOpen);
   updateJumpMenu();
+  persistProgress();
 });
 
 elements.jumpBackdrop.addEventListener("click", () => {
@@ -550,4 +754,14 @@ document.addEventListener("keydown", (event) => {
 
 setUiMode("classic");
 buildJumpMenu();
-renderQuestion();
+const savedProgress = loadProgress();
+
+if (savedProgress) {
+  applyProgress(savedProgress);
+}
+
+if (state.completed) {
+  renderDashboard({ saveAnswer: false });
+} else {
+  renderQuestion();
+}
