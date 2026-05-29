@@ -240,7 +240,7 @@ body[data-ui-mode="classic"] .prompt-content {
 .answer-toolbar,
 .answer-instructions,
 .dashboard-eyebrow,
-.student-name,
+.practice-info,
 .choice-letter,
 .strike-button {
   display: none;
@@ -1102,11 +1102,66 @@ body[data-ui-mode="bluebook"] .jump-bar {
   min-height: 90px;
 }
 
-body[data-ui-mode="bluebook"] .student-name {
-  display: inline;
-  color: #20242b;
+body[data-ui-mode="bluebook"] .practice-info {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  width: max-content;
+}
+
+body[data-ui-mode="bluebook"] .practice-info-trigger {
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  min-height: 36px;
+  border: 2px solid #242424;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #242424;
+  padding: 0;
+  box-shadow: none;
   font-size: 1.05rem;
   font-weight: 850;
+}
+
+body[data-ui-mode="bluebook"] .practice-info-trigger:hover,
+body[data-ui-mode="bluebook"] .practice-info-trigger:focus-visible {
+  border-color: #111111;
+  background: #f3f6fb;
+  color: #111111;
+}
+
+body[data-ui-mode="bluebook"] .practice-info-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 0;
+  z-index: 40;
+  width: min(420px, calc(100vw - 84px));
+  border: 1px solid #242424;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgb(24 29 43 / 18%);
+  color: #20242b;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.35;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  visibility: hidden;
+  transition:
+    opacity 120ms ease,
+    transform 120ms ease,
+    visibility 120ms ease;
+}
+
+body[data-ui-mode="bluebook"] .practice-info:hover .practice-info-tooltip,
+body[data-ui-mode="bluebook"] .practice-info:focus-within .practice-info-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 body[data-ui-mode="bluebook"] .question-pill {
@@ -1343,7 +1398,7 @@ body[data-ui-mode="bluebook"] .jump-question.current.answered {
     grid-template-columns: 1fr auto;
   }
 
-  body[data-ui-mode="bluebook"] .student-name {
+  body[data-ui-mode="bluebook"] .practice-info {
     display: none;
   }
 

@@ -129,9 +129,9 @@ function setUiMode(mode) {
   elements.uiModeToggle.setAttribute("aria-pressed", String(mode === "bluebook"));
   elements.uiModeToggle.setAttribute(
     "aria-label",
-    mode === "bluebook" ? "Switch to classic quiz UI" : "Switch to Bluebook testing UI",
+    mode === "bluebook" ? "Switch to classic quiz UI" : "Switch to AP exam-style UI",
   );
-  elements.uiModeToggleLabel.textContent = mode === "bluebook" ? "Classic mode" : "Bluebook mode";
+  elements.uiModeToggleLabel.textContent = mode === "bluebook" ? "Classic mode" : "AP Exam-Style Mode";
   placeActions();
   updateJumpToggleState();
 }

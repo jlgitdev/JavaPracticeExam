@@ -17,7 +17,7 @@ The quiz questions come from the bundled `DrLiang'sMCQs/` folder, specifically t
 - Immediate answer checking
 - Question navigation and review marking
 - Choice elimination
-- Classic and Bluebook-style UI modes
+- Classic and AP exam-style UI modes
 - Final score, chapter breakdown, and missed/skipped question review
 
 ## Run Locally
