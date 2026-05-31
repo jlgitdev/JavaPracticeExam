@@ -44,6 +44,7 @@ const elements = {
   dockActionsMount: document.querySelector("#dock-actions-mount"),
   actions: document.querySelector("#quiz-actions"),
   previousButton: document.querySelector("#previous-button"),
+  resetButton: document.querySelector("#reset-button"),
   checkButton: document.querySelector("#check-button"),
   nextButton: document.querySelector("#next-button"),
   restartButton: document.querySelector("#restart-button"),
@@ -471,6 +472,7 @@ function renderQuestion() {
   elements.quizView.hidden = false;
   elements.dashboardView.hidden = true;
   elements.jumpDock.hidden = false;
+  elements.resetButton.hidden = false;
   state.completed = false;
   elements.chapterLabel.textContent = question.chapterTitle;
   elements.sectionLabel.textContent = question.section || `Chapter ${question.chapter}`;
@@ -661,6 +663,7 @@ function renderDashboard({ saveAnswer = true } = {}) {
   elements.quizView.hidden = true;
   elements.dashboardView.hidden = false;
   elements.jumpDock.hidden = true;
+  elements.resetButton.hidden = true;
   elements.stats.innerHTML = "";
   elements.chapterSummary.innerHTML = "";
   elements.missedList.innerHTML = "";
@@ -725,12 +728,51 @@ function renderDashboard({ saveAnswer = true } = {}) {
   }
 }
 
+function hasTestProgress() {
+  return (
+    state.index !== 0 ||
+    state.completed ||
+    state.answers.some((answers) => answers.length > 0) ||
+    state.checked.some(Boolean) ||
+    state.marked.some(Boolean) ||
+    state.eliminated.some((answers) => answers.length > 0)
+  );
+}
+
+function resetTest({ confirmReset = false } = {}) {
+  if (confirmReset && hasTestProgress()) {
+    const confirmed = window.confirm(
+      "Reset the whole test? This will clear all answers, checked questions, marks, and crossed-out choices.",
+    );
+
+    if (!confirmed) {
+      return;
+    }
+  }
+
+  state.index = 0;
+  state.answers = questions.map(() => []);
+  state.checked = questions.map(() => false);
+  state.marked = questions.map(() => false);
+  state.eliminated = questions.map(() => []);
+  state.completed = false;
+  setJumpOpen(false);
+  clearProgress();
+  renderQuestion();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 elements.previousButton.addEventListener("click", () => {
   saveCurrentAnswer();
   state.index = Math.max(0, state.index - 1);
   state.completed = false;
   renderQuestion();
   persistProgress();
+});
+
+elements.resetButton.addEventListener("click", () => {
+  saveCurrentAnswer();
+  resetTest({ confirmReset: true });
 });
 
 elements.checkButton.addEventListener("click", () => {
@@ -758,15 +800,7 @@ elements.nextButton.addEventListener("click", () => {
 });
 
 elements.restartButton.addEventListener("click", () => {
-  state.index = 0;
-  state.answers = questions.map(() => []);
-  state.checked = questions.map(() => false);
-  state.marked = questions.map(() => false);
-  state.eliminated = questions.map(() => []);
-  state.completed = false;
-  setJumpOpen(false);
-  clearProgress();
-  renderQuestion();
+  resetTest();
 });
 
 elements.markButton.addEventListener("click", () => {
