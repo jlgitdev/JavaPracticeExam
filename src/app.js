@@ -421,13 +421,7 @@ function buildJumpMenu() {
       `Jump to question ${index + 1}, ${question.chapterTitle}`,
     );
     button.addEventListener("click", () => {
-      saveCurrentAnswer();
-      state.index = index;
-      state.completed = false;
-      setJumpOpen(false);
-      renderQuestion();
-      persistProgress();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      navigateToQuestion(index, { scrollToTop: true });
     });
 
     elements.jumpGrid.append(button);
@@ -461,6 +455,128 @@ function setJumpOpen(open) {
   updateJumpToggleState();
 }
 
+function navigateToQuestion(index, { closeJump = true, scrollToTop = false } = {}) {
+  saveCurrentAnswer();
+
+  const nextIndex = clampQuestionIndex(index);
+
+  if (nextIndex === state.index) {
+    if (closeJump) {
+      setJumpOpen(false);
+    }
+
+    persistProgress();
+
+    if (scrollToTop) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    return false;
+  }
+
+  state.index = nextIndex;
+  state.completed = false;
+
+  if (closeJump) {
+    setJumpOpen(false);
+  }
+
+  renderQuestion();
+  persistProgress();
+
+  if (scrollToTop) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  return true;
+}
+
+function navigateToPreviousQuestion(options = {}) {
+  if (state.index === 0) {
+    saveCurrentAnswer();
+    return false;
+  }
+
+  return navigateToQuestion(state.index - 1, options);
+}
+
+function navigateToNextQuestion({ finishAtEnd = false, ...options } = {}) {
+  if (state.index === questions.length - 1) {
+    saveCurrentAnswer();
+
+    if (finishAtEnd) {
+      renderDashboard({ saveAnswer: false });
+      return true;
+    }
+
+    return false;
+  }
+
+  return navigateToQuestion(state.index + 1, options);
+}
+
+function isFormControlShortcutTarget(target) {
+  if (!(target instanceof HTMLElement)) {
+    return false;
+  }
+
+  if (target.isContentEditable) {
+    return true;
+  }
+
+  if (target.tagName === "TEXTAREA" || target.tagName === "SELECT") {
+    return true;
+  }
+
+  if (target.tagName !== "INPUT") {
+    return false;
+  }
+
+  const type = target.getAttribute("type")?.toLowerCase() ?? "text";
+  return !["button", "reset", "submit"].includes(type);
+}
+
+function getQuestionNavigationDirection(key) {
+  if (key === "ArrowLeft") {
+    return "previous";
+  }
+
+  if (key === "ArrowRight") {
+    return "next";
+  }
+
+  return null;
+}
+
+function shouldIgnoreQuestionNavigationShortcut(event) {
+  return (
+    event.defaultPrevented ||
+    event.isComposing ||
+    event.altKey ||
+    event.ctrlKey ||
+    event.metaKey ||
+    elements.quizView.hidden ||
+    questions.length < 2 ||
+    isFormControlShortcutTarget(event.target)
+  );
+}
+
+function handleQuestionNavigationShortcut(event) {
+  const direction = getQuestionNavigationDirection(event.key);
+
+  if (!direction || shouldIgnoreQuestionNavigationShortcut(event)) {
+    return;
+  }
+
+  event.preventDefault();
+
+  if (direction === "previous") {
+    navigateToPreviousQuestion();
+  } else {
+    navigateToNextQuestion();
+  }
+}
+
 function renderQuestion() {
   const question = questions[state.index];
   const selected = new Set(state.answers[state.index]);
@@ -472,7 +588,9 @@ function renderQuestion() {
   elements.quizView.hidden = false;
   elements.dashboardView.hidden = true;
   elements.jumpDock.hidden = false;
-  elements.resetButton.hidden = false;
+  if (elements.resetButton) {
+    elements.resetButton.hidden = false;
+  }
   state.completed = false;
   elements.chapterLabel.textContent = question.chapterTitle;
   elements.sectionLabel.textContent = question.section || `Chapter ${question.chapter}`;
@@ -663,7 +781,9 @@ function renderDashboard({ saveAnswer = true } = {}) {
   elements.quizView.hidden = true;
   elements.dashboardView.hidden = false;
   elements.jumpDock.hidden = true;
-  elements.resetButton.hidden = true;
+  if (elements.resetButton) {
+    elements.resetButton.hidden = true;
+  }
   elements.stats.innerHTML = "";
   elements.chapterSummary.innerHTML = "";
   elements.missedList.innerHTML = "";
@@ -763,14 +883,10 @@ function resetTest({ confirmReset = false } = {}) {
 }
 
 elements.previousButton.addEventListener("click", () => {
-  saveCurrentAnswer();
-  state.index = Math.max(0, state.index - 1);
-  state.completed = false;
-  renderQuestion();
-  persistProgress();
+  navigateToPreviousQuestion();
 });
 
-elements.resetButton.addEventListener("click", () => {
+elements.resetButton?.addEventListener("click", () => {
   saveCurrentAnswer();
   resetTest({ confirmReset: true });
 });
@@ -788,15 +904,7 @@ elements.checkButton.addEventListener("click", () => {
 });
 
 elements.nextButton.addEventListener("click", () => {
-  saveCurrentAnswer();
-  if (state.index === questions.length - 1) {
-    renderDashboard();
-    return;
-  }
-  state.index += 1;
-  state.completed = false;
-  renderQuestion();
-  persistProgress();
+  navigateToNextQuestion({ finishAtEnd: true });
 });
 
 elements.restartButton.addEventListener("click", () => {
@@ -833,7 +941,10 @@ elements.jumpBackdrop.addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && state.jumpOpen) {
     setJumpOpen(false);
+    return;
   }
+
+  handleQuestionNavigationShortcut(event);
 });
 
 setUiMode("classic");
