@@ -515,7 +515,7 @@ function navigateToNextQuestion({ finishAtEnd = false, ...options } = {}) {
   return navigateToQuestion(state.index + 1, options);
 }
 
-function isFormControlShortcutTarget(target) {
+function isEditableShortcutTarget(target) {
   if (!(target instanceof HTMLElement)) {
     return false;
   }
@@ -533,7 +533,7 @@ function isFormControlShortcutTarget(target) {
   }
 
   const type = target.getAttribute("type")?.toLowerCase() ?? "text";
-  return !["button", "reset", "submit"].includes(type);
+  return !["button", "checkbox", "radio", "reset", "submit"].includes(type);
 }
 
 function getQuestionNavigationDirection(key) {
@@ -557,7 +557,7 @@ function shouldIgnoreQuestionNavigationShortcut(event) {
     event.metaKey ||
     elements.quizView.hidden ||
     questions.length < 2 ||
-    isFormControlShortcutTarget(event.target)
+    isEditableShortcutTarget(event.target)
   );
 }
 
