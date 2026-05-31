@@ -120,8 +120,12 @@ function normalizeProgress(progress) {
   }
 
   const selectedAnswersByQuestionId = {};
+  const eliminatedAnswersByQuestionId = {};
   const checkedQuestionIds = Array.isArray(progress.checkedQuestionIds)
     ? progress.checkedQuestionIds.filter((questionId) => questionIdSet.has(questionId))
+    : [];
+  const markedQuestionIds = Array.isArray(progress.markedQuestionIds)
+    ? progress.markedQuestionIds.filter((questionId) => questionIdSet.has(questionId))
     : [];
 
   for (const [questionId, value] of Object.entries(progress.selectedAnswersByQuestionId)) {
@@ -137,12 +141,33 @@ function normalizeProgress(progress) {
     }
   }
 
+  if (
+    typeof progress.eliminatedAnswersByQuestionId === "object" &&
+    progress.eliminatedAnswersByQuestionId !== null &&
+    !Array.isArray(progress.eliminatedAnswersByQuestionId)
+  ) {
+    for (const [questionId, value] of Object.entries(progress.eliminatedAnswersByQuestionId)) {
+      if (!questionIdSet.has(questionId)) {
+        continue;
+      }
+
+      const questionIndex = questionIndexById.get(questionId);
+      const validAnswers = getValidAnswersForQuestion(questions[questionIndex], value);
+
+      if (validAnswers.length > 0) {
+        eliminatedAnswersByQuestionId[questionId] = encodeAnswerValue(validAnswers);
+      }
+    }
+  }
+
   return {
     version: PROGRESS_VERSION,
     quizId: QUIZ_ID,
     currentQuestionIndex: clampQuestionIndex(progress.currentQuestionIndex),
     selectedAnswersByQuestionId,
     checkedQuestionIds,
+    markedQuestionIds,
+    eliminatedAnswersByQuestionId,
     completed: progress.completed === true,
     score: Number.isFinite(progress.score) ? progress.score : 0,
     updatedAt:
@@ -179,7 +204,9 @@ function clearProgress() {
 
 function buildProgress(completed = state.completed) {
   const selectedAnswersByQuestionId = {};
+  const eliminatedAnswersByQuestionId = {};
   const checkedQuestionIds = [];
+  const markedQuestionIds = [];
 
   state.answers.forEach((answers, index) => {
     if (answers.length > 0) {
@@ -193,6 +220,18 @@ function buildProgress(completed = state.completed) {
     }
   });
 
+  state.marked.forEach((marked, index) => {
+    if (marked) {
+      markedQuestionIds.push(questionIds[index]);
+    }
+  });
+
+  state.eliminated.forEach((answers, index) => {
+    if (answers.length > 0) {
+      eliminatedAnswersByQuestionId[questionIds[index]] = encodeAnswerValue(answers);
+    }
+  });
+
   const results = getResults();
   const score = results.total === 0 ? 0 : Math.round((results.correct / results.total) * 100);
 
@@ -202,6 +241,8 @@ function buildProgress(completed = state.completed) {
     currentQuestionIndex: clampQuestionIndex(state.index),
     selectedAnswersByQuestionId,
     checkedQuestionIds,
+    markedQuestionIds,
+    eliminatedAnswersByQuestionId,
     completed,
     score,
     updatedAt: new Date().toISOString(),
@@ -221,6 +262,13 @@ function applyProgress(progress) {
   state.checked = questions.map((question, index) =>
     progress.checkedQuestionIds.includes(questionIds[index]),
   );
+  state.marked = questions.map((question, index) =>
+    progress.markedQuestionIds.includes(questionIds[index]),
+  );
+  state.eliminated = questions.map((question, index) => {
+    const savedEliminated = progress.eliminatedAnswersByQuestionId[questionIds[index]];
+    return getValidAnswersForQuestion(question, savedEliminated);
+  });
   state.completed = progress.completed;
 }
 
@@ -508,6 +556,7 @@ function renderQuestion() {
         "aria-label",
         getStrikeLabel(option.letter, nowEliminated),
       );
+      persistProgress();
     });
 
     choiceRow.append(choice, strikeButton);
@@ -724,6 +773,7 @@ elements.markButton.addEventListener("click", () => {
   state.marked[state.index] = !state.marked[state.index];
   renderMarkState();
   updateJumpMenu();
+  persistProgress();
 });
 
 elements.uiModeToggle.addEventListener("click", () => {
